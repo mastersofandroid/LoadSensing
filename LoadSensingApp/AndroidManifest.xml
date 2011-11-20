@@ -19,9 +19,9 @@
         </activity>
         <activity
             android:label="@string/app_name"
-            android:name=".LoadSensingAppActivity" >
+            android:name=".LoginActivity" >
             <intent-filter >
-                <action android:name="com.loadsensing.app.LOADSENSINGAPPACTIVITY" />
+                <action android:name="com.loadsensing.app.LOGINACTIVITY" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

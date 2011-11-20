@@ -33,8 +33,8 @@ public class Splash extends Activity {
 	                // do nothing
 	            } finally {
 	                finish();
-	                startActivity(new Intent("com.loadsensing.app.LOADSENSINGAPPACTIVITY"));
-	                stop();
+	                //Start activity when finishing the splash screen
+	                startActivity(new Intent("com.loadsensing.app.LOGINACTIVITY"));	                
 	            }
 				
 			}
