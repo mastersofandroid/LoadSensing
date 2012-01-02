@@ -9,6 +9,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -125,15 +126,12 @@ public class LoginActivity extends Activity implements OnClickListener {
 				
 				if(map.get("session") != "0"){	
 					
-					//Sessión correcta. Eliminar este alert y hacer un StartActivity de la home
+					//Sessión correcta. StartActivity de la home
+					//startActivity(new Intent("com.loadsensing.app.HOMEACTIVITY"));
 					
-					alertDialog.setTitle("Bien!");  
-					alertDialog.setMessage("Login correcto.");  
-					alertDialog.setButton("OK", new DialogInterface.OnClickListener() {  
-						public void onClick(DialogInterface dialog, int which) {  
-							return;  
-						} });
-					alertDialog.show();
+					Intent intent = new Intent();
+				    intent.setClass(this.getApplicationContext(), HomeActivity.class);
+				    startActivity(intent);
 					
 				} else {
 					alertDialog.setTitle(getResources().getString(R.string.error));  

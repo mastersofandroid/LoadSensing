@@ -6,7 +6,6 @@
 
     <uses-sdk android:minSdkVersion="7" />
 
-	<!-- Needed permission -->
 	<uses-permission android:name="android.permission.INTERNET" /> 
 	
     <application
@@ -28,6 +27,21 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:label="@string/app_name"
+            android:name=".HomeActivity" >
+            <intent-filter >
+                <action android:name="com.loadsensing.app.HOMEACTIVITY" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>  
+        <activity
+            android:label="@string/app_name"
+            android:name=".AboutActivity" >
+            <intent-filter >
+                <action android:name="com.loadsensing.app.ABOUTACTIVITY" />
+            </intent-filter>
+        </activity>               
     </application>
 
 </manifest>
