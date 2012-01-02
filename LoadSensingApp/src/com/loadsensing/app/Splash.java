@@ -11,7 +11,7 @@ public class Splash extends Activity {
 	/*
 	 * Set the showing time for the Splash screen
 	 */	
-	protected int splashTime = 5000;
+	protected int splashTime = 1000;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
