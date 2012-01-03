@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Copyright 2011 Wglxy.com
+    This is a modified version of a class from the IO Schedule app.
+    The original copyright and license information follows.
+
+    Copyright 2010 Google Inc.
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -14,9 +17,18 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
+
 <resources>
-    <dimen name="title_height">45dip</dimen>
-    <dimen name="text_size_small">14sp</dimen>
-    <dimen name="text_size_medium">18sp</dimen>
-    <dimen name="text_size_large">22sp</dimen>
+    <item type="id" name="title_container" />
+    <item type="id" name="title_logo" />
+    <item type="id" name="title_text" />
+
+    <item type="id" name="dialog_discard_confirm" />
+
+    <item type="id" name="dialog_moderator" />
+    <item type="id" name="dialog_wave" />
+
+    <item type="id" name="blocks_ruler" />
+    <item type="id" name="blocks_now" />
+
 </resources>

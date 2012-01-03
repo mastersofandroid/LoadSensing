@@ -41,7 +41,7 @@ public class JsonClient {
                 String result= convertStreamToString(instream);
 
                 json=new JSONObject(result);
-
+                
                 instream.close();
             }
 

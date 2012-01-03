@@ -123,7 +123,7 @@ public class LoginActivity extends Activity implements OnClickListener {
 				map.put("session", json.getString("session"));
 				
 				Log.i(DEB_TAG, json.getString("session"));
-				
+				String sessionOk = json.getString("session");
 				if(map.get("session") != "0"){	
 					
 					//Sessión correcta. StartActivity de la home
