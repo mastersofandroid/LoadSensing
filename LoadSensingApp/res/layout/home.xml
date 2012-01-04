@@ -33,11 +33,13 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1">
+        
         <Button android:id="@+id/home_btn_feature1"
             style="@style/HomeButton"
             android:onClick="onClickFeature"
             android:text="@string/title_feature1"
             android:drawableTop="@drawable/home_button1" />
+        
         <Button android:id="@+id/home_btn_feature2"
             style="@style/HomeButton"
             android:onClick="onClickFeature"

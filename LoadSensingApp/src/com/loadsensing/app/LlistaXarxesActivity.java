@@ -38,7 +38,7 @@ import android.widget.EditText;
  *
  */
 
-public class ObtenirLlistaXarxes extends DashboardActivity 
+public class LlistaXarxesActivity extends DashboardActivity 
 {
 	private static final String DEB_TAG = "Json_Android";
 	private String SERVER_HOST="http://viuterrassa.com/Android/getLlistatXarxes.php";
@@ -58,31 +58,22 @@ public class ObtenirLlistaXarxes extends DashboardActivity
 	protected void onCreate(Bundle savedInstanceState) 
 	{
 	    super.onCreate(savedInstanceState);
-	    setContentView (R.layout.llistaxarxes);
+	    setContentView (R.layout.llista_xarxes_activity);
 	    setTitleFromActivityLabel (R.id.title_text);
+	    //call the backend using Get parameters
+	  	/*	String address = SERVER_HOST;
+	  		JSONObject json = JsonClient.connect(address);
+	  		HashMap<String, String> map = new HashMap<String, String>();
+	  		try {
+	  			map.put("session", json.getString("session"));
+	  			Log.i(DEB_TAG, json.getString("session"));
+	  		}
+	  		catch(Exception e)
+	  		{
+	  			Log.i(DEB_TAG, "ERROR EN L'ENVIAMENT");
+	  		}	 
+	  		*/   
 	}    
 	    
 	    
-    public void onClick(View v) {
-		
-		//call the backend using Get parameters
-		String address = SERVER_HOST;
-		JSONObject json = JsonClient.connect(address);
-		HashMap<String, String> map = new HashMap<String, String>();
-		try {
-			map.put("session", json.getString("session"));
-			Log.i(DEB_TAG, json.getString("session"));
-		}
-		catch(Exception e)
-		{
-			Log.i(DEB_TAG, "ERROR EN L'ENVIAMENT");
-		}	    
-	}//end OnClick
-
-	/*
-	 *
-	 */
-	private void showBusyCursor(Boolean $show){
-		setProgressBarIndeterminateVisibility($show);
-	}
 }

@@ -190,7 +190,7 @@ public void onClickFeature (View v)
     int id = v.getId ();
     switch (id) {
       case R.id.home_btn_feature1 :
-           startActivity (new Intent(getApplicationContext(), ObtenirLlistaXarxes.class));
+           startActivity (new Intent(getApplicationContext(), LlistaXarxesActivity.class));
            break;
       case R.id.home_btn_feature2 :
            startActivity (new Intent(getApplicationContext(), F2Activity.class));

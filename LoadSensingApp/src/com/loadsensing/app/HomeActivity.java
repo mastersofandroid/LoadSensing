@@ -18,7 +18,7 @@ import android.widget.Toast;
  *
  */
 
-public class HomeActivity extends Activity 
+public class HomeActivity extends DashboardActivity 
 {
 
 /**
