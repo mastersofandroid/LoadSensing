@@ -14,7 +14,7 @@
         android:label="@string/app_name" >
         <activity
             android:label="@string/app_name"
-            android:name=".Splash" >
+            android:name=".SplashActivity" >
             <intent-filter >
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -46,7 +46,11 @@
         <activity android:name=".LlistaXarxesActivity"
             android:theme="@style/Theme.D1"
             android:label="@string/title_feature1"
-            />              
+            />   
+        <activity android:name=".QRActivity"
+            android:theme="@style/Theme.D1"
+            android:label="@string/title_feature1"
+            />                        
     </application>
 
 </manifest>

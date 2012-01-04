@@ -104,7 +104,7 @@ public class LoginActivity extends Activity implements OnClickListener {
 				Log.i(DEB_TAG, "Username: " + sUserName + " nPassword: " + sPassword);
 				Log.i(DEB_TAG, "Requesting to "+address);
 
-				JSONObject json = JsonClient.connect(address);
+				JSONObject json = JsonClient.connectJSONObject(address);
 
 				progress.dismiss();
 				
@@ -115,7 +115,8 @@ public class LoginActivity extends Activity implements OnClickListener {
 				editor.putString("Login", sUserName);
 				editor.putString("Password", sPassword);
 				editor.commit();
-				 */
+				*/
+				
 				HashMap<String, String> map = new HashMap<String, String>();
 
 				//map.put("id",  String.valueOf(i));

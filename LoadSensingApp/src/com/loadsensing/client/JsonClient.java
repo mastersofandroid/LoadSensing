@@ -16,7 +16,7 @@ import org.json.JSONObject;
 
 public class JsonClient {
 
-    public static JSONObject connect(String url)
+    public static JSONObject connectJSONObject(String url)
     {
 
         HttpClient httpclient = new DefaultHttpClient();
@@ -57,6 +57,47 @@ public class JsonClient {
         }
 
         return json;
+    }
+    
+    public static String connectString(String url)
+    {
+
+        HttpClient httpclient = new DefaultHttpClient();
+
+        // Prepare a request object
+        HttpGet httpget = new HttpGet(url); 
+
+        // Execute the request
+        HttpResponse response;
+
+        String result = new String();
+
+        try {
+            response = httpclient.execute(httpget);
+
+            HttpEntity entity = response.getEntity();
+
+            if (entity != null) {
+
+                // A Simple JSON Response Read
+                InputStream instream = entity.getContent();
+                result= convertStreamToString(instream);
+
+                instream.close();
+            }
+
+        } catch (ClientProtocolException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return result;
     }
     /**
      *

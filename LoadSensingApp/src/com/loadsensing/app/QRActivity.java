@@ -16,7 +16,15 @@
 
 package com.loadsensing.app;
 
+import java.util.List;
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 /**
  * This is the activity for feature 3 in the dashboard application.
@@ -24,7 +32,7 @@ import android.os.Bundle;
  *
  */
 
-public class F3Activity extends DashboardActivity 
+public class QRActivity extends DashboardActivity 
 {
 
 /**
@@ -42,8 +50,10 @@ public class F3Activity extends DashboardActivity
 protected void onCreate(Bundle savedInstanceState) 
 {
     super.onCreate(savedInstanceState);
-    setContentView (R.layout.activity_f3);
+    setContentView (R.layout.qr_activity);
     //setTitleFromActivityLabel (R.id.title_text);
 }
-    
+
+
+
 } // end class

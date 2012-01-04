@@ -5,13 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
 
-public class Splash extends Activity {
+public class SplashActivity extends Activity {
 	
 	protected boolean active = true;
 	/*
 	 * Set the showing time for the Splash screen
 	 */	
-	protected int splashTime = 1000;
+	protected int splashTime = 200;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

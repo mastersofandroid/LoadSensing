@@ -1,13 +1,7 @@
 package com.loadsensing.app;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.Button;
 
 /**
  * This is the base class for activities in the dashboard application.
@@ -36,6 +30,12 @@ protected void onCreate(Bundle savedInstanceState)
 {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.home);
+    
+    final boolean scanAvailable = isIntentAvailable(this,
+            "com.google.zxing.client.android.SCAN");
+
+    Button myButton = (Button) findViewById(R.id.home_btn_feature3);
+    myButton.setEnabled(scanAvailable);
 }
     
 /**

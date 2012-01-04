@@ -16,21 +16,16 @@
 
 package com.loadsensing.app;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.json.JSONException;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.loadsensing.client.JsonClient;
 
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.EditText;
 
 /**
  * This is the activity for feature 1 in the dashboard application.
@@ -61,18 +56,42 @@ public class LlistaXarxesActivity extends DashboardActivity
 	    setContentView (R.layout.llista_xarxes_activity);
 	    setTitleFromActivityLabel (R.id.title_text);
 	    //call the backend using Get parameters
-	  	/*	String address = SERVER_HOST;
-	  		JSONObject json = JsonClient.connect(address);
-	  		HashMap<String, String> map = new HashMap<String, String>();
-	  		try {
-	  			map.put("session", json.getString("session"));
-	  			Log.i(DEB_TAG, json.getString("session"));
+	    
+	    //TODO: getSession
+	    String address = SERVER_HOST+"?session=1325718000";
+	    Log.i(DEB_TAG, "Requesting to "+address);
+	  	
+	  	try {
+		  	String jsonString = JsonClient.connectString(address);
+		  	
+		  	//Convertim la resposta string a un JSONArray
+		  	JSONArray llistaXarxesArray = new JSONArray(jsonString);
+		  	
+		  	//Definim HashMap per guardar llista de HashMap xarxa
+		  	ArrayList<HashMap<String, String>> llistaXarxesList = new ArrayList<HashMap<String, String>>();
+	  		HashMap<String, String> xarxa = new HashMap<String, String>();	  		
+	  		
+	  		for(int i=0;i < llistaXarxesArray.length();i++){
+	  			JSONObject xarxaJSON = llistaXarxesArray.getJSONObject(i);
+	  			
+		  		xarxa.put("id", String.valueOf(i));
+		  		xarxa.put("poblacio", xarxaJSON.getString("Poblacio"));
+		  		xarxa.put("nom", xarxaJSON.getString("Nom"));
+		  		xarxa.put("idXarxa", xarxaJSON.getString("IdXarxa"));
+		  		xarxa.put("sensors", xarxaJSON.getString("Sensors"));
+		  		xarxa.put("lat", xarxaJSON.getString("Lat"));
+		  		xarxa.put("lon", xarxaJSON.getString("Lon"));
+		  		
+		  		//Log.i(DEB_TAG, xarxa.get("poblacio"));
+		  		
+		  		llistaXarxesList.add(xarxa);
 	  		}
-	  		catch(Exception e)
-	  		{
-	  			Log.i(DEB_TAG, "ERROR EN L'ENVIAMENT");
-	  		}	 
-	  		*/   
+	  	}
+	  	catch(Exception e)
+	  	{
+	  		Log.i(DEB_TAG, "Error rebent xarxes");
+	  	}	 
+	  		  
 	}    
 	    
 	    
