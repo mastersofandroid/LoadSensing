@@ -42,7 +42,7 @@ public class F4Activity extends DashboardActivity
 protected void onCreate(Bundle savedInstanceState) 
 {
     super.onCreate(savedInstanceState);
-    setContentView (R.layout.activity_f4);
+    setContentView (R.layout.altasensor);
     //setTitleFromActivityLabel (R.id.title_text);
 }
     
