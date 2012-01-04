@@ -18,6 +18,8 @@ package com.loadsensing.app;
 
 import java.util.List;
 
+import com.loadsensing.client.IntentIntegrator;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -38,7 +40,7 @@ import android.widget.Toast;
  *
  */
 
-public abstract class DashboardActivity extends Activity 
+public class DashboardActivity extends Activity 
 {
 
 	/**
@@ -194,6 +196,7 @@ public abstract class DashboardActivity extends Activity
 	    int id = v.getId ();
 	    switch (id) {
 	      case R.id.home_btn_feature1 :
+	    	  
 	           startActivity (new Intent(getApplicationContext(), LlistaXarxesActivity.class));
 	           break;
 	      case R.id.home_btn_feature2 :

@@ -82,7 +82,7 @@ public class LlistaXarxesActivity extends DashboardActivity
 		  		xarxa.put("lat", xarxaJSON.getString("Lat"));
 		  		xarxa.put("lon", xarxaJSON.getString("Lon"));
 		  		
-		  		//Log.i(DEB_TAG, xarxa.get("poblacio"));
+		  		Log.i(DEB_TAG, xarxa.get("poblacio"));
 		  		
 		  		llistaXarxesList.add(xarxa);
 	  		}
