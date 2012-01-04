@@ -24,8 +24,11 @@ import org.json.JSONObject;
 
 import com.loadsensing.client.JsonClient;
 
+import android.app.ListActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 /**
  * This is the activity for feature 1 in the dashboard application.
@@ -33,7 +36,7 @@ import android.util.Log;
  *
  */
 
-public class LlistaXarxesActivity extends DashboardActivity 
+public class LlistaXarxesActivity extends ListActivity 
 {
 	private static final String DEB_TAG = "Json_Android";
 	private String SERVER_HOST="http://viuterrassa.com/Android/getLlistatXarxes.php";
@@ -53,14 +56,28 @@ public class LlistaXarxesActivity extends DashboardActivity
 	protected void onCreate(Bundle savedInstanceState) 
 	{
 	    super.onCreate(savedInstanceState);
-	    setContentView (R.layout.llista_xarxes_activity);
+        setContentView(R.layout.custom_list_view);
 	    setTitleFromActivityLabel (R.id.title_text);
 	    //call the backend using Get parameters
-	    
-	    //TODO: getSession
+	    SimpleAdapter adapter = new SimpleAdapter(
+        		this,
+        		list,
+        		R.layout.custom_row_view,
+        		new String[] {"poblacio","nom"},
+        		new int[] {R.id.text1,R.id.text2}
+        		);
+        carregarLlistaXarxes();
+        setListAdapter(adapter);
+	}
+	
+	static final ArrayList<HashMap<String,String>> list = 
+	    	new ArrayList<HashMap<String,String>>(); 
+
+	private void carregarLlistaXarxes() {
+    	//TODO: getSession
 	    String address = SERVER_HOST+"?session=1325718000";
 	    Log.i(DEB_TAG, "Requesting to "+address);
-	  	
+	    
 	  	try {
 		  	String jsonString = JsonClient.connectString(address);
 		  	
@@ -69,7 +86,9 @@ public class LlistaXarxesActivity extends DashboardActivity
 		  	
 		  	//Definim HashMap per guardar llista de HashMap xarxa
 		  	ArrayList<HashMap<String, String>> llistaXarxesList = new ArrayList<HashMap<String, String>>();
-	  		HashMap<String, String> xarxa = new HashMap<String, String>();	  		
+		  	//List<HashMap<String, String>> llistaXarxesList2 = new List<HashMap<String, String>>();
+	  		
+		  	HashMap<String, String> xarxa = new HashMap<String, String>();	  		
 	  		
 	  		for(int i=0;i < llistaXarxesArray.length();i++){
 	  			JSONObject xarxaJSON = llistaXarxesArray.getJSONObject(i);
@@ -81,10 +100,10 @@ public class LlistaXarxesActivity extends DashboardActivity
 		  		xarxa.put("sensors", xarxaJSON.getString("Sensors"));
 		  		xarxa.put("lat", xarxaJSON.getString("Lat"));
 		  		xarxa.put("lon", xarxaJSON.getString("Lon"));
+		  		Log.i("log--> ", xarxaJSON.getString("Poblacio"));
 		  		
-		  		Log.i(DEB_TAG, xarxa.get("poblacio"));
 		  		
-		  		llistaXarxesList.add(xarxa);
+		  		list.add(xarxa);
 	  		}
 	  	}
 	  	catch(Exception e)
@@ -93,6 +112,11 @@ public class LlistaXarxesActivity extends DashboardActivity
 	  	}	 
 	  		  
 	}    
-	    
+	
+	public void setTitleFromActivityLabel (int textViewId)
+	{
+	    TextView tv = (TextView) findViewById (textViewId);
+	    if (tv != null) tv.setText (getTitle ());
+	} // end setTitleText
 	    
 }
