@@ -25,10 +25,15 @@ import org.json.JSONObject;
 import com.loadsensing.client.JsonClient;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * This is the activity for feature 1 in the dashboard application.
@@ -59,21 +64,66 @@ public class LlistaXarxesActivity extends ListActivity
         setContentView(R.layout.custom_list_view);
 	    setTitleFromActivityLabel (R.id.title_text);
 	    //call the backend using Get parameters
+	    ArrayList<HashMap<String,String>> list = new ArrayList<HashMap<String,String>>();
 	    SimpleAdapter adapter = new SimpleAdapter(
         		this,
         		list,
         		R.layout.custom_row_view,
-        		new String[] {"poblacio","nom"},
-        		new int[] {R.id.text1,R.id.text2}
+        		new String[] {"nom","poblacio","sensors","lat","lon"},
+        		new int[] {R.id.text1,R.id.text2,R.id.text3,R.id.text4,R.id.text5}
         		);
-        carregarLlistaXarxes();
-        setListAdapter(adapter);
+        //carregarLlistaXarxes();
+	    
+	    String address = SERVER_HOST+"?session=1325718000";
+	    Log.i(DEB_TAG, "Requesting to "+address);     
+	  	
+	    try {
+		  	String jsonString = JsonClient.connectString(address);
+		  	
+		  	//Convertim la resposta string a un JSONArray
+		  	JSONArray llistaXarxesArray = new JSONArray(jsonString);
+		  	
+		  	//Definim HashMap per guardar llista de HashMap xarxa
+		  	ArrayList<HashMap<String, String>> llistaXarxesList = new ArrayList<HashMap<String, String>>();
+		  	//List<HashMap<String, String>> llistaXarxesList2 = new List<HashMap<String, String>>();
+	  		
+		  	HashMap<String, String> xarxa = null;	  		
+	  		
+	  		for(int i=0;i < llistaXarxesArray.length();i++){
+	  			xarxa = new HashMap<String, String>();
+	  			JSONObject xarxaJSON = new JSONObject();
+	  			xarxaJSON = llistaXarxesArray.getJSONObject(i);
+	  			
+		  		xarxa.put("id", String.valueOf(i));
+		  		xarxa.put("poblacio", xarxaJSON.getString("Poblacio"));
+		  		xarxa.put("nom", xarxaJSON.getString("Nom"));
+		  		xarxa.put("idXarxa", xarxaJSON.getString("IdXarxa"));
+		  		xarxa.put("sensors", "Sensors: " + xarxaJSON.getString("Sensors"));
+		  		xarxa.put("lat", "Latitud: " + xarxaJSON.getString("Lat"));
+		  		xarxa.put("lon", "Longitud: " + xarxaJSON.getString("Lon"));
+		  		Log.i("log--> ", xarxaJSON.getString("Poblacio"));
+		  		list.add(xarxa);
+	  		}
+	  		setListAdapter(adapter);
+	        
+	  	}
+	  	catch(Exception e)
+	  	{
+	  		Log.i(DEB_TAG, "Error rebent xarxes");
+	  	}       
 	}
 	
-	static final ArrayList<HashMap<String,String>> list = 
-	    	new ArrayList<HashMap<String,String>>(); 
+	protected void onListItemClick(ListView l, View v, int position, long id) 
+	{
 
-	private void carregarLlistaXarxes() {
+	    super.onListItemClick(l, v, position, id);
+	    Object o = this.getListAdapter().getItem(position);
+	    String pen = o.toString();
+	    Toast.makeText(this, "Has seleccionat la xarxa " + " " + pen, Toast.LENGTH_LONG).show(); 
+	}
+	
+
+/*	private void carregarLlistaXarxes() {
     	//TODO: getSession
 	    String address = SERVER_HOST+"?session=1325718000";
 	    Log.i(DEB_TAG, "Requesting to "+address);
@@ -91,7 +141,8 @@ public class LlistaXarxesActivity extends ListActivity
 		  	HashMap<String, String> xarxa = new HashMap<String, String>();	  		
 	  		
 	  		for(int i=0;i < llistaXarxesArray.length();i++){
-	  			JSONObject xarxaJSON = llistaXarxesArray.getJSONObject(i);
+	  			JSONObject xarxaJSON = new JSONObject();
+	  			xarxaJSON = llistaXarxesArray.getJSONObject(i);
 	  			
 		  		xarxa.put("id", String.valueOf(i));
 		  		xarxa.put("poblacio", xarxaJSON.getString("Poblacio"));
@@ -101,10 +152,9 @@ public class LlistaXarxesActivity extends ListActivity
 		  		xarxa.put("lat", xarxaJSON.getString("Lat"));
 		  		xarxa.put("lon", xarxaJSON.getString("Lon"));
 		  		Log.i("log--> ", xarxaJSON.getString("Poblacio"));
-		  		
-		  		
 		  		list.add(xarxa);
 	  		}
+	  		
 	  	}
 	  	catch(Exception e)
 	  	{
@@ -112,6 +162,7 @@ public class LlistaXarxesActivity extends ListActivity
 	  	}	 
 	  		  
 	}    
+	*/
 	
 	public void setTitleFromActivityLabel (int textViewId)
 	{
