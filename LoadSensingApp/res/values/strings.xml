@@ -18,8 +18,6 @@
     <string name="hello">Tria una de les següents opcions.</string>
     <string name="description_logo">LoadSensing</string>
 
-
-
     <string name="default_intro">This is the default content view for an activity. Be sure to change your activity\'s onCreate method. Use setContentView on a custom layout.</string>
     <string name="feature1_intro">Feature 1 content goes here.</string>
     <string name="feature2_intro">Feature 2 content goes here.</string>

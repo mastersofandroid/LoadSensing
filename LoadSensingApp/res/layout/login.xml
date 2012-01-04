@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/backgroundrepeat"
-    android:orientation="horizontal" >
+    android:orientation="vertical" 
+    >
 
     <ImageView
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -11,61 +12,57 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/logo" />
-
-    <!--
-    <EditText android:id="@+id/editText1" android:layout_width="wrap_content" 
-		android:layout_height="wrap_content" android:layout_weight="1" android:hint="Username"> 
-		<requestFocus /> 
-	</EditText>
-	
-	<EditText android:id="@+id/editText1" 
-	    android:layout_width="wrap_content"
-		android:layout_height="wrap_content" 
-		android:layout_weight="1"
-		android:hint="Password" 
-		android:inputType="textPassword" />
-    -->
+        android:background="@drawable/logo"
+        android:layout_gravity="center_horizontal" 
+        />
 
     <TextView
         android:id="@+id/username_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/welcome_text"
-        android:layout_centerHorizontal="true"
-        android:text="username:" />
-
+        android:layout_gravity="center"
+        android:text="username:" 
+        />
     <EditText
         android:id="@+id/txt_username"
         android:layout_width="250px"
         android:layout_height="wrap_content"
         android:layout_below="@+id/username_text"
-        android:layout_centerHorizontal="true"
-        android:singleLine="true" />
-
+        android:layout_gravity="center_horizontal"
+        android:singleLine="true" 
+        android:hint="Username"/>
     <TextView
         android:id="@+id/password_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txt_username"
         android:layout_centerHorizontal="true"
-        android:text="password:" />
-
+        android:layout_gravity="center"
+        android:text="password:" 
+        />
     <EditText
         android:id="@+id/txt_password"
         android:layout_width="250px"
         android:layout_height="wrap_content"
         android:layout_below="@+id/password_text"
-        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
         android:password="true"
-        android:singleLine="true" />
+        android:singleLine="true" 
+        android:hint="Password"/>
+
+    <CheckBox
+        android:id="@+id/remember_user_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recordar usuario y contraseña" />
 
     <Button
         android:id="@+id/login_button"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txt_password"
-        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
         android:text="Login!" />
 
-</RelativeLayout>
+</LinearLayout>

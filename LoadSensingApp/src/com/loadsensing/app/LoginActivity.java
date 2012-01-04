@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 
 import com.loadsensing.client.JsonClient;
@@ -30,9 +31,8 @@ public class LoginActivity extends Activity implements OnClickListener {
 
 	private String SERVER_HOST="http://viuterrassa.com/Android/login.php";
 
-	/*	public static final String PREFS_NAME = "HelloAndroidPREFS";
+	/*	public static final String PREFS_NAME = "HelloAndroidPREFS"; */
 	private SharedPreferences settings;
-	 */
 	
 	private ProgressDialog progress;       
 
@@ -43,16 +43,26 @@ public class LoginActivity extends Activity implements OnClickListener {
 		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		super.onCreate(savedInstanceState);
 
-		// Restore preferences
-		//settings = getSharedPreferences(PREFS_NAME, 0);
-
 		// load up the layout
 		setContentView(R.layout.login);
 
+		// Restore preferences
+		settings = getPreferences(MODE_PRIVATE);
+		String storedUsername = settings.getString("Login", "");
+		if (!storedUsername.equals("")){
+			CheckBox rememberUserPassword = (CheckBox) findViewById(R.id.remember_user_password);
+			rememberUserPassword.setChecked(true);
+		}
+		EditText editText = (EditText)findViewById(R.id.txt_username);
+		editText.setText(storedUsername);
+		String storedPassword = settings.getString("Password", "");
+		editText = (EditText)findViewById(R.id.txt_password);
+		editText.setText(storedPassword);
+		// use the values
+		
 		// get the button resource in the xml file and assign it to a local variable of type Button
 		Button login = (Button)findViewById(R.id.login_button);
 		login.setOnClickListener(this);
-
 	}
 
 	public void setUserNameText(String $username){
@@ -123,11 +133,18 @@ public class LoginActivity extends Activity implements OnClickListener {
 				/*
 				 * TODO: SharedPreferences
 				 */
-				/*SharedPreferences.Editor editor = settings.edit();
-				editor.putString("Login", sUserName);
-				editor.putString("Password", sPassword);
+				CheckBox rememberUserPassword = (CheckBox) findViewById(R.id.remember_user_password);
+				SharedPreferences.Editor editor = settings.edit();
+				if (rememberUserPassword.isChecked()){
+					editor.putString("Login", sUserName);
+					editor.putString("Password", sPassword);					
+				}
+				else
+				{
+					editor.putString("Login", "");
+					editor.putString("Password", "");
+				}
 				editor.commit();
-				*/
 				
 				HashMap<String, String> map = new HashMap<String, String>();
 
@@ -140,8 +157,6 @@ public class LoginActivity extends Activity implements OnClickListener {
 				if(map.get("session") != "0"){	
 					
 					//Sessión correcta. StartActivity de la home
-					//startActivity(new Intent("com.loadsensing.app.HOMEACTIVITY"));
-					
 					Intent intent = new Intent();
 				    intent.setClass(this.getApplicationContext(), HomeActivity.class);
 				    startActivity(intent);
