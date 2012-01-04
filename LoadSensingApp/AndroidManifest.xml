@@ -7,6 +7,8 @@
     <uses-sdk android:minSdkVersion="7" />
 
 	<uses-permission android:name="android.permission.INTERNET" /> 
+	<!-- Check if Internet connection is available -->
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	
     <application
         android:theme="@style/Theme.D1"

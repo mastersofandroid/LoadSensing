@@ -8,9 +8,12 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -95,7 +98,16 @@ public class LoginActivity extends Activity implements OnClickListener {
 					return;  
 				} });
 			alertDialog.show();
-		}else{
+		}else if (!checkConnection(this.getApplicationContext())) {
+			alertDialog.setTitle(getResources().getString(R.string.error));  
+			alertDialog.setMessage(getResources().getString(R.string.error_no_internet));  
+			alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int which) {  
+					return;  
+				} });
+			alertDialog.show();
+		}
+		else {
 			try {
 				showBusyCursor(true);
 
@@ -158,5 +170,17 @@ public class LoginActivity extends Activity implements OnClickListener {
 	 */
 	private void showBusyCursor(Boolean $show){
 		setProgressBarIndeterminateVisibility($show);
+	}
+	
+	private boolean checkConnection(Context ctx) {
+		ConnectivityManager conMgr =  (ConnectivityManager)ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
+		NetworkInfo i = conMgr.getActiveNetworkInfo();
+		  if (i == null)
+		    return false;
+		  if (!i.isConnected())
+		    return false;
+		  if (!i.isAvailable())
+		    return false;
+		  return true;
 	}
 }

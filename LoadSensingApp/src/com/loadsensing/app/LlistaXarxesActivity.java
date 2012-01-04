@@ -101,7 +101,7 @@ public class LlistaXarxesActivity extends ListActivity
 		  		xarxa.put("sensors", "Sensors: " + xarxaJSON.getString("Sensors"));
 		  		xarxa.put("lat", "Latitud: " + xarxaJSON.getString("Lat"));
 		  		xarxa.put("lon", "Longitud: " + xarxaJSON.getString("Lon"));
-		  		Log.i("log--> ", xarxaJSON.getString("Poblacio"));
+		  		Log.i(DEB_TAG, xarxaJSON.getString("Poblacio"));
 		  		list.add(xarxa);
 	  		}
 	  		setListAdapter(adapter);
