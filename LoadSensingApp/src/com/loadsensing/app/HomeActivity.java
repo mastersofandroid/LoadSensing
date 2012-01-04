@@ -31,11 +31,12 @@ protected void onCreate(Bundle savedInstanceState)
     super.onCreate(savedInstanceState);
     setContentView(R.layout.home);
     
-    final boolean scanAvailable = isIntentAvailable(this,
+    //Check if intent is available
+    /*final boolean scanAvailable = isIntentAvailable(this,
             "com.google.zxing.client.android.SCAN");
 
     Button myButton = (Button) findViewById(R.id.home_btn_feature3);
-    myButton.setEnabled(scanAvailable);
+    myButton.setEnabled(scanAvailable);*/
 }
     
 /**

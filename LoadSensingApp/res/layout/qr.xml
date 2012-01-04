@@ -36,9 +36,12 @@
             android:src="@drawable/title_search"
             android:onClick="onClickSearch" />
     </LinearLayout>
-<TextView  
-    android:layout_width="wrap_content" 
-    android:layout_height="wrap_content" 
-    android:text="Boton 2"
-    />
+
+    <EditText
+        android:id="@+id/QRValue"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+    </EditText>
+
 </LinearLayout>
