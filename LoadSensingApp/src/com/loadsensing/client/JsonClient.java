@@ -16,112 +16,111 @@ import org.json.JSONObject;
 
 public class JsonClient {
 
-    public static JSONObject connectJSONObject(String url)
-    {
+	public static JSONObject connectJSONObject(String url) {
 
-        HttpClient httpclient = new DefaultHttpClient();
+		HttpClient httpclient = new DefaultHttpClient();
 
-        // Prepare a request object
-        HttpGet httpget = new HttpGet(url); 
+		// Prepare a request object
+		HttpGet httpget = new HttpGet(url);
 
-        // Execute the request
-        HttpResponse response;
+		// Execute the request
+		HttpResponse response;
 
-        JSONObject json = new JSONObject();
+		JSONObject json = new JSONObject();
 
-        try {
-            response = httpclient.execute(httpget);
+		try {
+			response = httpclient.execute(httpget);
 
-            HttpEntity entity = response.getEntity();
+			HttpEntity entity = response.getEntity();
 
-            if (entity != null) {
+			if (entity != null) {
 
-                // A Simple JSON Response Read
-                InputStream instream = entity.getContent();
-                String result= convertStreamToString(instream);
+				// A Simple JSON Response Read
+				InputStream instream = entity.getContent();
+				String result = convertStreamToString(instream);
 
-                json=new JSONObject(result);
-                
-                instream.close();
-            }
+				json = new JSONObject(result);
 
-        } catch (ClientProtocolException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (JSONException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+				instream.close();
+			}
 
-        return json;
-    }
-    
-    public static String connectString(String url)
-    {
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-        HttpClient httpclient = new DefaultHttpClient();
+		return json;
+	}
 
-        // Prepare a request object
-        HttpGet httpget = new HttpGet(url); 
+	public static String connectString(String url) {
 
-        // Execute the request
-        HttpResponse response;
+		HttpClient httpclient = new DefaultHttpClient();
 
-        String result = new String();
+		// Prepare a request object
+		HttpGet httpget = new HttpGet(url);
 
-        try {
-            response = httpclient.execute(httpget);
+		// Execute the request
+		HttpResponse response;
 
-            HttpEntity entity = response.getEntity();
+		String result = new String();
 
-            if (entity != null) {
+		try {
+			response = httpclient.execute(httpget);
 
-                // A Simple JSON Response Read
-                InputStream instream = entity.getContent();
-                result= convertStreamToString(instream);
+			HttpEntity entity = response.getEntity();
 
-                instream.close();
-            }
+			if (entity != null) {
 
-        } catch (ClientProtocolException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+				// A Simple JSON Response Read
+				InputStream instream = entity.getContent();
+				result = convertStreamToString(instream);
 
-        return result;
-    }
-    /**
-     *
-     * @param is
-     * @return String
-     */
-    public static String convertStreamToString(InputStream is) {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-        StringBuilder sb = new StringBuilder();
+				instream.close();
+			}
 
-        String line = null;
-        try {
-            while ((line = reader.readLine()) != null) {
-                sb.append(line + "\n");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                is.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return sb.toString();
-    }
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return result;
+	}
+
+	/**
+	 * 
+	 * @param is
+	 * @return String
+	 */
+	public static String convertStreamToString(InputStream is) {
+		BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+		StringBuilder sb = new StringBuilder();
+
+		String line = null;
+		try {
+			while ((line = reader.readLine()) != null) {
+				sb.append(line + "\n");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				is.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return sb.toString();
+	}
 }

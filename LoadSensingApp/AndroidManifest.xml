@@ -48,7 +48,11 @@
         <activity android:name=".LlistaXarxesActivity"
             android:theme="@style/Theme.D1"
             android:label="@string/title_feature1"
-            />   
+            />  
+        <activity android:name=".SensorsActivity"
+            android:theme="@style/Theme.D1"
+            android:label="@string/title_feature1"
+            />              
         <activity android:name=".QRActivity"
             android:theme="@style/Theme.D1"
             android:label="@string/title_feature1"

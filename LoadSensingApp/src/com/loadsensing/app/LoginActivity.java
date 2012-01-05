@@ -1,11 +1,8 @@
 package com.loadsensing.app;
 
-import java.util.HashMap;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -25,16 +22,15 @@ import android.widget.EditText;
 
 import com.loadsensing.client.JsonClient;
 
-public class LoginActivity extends Activity implements OnClickListener {
+public class LoginActivity extends DashboardActivity implements OnClickListener {
 
 	private static final String DEB_TAG = "Json_Android";
 
-	private String SERVER_HOST="http://viuterrassa.com/Android/login.php";
+	private String SERVER_HOST = "http://viuterrassa.com/Android/login.php";
 
-	/*	public static final String PREFS_NAME = "HelloAndroidPREFS"; */
-	private SharedPreferences settings;
-	
-	private ProgressDialog progress;       
+	/* public static final String PREFS_NAME = "HelloAndroidPREFS"; */
+
+	private ProgressDialog progress;
 
 	/** Called when the activity is first created. */
 
@@ -46,43 +42,72 @@ public class LoginActivity extends Activity implements OnClickListener {
 		// load up the layout
 		setContentView(R.layout.login);
 
-		// Restore preferences
-		settings = getPreferences(MODE_PRIVATE);
-		String storedUsername = settings.getString("Login", "");
-		if (!storedUsername.equals("")){
-			CheckBox rememberUserPassword = (CheckBox) findViewById(R.id.remember_user_password);
+		// Set "Remember username and password" 1/0 if checked/unchecked
+		CheckBox rememberUserPassword = (CheckBox) findViewById(R.id.remember_user_password);
+		rememberUserPassword.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				if (getSharedPreference("saveusername").equals("1")) {
+					setSharedPreference("saveusername", "0");
+				} else {
+					setSharedPreference("saveusername", "1");
+				}
+			}
+		});
+
+		// Restore preferences if "Remember username and password" is checked
+		if (getSharedPreference("saveusername").equals("1")) {
+
 			rememberUserPassword.setChecked(true);
+			EditText editText = (EditText) findViewById(R.id.txt_username);
+			editText.setText(getSharedPreference("login"));
+			editText = (EditText) findViewById(R.id.txt_password);
+			editText.setText(getSharedPreference("password"));
 		}
-		EditText editText = (EditText)findViewById(R.id.txt_username);
-		editText.setText(storedUsername);
-		String storedPassword = settings.getString("Password", "");
-		editText = (EditText)findViewById(R.id.txt_password);
-		editText.setText(storedPassword);
-		// use the values
-		
-		// get the button resource in the xml file and assign it to a local variable of type Button
-		Button login = (Button)findViewById(R.id.login_button);
+
+		// Delete session
+		setSharedPreference("session", "");
+
+		// get the button resource in the xml file and assign it to a local
+		// variable of type Button
+		Button login = (Button) findViewById(R.id.login_button);
 		login.setOnClickListener(this);
 	}
 
-	public void setUserNameText(String $username){
+	private String getSharedPreference(String fieldName) {
+		SharedPreferences settings = getSharedPreferences("LoadSensinsgApp",
+				Context.MODE_PRIVATE);
+		return settings.getString(fieldName, "");
+	}
+
+	private void setSharedPreference(String fieldName, String value) {
+		SharedPreferences settings = getSharedPreferences("LoadSensinsgApp",
+				Context.MODE_PRIVATE);
+		SharedPreferences.Editor editor = settings.edit();
+		editor.putString(fieldName, value);
+		editor.commit();
+		Log.i(DEB_TAG, "SharedPreferences. fieldName = " + fieldName
+				+ " set to " + value);
+	}
+
+	public void setUserNameText(String $username) {
 		EditText usernameEditText = (EditText) findViewById(R.id.txt_username);
 		usernameEditText.setText($username);
 	}
 
-	public void setPasswordText(String $username){
+	public void setPasswordText(String $username) {
 		EditText passwordEditText = (EditText) findViewById(R.id.txt_password);
 		passwordEditText.setText($username);
 	}
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see android.view.View.OnClickListener#onClick(android.view.View)
 	 */
 	public void onClick(View v) {
 
 		// this gets the resources in the xml file
-		//and assigns it to a local variable of type EditText
+		// and assigns it to a local variable of type EditText
 		EditText usernameEditText = (EditText) findViewById(R.id.txt_username);
 		EditText passwordEditText = (EditText) findViewById(R.id.txt_password);
 
@@ -92,110 +117,121 @@ public class LoginActivity extends Activity implements OnClickListener {
 		String sUserName = usernameEditText.getText().toString();
 		String sPassword = passwordEditText.getText().toString();
 
-		//Definimos constructor de alerta para los avisos posteriores
-		AlertDialog alertDialog = new AlertDialog.Builder(this).create();  
-		alertDialog = new AlertDialog.Builder(this).create(); 
-		
-		//call the backend using Get parameters
-		String address = SERVER_HOST+"?user="+sUserName+"&pass="+sPassword+"";
+		// Definimos constructor de alerta para los avisos posteriores
+		AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+		alertDialog = new AlertDialog.Builder(this).create();
 
-		if(sUserName.equals("") || sPassword.equals("")){
-			// error alert			 
-			alertDialog.setTitle(getResources().getString(R.string.error));  
-			alertDialog.setMessage("Tiene que informar el nombre de usuario y contraseña");  
-			alertDialog.setButton("OK", new DialogInterface.OnClickListener() {  
-				public void onClick(DialogInterface dialog, int which) {  
-					return;  
-				} });
-			alertDialog.show();
-		}else if (!checkConnection(this.getApplicationContext())) {
-			alertDialog.setTitle(getResources().getString(R.string.error));  
-			alertDialog.setMessage(getResources().getString(R.string.error_no_internet));  
+		// call the backend using Get parameters
+		String address = SERVER_HOST + "?user=" + sUserName + "&pass="
+				+ sPassword + "";
+
+		if (sUserName.equals("") || sPassword.equals("")) {
+			// error alert
+			alertDialog.setTitle(getResources().getString(R.string.error));
+			alertDialog
+					.setMessage("Tiene que informar el nombre de usuario y contraseña");
 			alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface dialog, int which) {  
-					return;  
-				} });
+				public void onClick(DialogInterface dialog, int which) {
+					return;
+				}
+			});
 			alertDialog.show();
-		}
-		else {
+		} else if (!checkConnection(this.getApplicationContext())) {
+			alertDialog.setTitle(getResources().getString(R.string.error));
+			alertDialog.setMessage(getResources().getString(
+					R.string.error_no_internet));
+			alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int which) {
+					return;
+				}
+			});
+			alertDialog.show();
+		} else {
 			try {
 				showBusyCursor(true);
 
-				progress = ProgressDialog.show(this, getResources().getString(R.string.pantalla_espera_title), getResources().getString(R.string.iniciando_sesion), true);
+				progress = ProgressDialog.show(this,
+						getResources()
+								.getString(R.string.pantalla_espera_title),
+						getResources().getString(R.string.iniciando_sesion),
+						true);
 
-				Log.i(DEB_TAG, "Username: " + sUserName + " nPassword: " + sPassword);
-				Log.i(DEB_TAG, "Requesting to "+address);
+				Log.i(DEB_TAG, "Username: " + sUserName + " nPassword: "
+						+ sPassword);
+				Log.i(DEB_TAG, "Requesting to " + address);
 
 				JSONObject json = JsonClient.connectJSONObject(address);
 
 				progress.dismiss();
-				
-				/*
-				 * TODO: SharedPreferences
-				 */
-				CheckBox rememberUserPassword = (CheckBox) findViewById(R.id.remember_user_password);
-				SharedPreferences.Editor editor = settings.edit();
-				if (rememberUserPassword.isChecked()){
-					editor.putString("Login", sUserName);
-					editor.putString("Password", sPassword);					
-				}
-				else
-				{
-					editor.putString("Login", "");
-					editor.putString("Password", "");
-				}
-				editor.commit();
-				
-				HashMap<String, String> map = new HashMap<String, String>();
 
-				//map.put("id",  String.valueOf(i));
-				map.put("login", json.getString("login"));
-				map.put("session", json.getString("session"));
-				
-				Log.i(DEB_TAG, json.getString("session"));
-				String sessionOk = json.getString("session");
-				if(map.get("session") != "0"){	
-					
-					//Sessión correcta. StartActivity de la home
-					Intent intent = new Intent();
-				    intent.setClass(this.getApplicationContext(), HomeActivity.class);
-				    startActivity(intent);
-					
+				CheckBox rememberUserPassword = (CheckBox) findViewById(R.id.remember_user_password);
+				if (rememberUserPassword.isChecked()) {
+					setSharedPreference("login", sUserName);
+					setSharedPreference("password", sPassword);
 				} else {
-					alertDialog.setTitle(getResources().getString(R.string.error));  
-					alertDialog.setMessage(getResources().getString(R.string.error_login));  
-					alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
-						public void onClick(DialogInterface dialog, int which) {  
-							return;  
-						} });
+					setSharedPreference("login", "");
+					setSharedPreference("password", "");
+				}
+
+				// HashMap<String, String> map = new HashMap<String, String>();
+
+				// map.put("id", String.valueOf(i));
+				// map.put("login", json.getString("login"));
+				// map.put("session", json.getString("session"));
+
+				Log.i(DEB_TAG, json.getString("session"));
+
+				if (json.getString("session") != "0") {
+					// Guardamos la session en SharedPreferences para utilizarla
+					// posteriormente
+					setSharedPreference("session", json.getString("session"));
+					// Sessión correcta. StartActivity de la home
+					Intent intent = new Intent();
+					intent.setClass(this.getApplicationContext(),
+							HomeActivity.class);
+					startActivity(intent);
+
+				} else {
+					alertDialog.setTitle(getResources().getString(
+							R.string.error));
+					alertDialog.setMessage(getResources().getString(
+							R.string.error_login));
+					alertDialog.setButton("OK",
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,
+										int which) {
+									return;
+								}
+							});
 					alertDialog.show();
 				}
 
-			} catch(JSONException e){
-				Log.i(DEB_TAG, "Error parsing data "+e.toString());
+			} catch (JSONException e) {
+				Log.i(DEB_TAG, "Error parsing data " + e.toString());
 			}
 
 			showBusyCursor(false);
 
-		}//end else
-	}//end OnClick
+		}// end else
+	}// end OnClick
 
 	/*
 	 *
 	 */
-	private void showBusyCursor(Boolean $show){
+	private void showBusyCursor(Boolean $show) {
 		setProgressBarIndeterminateVisibility($show);
 	}
-	
+
 	private boolean checkConnection(Context ctx) {
-		ConnectivityManager conMgr =  (ConnectivityManager)ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
+		ConnectivityManager conMgr = (ConnectivityManager) ctx
+				.getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo i = conMgr.getActiveNetworkInfo();
-		  if (i == null)
-		    return false;
-		  if (!i.isConnected())
-		    return false;
-		  if (!i.isAvailable())
-		    return false;
-		  return true;
+		if (i == null)
+			return false;
+		if (!i.isConnected())
+			return false;
+		if (!i.isAvailable())
+			return false;
+		return true;
 	}
 }
