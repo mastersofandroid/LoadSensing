@@ -70,8 +70,7 @@ public class LlistaXarxesActivity extends ListActivity {
 				R.layout.custom_row_view, new String[] { "nom", "poblacio",
 						"sensors", "lat", "lon" }, new int[] { R.id.text1,
 						R.id.text2, R.id.text3, R.id.text4, R.id.text5 });
-		// carregarLlistaXarxes();
-
+		
 		SharedPreferences settings = getSharedPreferences("LoadSensinsgApp",
 				Context.MODE_PRIVATE);
 		String address = SERVER_HOST + "?session="
@@ -84,11 +83,6 @@ public class LlistaXarxesActivity extends ListActivity {
 			// Convertim la resposta string a un JSONArray
 			JSONArray llistaXarxesArray = new JSONArray(jsonString);
 
-			// Definim HashMap per guardar llista de HashMap xarxa
-			ArrayList<HashMap<String, String>> llistaXarxesList = new ArrayList<HashMap<String, String>>();
-			// List<HashMap<String, String>> llistaXarxesList2 = new
-			// List<HashMap<String, String>>();
-
 			HashMap<String, String> xarxa = null;
 
 			for (int i = 0; i < llistaXarxesArray.length(); i++) {
@@ -100,8 +94,7 @@ public class LlistaXarxesActivity extends ListActivity {
 				xarxa.put("poblacio", xarxaJSON.getString("Poblacio"));
 				xarxa.put("nom", xarxaJSON.getString("Nom"));
 				xarxa.put("idXarxa", xarxaJSON.getString("IdXarxa"));
-				xarxa.put("sensors",
-						"Sensors: " + xarxaJSON.getString("Sensors"));
+				xarxa.put("sensors","Sensors: " + xarxaJSON.getString("Sensors"));
 				xarxa.put("lat", "Latitud: " + xarxaJSON.getString("Lat"));
 				xarxa.put("lon", "Longitud: " + xarxaJSON.getString("Lon"));
 				Log.i(DEB_TAG, xarxaJSON.getString("Poblacio"));
