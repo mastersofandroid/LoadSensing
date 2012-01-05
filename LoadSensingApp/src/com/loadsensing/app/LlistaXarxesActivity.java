@@ -151,8 +151,15 @@ public class LlistaXarxesActivity extends ListActivity
 		  		xarxa.put("sensors", xarxaJSON.getString("Sensors"));
 		  		xarxa.put("lat", xarxaJSON.getString("Lat"));
 		  		xarxa.put("lon", xarxaJSON.getString("Lon"));
+<<<<<<< HEAD
 		  		Log.i("log--> ", xarxaJSON.getString("Poblacio"));
 		  		list.add(xarxa);
+=======
+		  		
+		  		Log.i(DEB_TAG, xarxa.get("poblacio"));
+		  		
+		  		llistaXarxesList.add(xarxa);
+>>>>>>> refs/remotes/origin/master
 	  		}
 	  		
 	  	}
