@@ -6,10 +6,6 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
     <LinearLayout style="@style/TitleBar">
-        <ImageView style="@style/TitleBarLogo"
-            android:contentDescription="@string/description_logo"
-            android:src="@drawable/title_logo" />
-
         <ImageView style="@style/TitleBarSeparator" />
         <TextView style="@style/TitleBarText" />
         <ImageButton style="@style/TitleBarAction"

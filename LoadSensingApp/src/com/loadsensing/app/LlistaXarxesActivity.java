@@ -127,6 +127,11 @@ public class LlistaXarxesActivity extends ListActivity {
 		 */
 	}
 
+	public void goBack(View v)
+	{
+		finish();
+	}
+	
 	public void setTitleFromActivityLabel(int textViewId) {
 		TextView tv = (TextView) findViewById(textViewId);
 		if (tv != null)

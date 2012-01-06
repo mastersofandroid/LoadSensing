@@ -88,9 +88,12 @@ public class SensorsActivity extends ListActivity {
 		Object o = this.getListAdapter().getItem(position);
 		JSONObject xarxaJS = (JSONObject)o;
 		String sensor = o.toString();
-		//Toast.makeText(this, "Has triat el sensor: " + " " + sensor,
-		//		Toast.LENGTH_LONG).show();
 		setContentView(R.layout.vista_sensor);
+	}
+	
+	public void goBack(View v)
+	{
+		finish();
 	}
 
 }

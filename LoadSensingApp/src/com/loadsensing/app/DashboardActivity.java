@@ -186,14 +186,8 @@ public class DashboardActivity extends Activity {
 			startActivity(new Intent(getApplicationContext(),
 					LlistaXarxesActivity.class));
 			break;
-		case R.id.home_btn_feature2:
-			startActivity(new Intent(getApplicationContext(), F2Activity.class));
-			break;
 		case R.id.home_btn_feature3:
 			startActivity(new Intent(getApplicationContext(), QRActivity.class));
-			break;
-		case R.id.home_btn_feature4:
-			startActivity(new Intent(getApplicationContext(), F4Activity.class));
 			break;
 		default:
 			break;
