@@ -68,7 +68,7 @@ public class LlistaXarxesActivity extends ListActivity {
 		ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 		SimpleAdapter adapter = new SimpleAdapter(this, list,
 				R.layout.custom_row_view, new String[] { "nom", "poblacio",
-						"sensors", "lat", "lon" }, new int[] { R.id.text1,
+						"sensors", "lat", "idXarxa" }, new int[] { R.id.text1,
 						R.id.text2, R.id.text3, R.id.text4, R.id.text5 });
 		
 		SharedPreferences settings = getSharedPreferences("LoadSensinsgApp",
@@ -110,8 +110,15 @@ public class LlistaXarxesActivity extends ListActivity {
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 
 		super.onListItemClick(l, v, position, id);
+		TextView c = (TextView)v.findViewById(R.id.text5);
+		String idXarxaSelected = c.getText().toString();
+ 		Log.i(DEB_TAG, "idxarxaseleccionada: " + c.getText().toString());
+ 		
+
+
 		Intent intent = new Intent();
 		intent.setClass(this.getApplicationContext(), SensorsActivity.class);
+		intent.putExtra("XarxaSelected", idXarxaSelected);
 		startActivity(intent);
 		/*
 		 * Object o = this.getListAdapter().getItem(position); String pen =

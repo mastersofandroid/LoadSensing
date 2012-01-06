@@ -8,6 +8,7 @@ import org.json.JSONObject;
 
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,6 +29,19 @@ public class SensorsActivity extends ListActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.custom_list_view);
+		String XarxaSelected = "";
+		Bundle extras = null;
+		if (savedInstanceState == null) {
+		    extras = getIntent().getExtras();
+		    if(extras == null) {
+		    	XarxaSelected= null;
+		    } else {
+		    	XarxaSelected= extras.getString("XarxaSelected");
+		        Log.i(DEB_TAG, "Xarxa que hem triat anteriorment: " + XarxaSelected);
+		    }
+		} else {
+			XarxaSelected= (String) savedInstanceState.getSerializable("XarxaSelected");
+		}
 		
 		ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 		
@@ -36,10 +50,8 @@ public class SensorsActivity extends ListActivity {
 				new int[] { R.id.text1, R.id.text2, R.id.text3, R.id.text4,  R.id.text5 });
 		
 		
-		SharedPreferences settings = getSharedPreferences("LoadSensinsgApp",
-				Context.MODE_PRIVATE);
-		String address = SERVER_HOST + "?IdXarxa=002&session="
-				+ settings.getString("session", "");
+		SharedPreferences settings = getSharedPreferences("LoadSensinsgApp", Context.MODE_PRIVATE);
+		String address = SERVER_HOST + "?IdXarxa="+XarxaSelected+"&session="+settings.getString("session", "");
 		Log.i(DEB_TAG, "Requesting to " + address);
 
 		try {
@@ -73,8 +85,9 @@ public class SensorsActivity extends ListActivity {
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 
 		super.onListItemClick(l, v, position, id);
-		//Object o = this.getListAdapter().getItem(position);
-		//String sensor = o.toString();
+		Object o = this.getListAdapter().getItem(position);
+		JSONObject xarxaJS = (JSONObject)o;
+		String sensor = o.toString();
 		//Toast.makeText(this, "Has triat el sensor: " + " " + sensor,
 		//		Toast.LENGTH_LONG).show();
 		setContentView(R.layout.vista_sensor);
