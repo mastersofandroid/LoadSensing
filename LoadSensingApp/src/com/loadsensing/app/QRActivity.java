@@ -61,20 +61,19 @@ public class QRActivity extends DashboardActivity {
 				IntentResult scanResult = IntentIntegrator.parseActivityResult(
 						requestCode, resultCode, data);
 				if (scanResult != null) {
-					String terminalID = scanResult.getContents();
-
-					/*
-					 * EditText editText = (EditText)findViewById(R.id.QRValue);
-					 * editText.setText(terminalID);
-					 */
-
-					// Do whatever you want with the barcode...
-					// TODO: Enviar el texto leído a la pantalla de sensor
+					String idsensor = scanResult.getContents();
+					
+					Intent intent = new Intent();
+					intent.setClass(this.getApplicationContext(), SingleSensorActivity.class);
+					intent.putExtra("idsensorselected", idsensor);
+					startActivity(intent);
 				}
 			}
 			break;
 		}
 		}
+		
+		finish();
 	}
 
 } // end class
