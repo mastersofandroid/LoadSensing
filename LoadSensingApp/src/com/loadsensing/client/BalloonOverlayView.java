@@ -32,7 +32,7 @@ import com.loadsensing.app.R;
  * A view representing a MapView marker information balloon.
  * 
  * @author Jeff Gilfelt
- *
+ * 
  */
 public class BalloonOverlayView<Item extends OverlayItem> extends FrameLayout {
 
@@ -43,9 +43,11 @@ public class BalloonOverlayView<Item extends OverlayItem> extends FrameLayout {
 	/**
 	 * Create a new BalloonOverlayView.
 	 * 
-	 * @param context - The activity context.
-	 * @param balloonBottomOffset - The bottom padding (in pixels) to be applied
-	 * when rendering this view.
+	 * @param context
+	 *            - The activity context.
+	 * @param balloonBottomOffset
+	 *            - The bottom padding (in pixels) to be applied when rendering
+	 *            this view.
 	 */
 	public BalloonOverlayView(Context context, int balloonBottomOffset) {
 
@@ -66,14 +68,16 @@ public class BalloonOverlayView<Item extends OverlayItem> extends FrameLayout {
 	}
 
 	/**
-	 * Inflate and initialize the BalloonOverlayView UI. Override this method
-	 * to provide a custom view/layout for the balloon. 
+	 * Inflate and initialize the BalloonOverlayView UI. Override this method to
+	 * provide a custom view/layout for the balloon.
 	 * 
-	 * @param context - The activity context.
-	 * @param parent - The root layout into which you must inflate your view.
+	 * @param context
+	 *            - The activity context.
+	 * @param parent
+	 *            - The root layout into which you must inflate your view.
 	 */
 	protected void setupView(Context context, final ViewGroup parent) {
-		
+
 		LayoutInflater inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View v = inflater.inflate(R.layout.balloon_overlay, parent);
@@ -86,25 +90,28 @@ public class BalloonOverlayView<Item extends OverlayItem> extends FrameLayout {
 				parent.setVisibility(GONE);
 			}
 		});
-		
+
 	}
-	
+
 	/**
 	 * Sets the view data from a given overlay item.
 	 * 
-	 * @param item - The overlay item containing the relevant view data. 
+	 * @param item
+	 *            - The overlay item containing the relevant view data.
 	 */
 	public void setData(Item item) {
 		layout.setVisibility(VISIBLE);
 		setBalloonData(item, layout);
 	}
-	
+
 	/**
-	 * Sets the view data from a given overlay item. Override this method to create
-	 * your own data/view mappings.
+	 * Sets the view data from a given overlay item. Override this method to
+	 * create your own data/view mappings.
 	 * 
-	 * @param item - The overlay item containing the relevant view data.
-	 * @param parent - The parent layout for this BalloonOverlayView.
+	 * @param item
+	 *            - The overlay item containing the relevant view data.
+	 * @param parent
+	 *            - The parent layout for this BalloonOverlayView.
 	 */
 	protected void setBalloonData(Item item, ViewGroup parent) {
 		if (item.getTitle() != null) {

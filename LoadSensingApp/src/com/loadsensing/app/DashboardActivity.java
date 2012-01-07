@@ -187,8 +187,7 @@ public class DashboardActivity extends Activity {
 					LlistaXarxesActivity.class));
 			break;
 		case R.id.home_btn_feature2:
-			startActivity(new Intent(getApplicationContext(),
-					XarxaGMaps.class));
+			startActivity(new Intent(getApplicationContext(), XarxaGMaps.class));
 			break;
 		case R.id.home_btn_feature3:
 			startActivity(new Intent(getApplicationContext(), QRActivity.class));

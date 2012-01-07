@@ -14,7 +14,7 @@ public class OverlayXarxa extends BalloonItemizedOverlay<OverlayItem> {
 
 	private ArrayList<OverlayItem> mOverlays = new ArrayList<OverlayItem>();
 	private Context mContext;
-	
+
 	public OverlayXarxa(Drawable defaultMarker, MapView mapView) {
 		super(boundCenter(defaultMarker), mapView);
 		mContext = mapView.getContext();
@@ -33,8 +33,8 @@ public class OverlayXarxa extends BalloonItemizedOverlay<OverlayItem> {
 	@Override
 	public int size() {
 		return mOverlays.size();
-	}	
-	
+	}
+
 	@Override
 	protected boolean onBalloonTap(int index, OverlayItem item) {
 		/*
@@ -44,10 +44,10 @@ public class OverlayXarxa extends BalloonItemizedOverlay<OverlayItem> {
 		intent.setClass(mContext, SingleSensorActivity.class);
 		intent.putExtra("idsensorselected", index);
 		mContext.startActivity(intent);
-	
-//		Toast.makeText(mContext, "onBalloonTap for overlay index " + index,
-//				Toast.LENGTH_LONG).show();
-		
+
+		// Toast.makeText(mContext, "onBalloonTap for overlay index " + index,
+		// Toast.LENGTH_LONG).show();
+
 		return true;
 	}
 }
