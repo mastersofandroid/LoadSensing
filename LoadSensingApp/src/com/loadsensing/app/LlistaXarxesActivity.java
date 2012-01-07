@@ -68,8 +68,8 @@ public class LlistaXarxesActivity extends ListActivity {
 		ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 		SimpleAdapter adapter = new SimpleAdapter(this, list,
 				R.layout.custom_row_view, new String[] { "nom", "poblacio",
-						"sensors", "lat", "idXarxa" }, new int[] { R.id.text1,
-						R.id.text2, R.id.text3, R.id.text4, R.id.text5 });
+						"sensors", "lat", "lon", "idXarxa" }, new int[] { R.id.text1,
+						R.id.text2, R.id.text3, R.id.text4, R.id.text5, R.id.text6 });
 		
 		SharedPreferences settings = getSharedPreferences("LoadSensinsgApp",
 				Context.MODE_PRIVATE);
@@ -94,9 +94,9 @@ public class LlistaXarxesActivity extends ListActivity {
 				xarxa.put("poblacio", xarxaJSON.getString("Poblacio"));
 				xarxa.put("nom", xarxaJSON.getString("Nom"));
 				xarxa.put("idXarxa", xarxaJSON.getString("IdXarxa"));
-				xarxa.put("sensors","Sensors: " + xarxaJSON.getString("Sensors"));
-				xarxa.put("lat", "Latitud: " + xarxaJSON.getString("Lat"));
-				xarxa.put("lon", "Longitud: " + xarxaJSON.getString("Lon"));
+				xarxa.put("sensors",xarxaJSON.getString("Sensors"));
+				xarxa.put("lat", xarxaJSON.getString("Lat"));
+				xarxa.put("lon", xarxaJSON.getString("Lon"));
 				Log.i(DEB_TAG, xarxaJSON.getString("Poblacio"));
 				list.add(xarxa);
 			}
@@ -109,17 +109,38 @@ public class LlistaXarxesActivity extends ListActivity {
 
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 
-		super.onListItemClick(l, v, position, id);
-		TextView c = (TextView)v.findViewById(R.id.text5);
+		/*
+		 * Open Sensor
+		 */
+		/*
+		TextView c = (TextView)v.findViewById(R.id.text6);
 		String idXarxaSelected = c.getText().toString();
  		Log.i(DEB_TAG, "idxarxaseleccionada: " + c.getText().toString());
- 		
-
 
 		Intent intent = new Intent();
 		intent.setClass(this.getApplicationContext(), SensorsActivity.class);
 		intent.putExtra("XarxaSelected", idXarxaSelected);
 		startActivity(intent);
+		*/
+		
+		
+		/*
+		 * Open GMaps
+		 */
+		TextView c = (TextView)v.findViewById(R.id.text4);
+		String lat = c.getText().toString();
+		Log.i(DEB_TAG, "lat: " + c.getText().toString());
+		c = (TextView)v.findViewById(R.id.text5);
+		String lon = c.getText().toString();
+		Log.i(DEB_TAG, "lon: " + c.getText().toString());
+		
+		Intent intent = new Intent();
+		intent.putExtra("lat", lat);
+		intent.putExtra("lon", lon);
+		intent.setClass(this.getApplicationContext(),
+				XarxaGMaps.class);
+		startActivity(intent);
+		
 		/*
 		 * Object o = this.getListAdapter().getItem(position); String pen =
 		 * o.toString(); Toast.makeText(this, "Has seleccionat la xarxa " + " "
@@ -130,13 +151,6 @@ public class LlistaXarxesActivity extends ListActivity {
 	public void goBack(View v)
 	{
 		finish();
-	}
-	
-	public void openGMaps(View v) {
-		Intent intent = new Intent();
-		intent.setClass(this.getApplicationContext(),
-				XarxaGMaps.class);
-		startActivity(intent);
 	}
 	
 	public void setTitleFromActivityLabel(int textViewId) {
