@@ -132,6 +132,13 @@ public class LlistaXarxesActivity extends ListActivity {
 		finish();
 	}
 	
+	public void openGMaps(View v) {
+		Intent intent = new Intent();
+		intent.setClass(this.getApplicationContext(),
+				XarxaGMaps.class);
+		startActivity(intent);
+	}
+	
 	public void setTitleFromActivityLabel(int textViewId) {
 		TextView tv = (TextView) findViewById(textViewId);
 		if (tv != null)

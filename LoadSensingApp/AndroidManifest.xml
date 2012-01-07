@@ -1,62 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.loadsensing.app"
-    android:versionCode="1"
-    android:versionName="1.0" >
+	package="com.loadsensing.app" android:versionCode="1"
+	android:versionName="1.0">
 
-    <uses-sdk android:minSdkVersion="7" />
+	<uses-sdk android:minSdkVersion="7" />
 
-	<uses-permission android:name="android.permission.INTERNET" /> 
+	<uses-permission android:name="android.permission.INTERNET" />
 	<!-- Check if Internet connection is available -->
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	
-    <application
-        android:theme="@style/Theme.D1"
-        android:icon="@drawable/icon"
-        android:label="@string/app_name" >
-        <activity
-            android:label="@string/app_name"
-            android:name=".SplashActivity" >
-            <intent-filter >
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:label="@string/app_name"
-            android:name=".LoginActivity" >
-            <intent-filter >
-                <action android:name="com.loadsensing.app.LOGINACTIVITY" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:label="@string/app_name"
-            android:name=".HomeActivity" >
-            <intent-filter >
-                <action android:name="com.loadsensing.app.HOMEACTIVITY" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>  
-        <activity
-            android:label="@string/app_name"
-            android:name=".AboutActivity" >
-            <intent-filter >
-                <action android:name="com.loadsensing.app.ABOUTACTIVITY" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".LlistaXarxesActivity"
-            android:theme="@style/Theme.D1"
-            android:label="@string/title_feature1"
-            />  
-        <activity android:name=".SensorsActivity"
-            android:theme="@style/Theme.D1"
-            android:label="@string/title_feature1"
-            />              
-        <activity android:name=".QRActivity"
-            android:theme="@style/Theme.D1"
-            android:label="@string/title_feature1"
-            />                        
-    </application>
+
+	<application android:theme="@style/Theme.D1" android:icon="@drawable/icon"
+		android:label="@string/app_name">
+		<!-- GMAPS -->
+		<uses-library android:name="com.google.android.maps" />
+		<activity android:label="@string/app_name" android:name=".SplashActivity">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<activity android:label="@string/app_name" android:name=".LoginActivity">
+			<intent-filter>
+				<action android:name="com.loadsensing.app.LOGINACTIVITY" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<activity android:label="@string/app_name" android:name=".HomeActivity">
+			<intent-filter>
+				<action android:name="com.loadsensing.app.HOMEACTIVITY" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		<activity android:label="@string/app_name" android:name=".AboutActivity">
+			<intent-filter>
+				<action android:name="com.loadsensing.app.ABOUTACTIVITY" />
+			</intent-filter>
+		</activity>
+		<activity android:name=".LlistaXarxesActivity" android:theme="@style/Theme.D1"
+			android:label="@string/title_feature1" />
+		<activity android:name=".SensorsActivity" android:theme="@style/Theme.D1"
+			android:label="@string/title_feature1" />
+		<activity android:name=".QRActivity" android:theme="@style/Theme.D1"
+			android:label="@string/title_feature1" />
+		<activity android:name=".XarxaGMaps" android:theme="@style/Theme.D1"
+			android:label="@string/title_feature1" />
+	</application>
 
 </manifest>
