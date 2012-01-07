@@ -3,8 +3,8 @@ package com.loadsensing.app;
 import java.util.ArrayList;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.widget.Toast;
 
 import com.google.android.maps.MapView;
 import com.google.android.maps.OverlayItem;
@@ -37,8 +37,16 @@ public class OverlayXarxa extends BalloonItemizedOverlay<OverlayItem> {
 	
 	@Override
 	protected boolean onBalloonTap(int index, OverlayItem item) {
-		Toast.makeText(mContext, "onBalloonTap for overlay index " + index,
-				Toast.LENGTH_LONG).show();
+		/*
+		 * TODO: Poner parametro
+		 */
+		Intent intent = new Intent();
+		intent.setClass(mContext, SingleSensorActivity.class);
+		intent.putExtra("idsensorselected", index);
+		mContext.startActivity(intent);
+	
+//		Toast.makeText(mContext, "onBalloonTap for overlay index " + index,
+//				Toast.LENGTH_LONG).show();
 		
 		return true;
 	}

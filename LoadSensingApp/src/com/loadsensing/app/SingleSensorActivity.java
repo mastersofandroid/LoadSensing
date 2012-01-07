@@ -123,5 +123,4 @@ public class SingleSensorActivity extends Activity {
 		intent.setClass(this.getApplicationContext(), XarxaGMaps.class);
 		startActivity(intent);
 	}
-
 }

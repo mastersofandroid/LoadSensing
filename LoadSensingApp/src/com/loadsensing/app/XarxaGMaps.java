@@ -72,16 +72,6 @@ public class XarxaGMaps extends MapActivity {
 				JSONObject xarxaJSON = new JSONObject();
 				xarxaJSON = llistaXarxesArray.getJSONObject(i);
 
-				/*xarxa.put("id", String.valueOf(i));
-				xarxa.put("poblacio", xarxaJSON.getString("Poblacio"));
-				xarxa.put("nom", xarxaJSON.getString("Nom"));
-				xarxa.put("idXarxa", xarxaJSON.getString("IdXarxa"));
-				xarxa.put("sensors", xarxaJSON.getString("Sensors"));
-				xarxa.put("lat", xarxaJSON.getString("Lat"));
-				xarxa.put("lon", xarxaJSON.getString("Lon"));
-				Log.i(DEB_TAG, xarxaJSON.getString("Poblacio"));
-				//list.add(xarxa);
-				*/
 				GeoPoint point = new GeoPoint(
 						Integer.parseInt(xarxaJSON.getString("Lat").replace(".", "")),
 						Integer.parseInt(xarxaJSON.getString("Lon").replace(".", "")));
