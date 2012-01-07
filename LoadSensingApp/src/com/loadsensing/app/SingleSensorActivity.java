@@ -77,23 +77,23 @@ public class SingleSensorActivity extends Activity {
 			mesura.setText("Measure: " + sensorJSON.getString("measure"));
 			unitatmesura.setText("Measure unit: " + sensorJSON.getString("measureUnit"));
 			maxload.setText("Max Load: " + sensorJSON.getString("MaxLoad"));
-			MaxLoadUnit.setText(sensorJSON.getString("MaxLoadUnit"));
-			Sensivity.setText(sensorJSON.getString("Sensivity"));
-			SensivityUnit.setText(sensorJSON.getString("SensivityUnit"));
-			offset.setText(sensorJSON.getString("offset"));
-			offsetUnit.setText(sensorJSON.getString("offsetUnit"));
-			AlarmAt.setText(sensorJSON.getString("AlarmAt"));
-			AlarmAtUnit.setText(sensorJSON.getString("AlarmAtUnit"));
-			LastTare.setText(sensorJSON.getString("LastTare"));
-			canal.setText(sensorJSON.getString("canal"));
-			tipus.setText(sensorJSON.getString("tipus"));
-			Descripcio.setText(sensorJSON.getString("Descripcio"));
-			Poblacio.setText(sensorJSON.getString("Poblacio"));
-			Nom.setText(sensorJSON.getString("Nom"));
+			MaxLoadUnit.setText("MaxLoadUnit: " + sensorJSON.getString("MaxLoadUnit"));
+			Sensivity.setText("Sensivity: " + sensorJSON.getString("Sensivity"));
+			SensivityUnit.setText("SensivityUnit: " + sensorJSON.getString("SensivityUnit"));
+			offset.setText("offset: " + sensorJSON.getString("offset"));
+			offsetUnit.setText("offsetUnit: " + sensorJSON.getString("offsetUnit"));
+			AlarmAt.setText("AlarmAt:" + sensorJSON.getString("AlarmAt"));
+			AlarmAtUnit.setText("AlarmAtUnit:" + sensorJSON.getString("AlarmAtUnit"));
+			LastTare.setText("LastTare:" + sensorJSON.getString("LastTare"));
+			canal.setText("canal" + sensorJSON.getString("canal"));
+			tipus.setText("tipus: " + sensorJSON.getString("tipus"));
+			Descripcio.setText("Descripcio:" + sensorJSON.getString("Descripcio"));
+			Poblacio.setText("Poblacio:" + sensorJSON.getString("Poblacio"));
+			Nom.setText("Nom: " + sensorJSON.getString("Nom"));
 
 			Log.i(DEB_TAG, sensorJSON.getString("sensor"));
 			Log.i(DEB_TAG, sensorJSON.getString("canal"));
-			Log.i(DEB_TAG, sensorJSON.getString("measure"));
+			Log.i(DEB_TAG, sensorJSON.getString("Nom"));
 		} 
 		catch (Exception ex) 
 		{

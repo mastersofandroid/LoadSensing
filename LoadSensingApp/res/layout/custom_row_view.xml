@@ -51,8 +51,7 @@
         android:textColor="#000000"
         android:textSize="14sp"
         android:typeface="sans"
-        android:visibility="gone" />
-        
+        android:visibility="gone" />        
 </LinearLayout>
 
 <!-- 
