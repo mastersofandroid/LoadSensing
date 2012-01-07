@@ -1,6 +1,5 @@
 package com.loadsensing.app;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.json.JSONArray;
@@ -46,8 +45,8 @@ public class XarxaGMaps extends MapActivity {
 		OverlayXarxa itemizedOverlay;
 
 		mapOverlays = mapa.getOverlays();
-		drawable = this.getResources().getDrawable(R.drawable.gmap_marker);
-		itemizedOverlay = new OverlayXarxa(drawable);
+		drawable = this.getResources().getDrawable(R.drawable.gmaps_marker);
+		itemizedOverlay = new OverlayXarxa(drawable, mapa);
 		
 		int minLatitude = Integer.MAX_VALUE;
 		int maxLatitude = Integer.MIN_VALUE;
@@ -66,14 +65,14 @@ public class XarxaGMaps extends MapActivity {
 			// Convertim la resposta string a un JSONArray
 			JSONArray llistaXarxesArray = new JSONArray(jsonString);
 
-			HashMap<String, String> xarxa = null;
+			//HashMap<String, String> xarxa = null;
 
 			for (int i = 0; i < llistaXarxesArray.length(); i++) {
-				xarxa = new HashMap<String, String>();
+				//xarxa = new HashMap<String, String>();
 				JSONObject xarxaJSON = new JSONObject();
 				xarxaJSON = llistaXarxesArray.getJSONObject(i);
 
-				xarxa.put("id", String.valueOf(i));
+				/*xarxa.put("id", String.valueOf(i));
 				xarxa.put("poblacio", xarxaJSON.getString("Poblacio"));
 				xarxa.put("nom", xarxaJSON.getString("Nom"));
 				xarxa.put("idXarxa", xarxaJSON.getString("IdXarxa"));
@@ -82,7 +81,7 @@ public class XarxaGMaps extends MapActivity {
 				xarxa.put("lon", xarxaJSON.getString("Lon"));
 				Log.i(DEB_TAG, xarxaJSON.getString("Poblacio"));
 				//list.add(xarxa);
-				
+				*/
 				GeoPoint point = new GeoPoint(
 						Integer.parseInt(xarxaJSON.getString("Lat").replace(".", "")),
 						Integer.parseInt(xarxaJSON.getString("Lon").replace(".", "")));
@@ -95,7 +94,7 @@ public class XarxaGMaps extends MapActivity {
 				maxLongitude = Math.max(lon, maxLongitude);
 				minLongitude = Math.min(lon, minLongitude);
 				
-				OverlayItem overlayitem = new OverlayItem(point, "", "");
+				OverlayItem overlayitem = new OverlayItem(point, xarxaJSON.getString("Nom") + " - " + xarxaJSON.getString("Sensors") + " sensors", xarxaJSON.getString("Poblacio"));
 
 				itemizedOverlay.addOverlay(overlayitem);
 				mapOverlays.add(itemizedOverlay);

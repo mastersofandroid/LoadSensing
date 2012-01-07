@@ -2,19 +2,22 @@ package com.loadsensing.app;
 
 import java.util.ArrayList;
 
+import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.widget.Toast;
 
-import com.google.android.maps.ItemizedOverlay;
+import com.google.android.maps.MapView;
 import com.google.android.maps.OverlayItem;
+import com.loadsensing.client.BalloonItemizedOverlay;
 
-public class OverlayXarxa extends ItemizedOverlay {
+public class OverlayXarxa extends BalloonItemizedOverlay<OverlayItem> {
 
 	private ArrayList<OverlayItem> mOverlays = new ArrayList<OverlayItem>();
-
-	public OverlayXarxa(Drawable defaultMarker) {
-		super(boundCenterBottom(defaultMarker));
-		// TODO Auto-generated constructor stub
-
+	private Context mContext;
+	
+	public OverlayXarxa(Drawable defaultMarker, MapView mapView) {
+		super(boundCenter(defaultMarker), mapView);
+		mContext = mapView.getContext();
 	}
 
 	public void addOverlay(OverlayItem overlay) {
@@ -29,8 +32,14 @@ public class OverlayXarxa extends ItemizedOverlay {
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
 		return mOverlays.size();
+	}	
+	
+	@Override
+	protected boolean onBalloonTap(int index, OverlayItem item) {
+		Toast.makeText(mContext, "onBalloonTap for overlay index " + index,
+				Toast.LENGTH_LONG).show();
+		
+		return true;
 	}
-
 }
