@@ -115,12 +115,9 @@ public class SingleSensorActivity extends Activity {
 		finish();
 	}
 
-	public void gmap_marker(View v) {
-		TextView c = (TextView) v.findViewById(R.id.text4);
-		String lat = c.getText().toString();
+	public void graph(View v) {
 		Intent intent = new Intent();
-		intent.putExtra("lat", lat);
-		intent.setClass(this.getApplicationContext(), XarxaGMaps.class);
+		intent.setClass(this.getApplicationContext(), Chart.class);
 		startActivity(intent);
 	}
 }
