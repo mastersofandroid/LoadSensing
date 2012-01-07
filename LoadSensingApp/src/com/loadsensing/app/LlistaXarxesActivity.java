@@ -137,8 +137,7 @@ public class LlistaXarxesActivity extends ListActivity {
 		Intent intent = new Intent();
 		intent.putExtra("lat", lat);
 		intent.putExtra("lon", lon);
-		intent.setClass(this.getApplicationContext(),
-				XarxaGMaps.class);
+		intent.setClass(this.getApplicationContext(), XarxaGMaps.class);
 		startActivity(intent);
 		
 		/*
