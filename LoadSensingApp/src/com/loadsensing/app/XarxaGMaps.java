@@ -66,7 +66,6 @@ public class XarxaGMaps extends MapActivity {
 		mapController.setCenter(point);
 		
 	}
-
 	@Override
 	protected boolean isRouteDisplayed() {
 		return false;

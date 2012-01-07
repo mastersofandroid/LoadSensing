@@ -8,12 +8,14 @@ import org.json.JSONObject;
 
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import com.loadsensing.client.JsonClient;
 
@@ -27,6 +29,8 @@ public class SensorsActivity extends ListActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.custom_list_view);
+		
+		// Get Intent parameters
 		String XarxaSelected = "";
 		Bundle extras = null;
 		if (savedInstanceState == null) {
@@ -34,7 +38,7 @@ public class SensorsActivity extends ListActivity {
 		    if(extras == null) {
 		    	XarxaSelected= null;
 		    } else {
-		    	XarxaSelected= extras.getString("XarxaSelected");
+		    	XarxaSelected= extras.getString("idxarxaselected");
 		        Log.i(DEB_TAG, "Xarxa que hem triat anteriorment: " + XarxaSelected);
 		    }
 		} else {
@@ -82,11 +86,20 @@ public class SensorsActivity extends ListActivity {
 	
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 
-		super.onListItemClick(l, v, position, id);
+		TextView c = (TextView)v.findViewById(R.id.text1);
+		String idsensorselected = c.getText().toString();
+ 		Log.i(DEB_TAG, "idsensorselected: " + c.getText().toString());
+
+		Intent intent = new Intent();
+		intent.setClass(this.getApplicationContext(), SingleSensorActivity.class);
+		intent.putExtra("idsensorselected", idsensorselected);
+		startActivity(intent);
+		
+/*		super.onListItemClick(l, v, position, id);
 		Object o = this.getListAdapter().getItem(position);
 		JSONObject xarxaJS = (JSONObject)o;
 		String sensor = o.toString();
-		setContentView(R.layout.vista_sensor);
+		setContentView(R.layout.vista_sensor);*/
 	}
 	
 	public void goBack(View v)

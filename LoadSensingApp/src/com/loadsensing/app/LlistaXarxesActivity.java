@@ -28,7 +28,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -112,22 +114,20 @@ public class LlistaXarxesActivity extends ListActivity {
 		/*
 		 * Open Sensor
 		 */
-		/*
 		TextView c = (TextView)v.findViewById(R.id.text6);
-		String idXarxaSelected = c.getText().toString();
+		String idxarxaselected = c.getText().toString();
  		Log.i(DEB_TAG, "idxarxaseleccionada: " + c.getText().toString());
 
 		Intent intent = new Intent();
 		intent.setClass(this.getApplicationContext(), SensorsActivity.class);
-		intent.putExtra("XarxaSelected", idXarxaSelected);
+		intent.putExtra("idxarxaselected", idxarxaselected);
 		startActivity(intent);
-		*/
-		
+	
 		
 		/*
 		 * Open GMaps
 		 */
-		TextView c = (TextView)v.findViewById(R.id.text4);
+/*		TextView c = (TextView)v.findViewById(R.id.text4);
 		String lat = c.getText().toString();
 		Log.i(DEB_TAG, "lat: " + c.getText().toString());
 		c = (TextView)v.findViewById(R.id.text5);
@@ -138,7 +138,7 @@ public class LlistaXarxesActivity extends ListActivity {
 		intent.putExtra("lat", lat);
 		intent.putExtra("lon", lon);
 		intent.setClass(this.getApplicationContext(), XarxaGMaps.class);
-		startActivity(intent);
+		startActivity(intent);*/
 		
 		/*
 		 * Object o = this.getListAdapter().getItem(position); String pen =

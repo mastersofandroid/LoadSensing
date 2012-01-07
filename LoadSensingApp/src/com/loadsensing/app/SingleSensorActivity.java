@@ -7,6 +7,7 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,21 +25,22 @@ public class SingleSensorActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.vista_sensor);
-		String SensorSelected = "2";
-		/*Bundle extras = null;
+		setContentView(R.layout.single_sensor);
+		
+		// Get Intent parameters
+		String SensorSelected = "";
+		Bundle extras = null;
 		if (savedInstanceState == null) {
 		    extras = getIntent().getExtras();
 		    if(extras == null) {
 		    	SensorSelected= null;
 		    } else {
-		    	SensorSelected= extras.getString("SensorSelected");
-		        Log.i(DEB_TAG, "Sensor que hem triat anteriorment: " + SensorSelected);
+		    	SensorSelected= extras.getString("idsensorselected");
+		        Log.i(DEB_TAG, "Xarxa que hem triat anteriorment: " + SensorSelected);
 		    }
 		} else {
-			SensorSelected= (String) savedInstanceState.getSerializable("SensorSelected");
+			SensorSelected= (String) savedInstanceState.getSerializable("XarxaSelected");
 		}
-		*/
 		
 		SharedPreferences settings = getSharedPreferences("LoadSensinsgApp", Context.MODE_PRIVATE);
 		String address = SERVER_HOST + "?sensor="+SensorSelected+"&session="+settings.getString("session", "");
@@ -103,6 +105,16 @@ public class SingleSensorActivity extends Activity {
 	public void goBack(View v)
 	{
 		finish();
+	}
+	
+	public void gmap_marker(View v)
+	{
+		TextView c = (TextView)v.findViewById(R.id.text4);
+		String lat = c.getText().toString();
+		Intent intent = new Intent();
+		intent.putExtra("lat", lat);
+		intent.setClass(this.getApplicationContext(), XarxaGMaps.class);
+		startActivity(intent);
 	}
 
 }
