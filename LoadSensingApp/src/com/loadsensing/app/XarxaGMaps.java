@@ -21,51 +21,54 @@ public class XarxaGMaps extends MapActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.gmaps);
-		
+
 		MapController mapController;
 		MapView mapa;
 		Bundle extras = null;
-	    String longitud = "";
-	    String latitud = "";
-	    
+		String longitud = "";
+		String latitud = "";
+
 		if (savedInstanceState == null) {
-		    extras = getIntent().getExtras();
-		    longitud= extras.getString("lon");
+			extras = getIntent().getExtras();
+			longitud = extras.getString("lon");
 			Log.i(DEB_TAG, "Longitud: " + longitud);
-		    latitud= extras.getString("lat");
-			Log.i(DEB_TAG, "Latitud: " + latitud);		    
+			latitud = extras.getString("lat");
+			Log.i(DEB_TAG, "Latitud: " + latitud);
 		} else {
-			longitud= (String) savedInstanceState.getSerializable("lon");
-			latitud= (String) savedInstanceState.getSerializable("lat");
+			longitud = (String) savedInstanceState.getSerializable("lon");
+			latitud = (String) savedInstanceState.getSerializable("lat");
 		}
-		
+
 		// Obtenemos una referencia al control MapView
 		mapa = (MapView) findViewById(R.id.mapa);
 
 		// Mostramos los controles de zoom sobre el mapa
 		mapa.setBuiltInZoomControls(true);
-		
-		//Añadimos la capa de marcadores
+
+		// Añadimos la capa de marcadores
 		List<Overlay> mapOverlays;
 		Drawable drawable;
 		OverlayXarxa itemizedOverlay;
-		
+
 		mapOverlays = mapa.getOverlays();
 		drawable = this.getResources().getDrawable(R.drawable.gmap_marker);
 		itemizedOverlay = new OverlayXarxa(drawable);
-		
-		GeoPoint point = new GeoPoint(Integer.parseInt(latitud.replace(".", "")), Integer.parseInt(longitud.replace(".", "")));
+
+		GeoPoint point = new GeoPoint(
+				Integer.parseInt(latitud.replace(".", "")),
+				Integer.parseInt(longitud.replace(".", "")));
 		OverlayItem overlayitem = new OverlayItem(point, "", "");
-		
+
 		itemizedOverlay.addOverlay(overlayitem);
 		mapOverlays.add(itemizedOverlay);
-		
-		//Definimos zoom y centramos el mapa
+
+		// Definimos zoom y centramos el mapa
 		mapController = mapa.getController();
 		mapController.setZoom(14); // Zoon 1 is world view
 		mapController.setCenter(point);
-		
+
 	}
+
 	@Override
 	protected boolean isRouteDisplayed() {
 		return false;

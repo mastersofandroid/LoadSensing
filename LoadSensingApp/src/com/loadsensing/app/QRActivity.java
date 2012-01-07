@@ -62,9 +62,10 @@ public class QRActivity extends DashboardActivity {
 						requestCode, resultCode, data);
 				if (scanResult != null) {
 					String idsensor = scanResult.getContents();
-					
+
 					Intent intent = new Intent();
-					intent.setClass(this.getApplicationContext(), SingleSensorActivity.class);
+					intent.setClass(this.getApplicationContext(),
+							SingleSensorActivity.class);
 					intent.putExtra("idsensorselected", idsensor);
 					startActivity(intent);
 				}
@@ -72,7 +73,7 @@ public class QRActivity extends DashboardActivity {
 			break;
 		}
 		}
-		
+
 		finish();
 	}
 

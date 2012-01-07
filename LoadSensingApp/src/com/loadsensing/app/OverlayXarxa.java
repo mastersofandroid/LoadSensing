@@ -10,21 +10,21 @@ import com.google.android.maps.OverlayItem;
 public class OverlayXarxa extends ItemizedOverlay {
 
 	private ArrayList<OverlayItem> mOverlays = new ArrayList<OverlayItem>();
-	
+
 	public OverlayXarxa(Drawable defaultMarker) {
 		super(boundCenterBottom(defaultMarker));
 		// TODO Auto-generated constructor stub
-		
+
 	}
 
 	public void addOverlay(OverlayItem overlay) {
-	    mOverlays.add(overlay);
-	    populate();
+		mOverlays.add(overlay);
+		populate();
 	}
-	
+
 	@Override
 	protected OverlayItem createItem(int i) {
-	  return mOverlays.get(i);
+		return mOverlays.get(i);
 	}
 
 	@Override

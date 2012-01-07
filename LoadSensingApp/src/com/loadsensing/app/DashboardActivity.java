@@ -183,10 +183,12 @@ public class DashboardActivity extends Activity {
 		int id = v.getId();
 		switch (id) {
 		case R.id.home_btn_feature1:
-			startActivity(new Intent(getApplicationContext(), LlistaXarxesActivity.class));
+			startActivity(new Intent(getApplicationContext(),
+					LlistaXarxesActivity.class));
 			break;
 		case R.id.home_btn_feature2:
-			startActivity(new Intent(getApplicationContext(), SingleSensorActivity.class));
+			startActivity(new Intent(getApplicationContext(),
+					SingleSensorActivity.class));
 			break;
 		case R.id.home_btn_feature3:
 			startActivity(new Intent(getApplicationContext(), QRActivity.class));

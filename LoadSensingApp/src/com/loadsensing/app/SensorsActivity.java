@@ -29,31 +29,36 @@ public class SensorsActivity extends ListActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.custom_list_view);
-		
+
 		// Get Intent parameters
 		String XarxaSelected = "";
 		Bundle extras = null;
 		if (savedInstanceState == null) {
-		    extras = getIntent().getExtras();
-		    if(extras == null) {
-		    	XarxaSelected= null;
-		    } else {
-		    	XarxaSelected= extras.getString("idxarxaselected");
-		        Log.i(DEB_TAG, "Xarxa que hem triat anteriorment: " + XarxaSelected);
-		    }
+			extras = getIntent().getExtras();
+			if (extras == null) {
+				XarxaSelected = null;
+			} else {
+				XarxaSelected = extras.getString("idxarxaselected");
+				Log.i(DEB_TAG, "Xarxa que hem triat anteriorment: "
+						+ XarxaSelected);
+			}
 		} else {
-			XarxaSelected= (String) savedInstanceState.getSerializable("XarxaSelected");
+			XarxaSelected = (String) savedInstanceState
+					.getSerializable("XarxaSelected");
 		}
-		
+
 		ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
-		
+
 		SimpleAdapter adapter = new SimpleAdapter(this, list,
-				R.layout.custom_row_view, new String[] { "id","sensor", "tipus", "descripcio", "poblacio" },
-				new int[] { R.id.text1, R.id.text2, R.id.text3, R.id.text4,  R.id.text5 });
-		
-		
-		SharedPreferences settings = getSharedPreferences("LoadSensinsgApp", Context.MODE_PRIVATE);
-		String address = SERVER_HOST + "?IdXarxa="+XarxaSelected+"&session="+settings.getString("session", "");
+				R.layout.custom_row_view, new String[] { "id", "sensor",
+						"tipus", "descripcio", "poblacio" }, new int[] {
+						R.id.text1, R.id.text2, R.id.text3, R.id.text4,
+						R.id.text5 });
+
+		SharedPreferences settings = getSharedPreferences("LoadSensinsgApp",
+				Context.MODE_PRIVATE);
+		String address = SERVER_HOST + "?IdXarxa=" + XarxaSelected
+				+ "&session=" + settings.getString("session", "");
 		Log.i(DEB_TAG, "Requesting to " + address);
 
 		try {
@@ -78,32 +83,25 @@ public class SensorsActivity extends ListActivity {
 				list.add(sensors);
 			}
 			setListAdapter(adapter);
-		} 
-		catch (Exception ex) 
-		{
+		} catch (Exception ex) {
 		}
 	}
-	
+
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 
-		TextView c = (TextView)v.findViewById(R.id.text1);
+		TextView c = (TextView) v.findViewById(R.id.text1);
 		String idsensorselected = c.getText().toString();
- 		Log.i(DEB_TAG, "idsensorselected: " + c.getText().toString());
+		Log.i(DEB_TAG, "idsensorselected: " + c.getText().toString());
 
 		Intent intent = new Intent();
-		intent.setClass(this.getApplicationContext(), SingleSensorActivity.class);
+		intent.setClass(this.getApplicationContext(),
+				SingleSensorActivity.class);
 		intent.putExtra("idsensorselected", idsensorselected);
 		startActivity(intent);
-		
-/*		super.onListItemClick(l, v, position, id);
-		Object o = this.getListAdapter().getItem(position);
-		JSONObject xarxaJS = (JSONObject)o;
-		String sensor = o.toString();
-		setContentView(R.layout.vista_sensor);*/
+
 	}
-	
-	public void goBack(View v)
-	{
+
+	public void goBack(View v) {
 		finish();
 	}
 
