@@ -188,7 +188,7 @@ public class DashboardActivity extends Activity {
 			break;
 		case R.id.home_btn_feature2:
 			startActivity(new Intent(getApplicationContext(),
-					SingleSensorActivity.class));
+					XarxaGMaps.class));
 			break;
 		case R.id.home_btn_feature3:
 			startActivity(new Intent(getApplicationContext(), QRActivity.class));

@@ -1,7 +1,13 @@
 package com.loadsensing.app;
 
+import java.util.HashMap;
 import java.util.List;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,11 +18,14 @@ import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
+import com.loadsensing.client.JsonClient;
 
 public class XarxaGMaps extends MapActivity {
 
 	private static final String DEB_TAG = "Json_Android";
-
+	private String SERVER_HOST = "http://viuterrassa.com/Android/getLlistatXarxes.php";
+	private SharedPreferences settings;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -24,21 +33,7 @@ public class XarxaGMaps extends MapActivity {
 
 		MapController mapController;
 		MapView mapa;
-		Bundle extras = null;
-		String longitud = "";
-		String latitud = "";
-
-		if (savedInstanceState == null) {
-			extras = getIntent().getExtras();
-			longitud = extras.getString("lon");
-			Log.i(DEB_TAG, "Longitud: " + longitud);
-			latitud = extras.getString("lat");
-			Log.i(DEB_TAG, "Latitud: " + latitud);
-		} else {
-			longitud = (String) savedInstanceState.getSerializable("lon");
-			latitud = (String) savedInstanceState.getSerializable("lat");
-		}
-
+		
 		// Obtenemos una referencia al control MapView
 		mapa = (MapView) findViewById(R.id.mapa);
 
@@ -53,20 +48,70 @@ public class XarxaGMaps extends MapActivity {
 		mapOverlays = mapa.getOverlays();
 		drawable = this.getResources().getDrawable(R.drawable.gmap_marker);
 		itemizedOverlay = new OverlayXarxa(drawable);
+		
+		int minLatitude = Integer.MAX_VALUE;
+		int maxLatitude = Integer.MIN_VALUE;
+		int minLongitude = Integer.MAX_VALUE;
+		int maxLongitude = Integer.MIN_VALUE;
+		
+		SharedPreferences settings = getSharedPreferences("LoadSensinsgApp",
+				Context.MODE_PRIVATE);
+		String address = SERVER_HOST + "?session="
+				+ settings.getString("session", "");
+		Log.i(DEB_TAG, "Requesting to " + address);
 
-		GeoPoint point = new GeoPoint(
-				Integer.parseInt(latitud.replace(".", "")),
-				Integer.parseInt(longitud.replace(".", "")));
-		OverlayItem overlayitem = new OverlayItem(point, "", "");
+		try {
+			String jsonString = JsonClient.connectString(address);
 
-		itemizedOverlay.addOverlay(overlayitem);
-		mapOverlays.add(itemizedOverlay);
+			// Convertim la resposta string a un JSONArray
+			JSONArray llistaXarxesArray = new JSONArray(jsonString);
 
+			HashMap<String, String> xarxa = null;
+
+			for (int i = 0; i < llistaXarxesArray.length(); i++) {
+				xarxa = new HashMap<String, String>();
+				JSONObject xarxaJSON = new JSONObject();
+				xarxaJSON = llistaXarxesArray.getJSONObject(i);
+
+				xarxa.put("id", String.valueOf(i));
+				xarxa.put("poblacio", xarxaJSON.getString("Poblacio"));
+				xarxa.put("nom", xarxaJSON.getString("Nom"));
+				xarxa.put("idXarxa", xarxaJSON.getString("IdXarxa"));
+				xarxa.put("sensors", xarxaJSON.getString("Sensors"));
+				xarxa.put("lat", xarxaJSON.getString("Lat"));
+				xarxa.put("lon", xarxaJSON.getString("Lon"));
+				Log.i(DEB_TAG, xarxaJSON.getString("Poblacio"));
+				//list.add(xarxa);
+				
+				GeoPoint point = new GeoPoint(
+						Integer.parseInt(xarxaJSON.getString("Lat").replace(".", "")),
+						Integer.parseInt(xarxaJSON.getString("Lon").replace(".", "")));
+				
+				int lat = point.getLatitudeE6();
+				int lon = point.getLongitudeE6();
+
+				maxLatitude = Math.max(lat, maxLatitude);
+				minLatitude = Math.min(lat, minLatitude);
+				maxLongitude = Math.max(lon, maxLongitude);
+				minLongitude = Math.min(lon, minLongitude);
+				
+				OverlayItem overlayitem = new OverlayItem(point, "", "");
+
+				itemizedOverlay.addOverlay(overlayitem);
+				mapOverlays.add(itemizedOverlay);
+			}
+			//setListAdapter(adapter);
+
+		} catch (Exception e) {
+			Log.i(DEB_TAG, "Error rebent xarxes");
+		}
+		
 		// Definimos zoom y centramos el mapa
 		mapController = mapa.getController();
-		mapController.setZoom(14); // Zoon 1 is world view
-		mapController.setCenter(point);
-
+		mapController.zoomToSpan(Math.abs(maxLatitude - minLatitude), Math.abs(maxLongitude - minLongitude));
+		mapController.animateTo(new GeoPoint( 
+				(maxLatitude + minLatitude)/2, 
+				(maxLongitude + minLongitude)/2 )); 
 	}
 
 	@Override

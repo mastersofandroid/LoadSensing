@@ -123,22 +123,6 @@ public class LlistaXarxesActivity extends ListActivity {
 		startActivity(intent);
 
 		/*
-		 * Open GMaps
-		 */
-		/*
-		 * TextView c = (TextView)v.findViewById(R.id.text4); String lat =
-		 * c.getText().toString(); Log.i(DEB_TAG, "lat: " +
-		 * c.getText().toString()); c = (TextView)v.findViewById(R.id.text5);
-		 * String lon = c.getText().toString(); Log.i(DEB_TAG, "lon: " +
-		 * c.getText().toString());
-		 * 
-		 * Intent intent = new Intent(); intent.putExtra("lat", lat);
-		 * intent.putExtra("lon", lon);
-		 * intent.setClass(this.getApplicationContext(), XarxaGMaps.class);
-		 * startActivity(intent);
-		 */
-
-		/*
 		 * Object o = this.getListAdapter().getItem(position); String pen =
 		 * o.toString(); Toast.makeText(this, "Has seleccionat la xarxa " + " "
 		 * + pen, Toast.LENGTH_LONG).show();
