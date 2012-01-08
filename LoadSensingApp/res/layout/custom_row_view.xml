@@ -2,23 +2,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
-
+    android:orientation="vertical"
+    android:paddingLeft="10sp" android:paddingTop="2sp" android:paddingRight="10sp">
     <TextView
         android:id="@+id/text1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:textColor="#FFFF00"
-        android:textSize="14sp"
-        android:textStyle="bold" />
+        android:textSize="16sp"
+        android:textStyle="bold" 
+        android:typeface="sans" />
 
     <TextView
         android:id="@+id/text2"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:textColor="#FFFFFF"
-        android:textSize="12sp"
-        android:textStyle="bold" />
+        android:textSize="14sp"
+        android:textStyle="bold" 
+		android:typeface="sans" />
 
     <TextView
         android:id="@+id/text3"

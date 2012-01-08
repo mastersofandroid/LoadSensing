@@ -55,6 +55,26 @@ public class ImatgeXarxaSensors extends Activity {
             overlay = BitmapFactory.decodeResource(getResources(),R.drawable.reddot).copy(Config.ARGB_8888, true);  
        }
        
+        
+        @Override
+        public boolean onTouchEvent(MotionEvent ev) {
+            // Let the ScaleGestureDetector inspect all events.
+            final int action = ev.getAction();
+            switch (action & MotionEvent.ACTION_MASK) {
+            case MotionEvent.ACTION_DOWN: {
+        		Intent intent = new Intent();
+        		intent.setClass(getApplicationContext(), SingleSensorActivity.class);
+        		intent.putExtra("idsensorselected", "002");
+        		startActivity(intent);
+                break;
+            }
+            }
+
+            return true;
+        }
+
+        
+        
         @Override
         public void onDraw(Canvas canvas){
             super.onDraw(canvas);
@@ -83,6 +103,8 @@ public class ImatgeXarxaSensors extends Activity {
     				int coordx = Integer.parseInt(sensorJSON.getString("x"));
     				int coordy = Integer.parseInt(sensorJSON.getString("y"));
     				canvas.drawBitmap(overlay, coordx, coordy, null);
+    				
+    		        
     			} 
     		}
     		catch(Exception ex)

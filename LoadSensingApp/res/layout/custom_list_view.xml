@@ -3,14 +3,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:paddingLeft="10sp" android:paddingTop="2sp" android:paddingRight="10sp">
     
     <LinearLayout style="@style/TitleBar">
         <ImageButton style="@style/TitleBarAction"
             android:contentDescription="@string/description_home"
             android:src="@drawable/atras"
             android:onClick="goBack" />
-
         <ImageView style="@style/TitleBarSeparator" />
         <TextView style="@style/TitleBarText" />
         <ImageButton style="@style/TitleBarAction"
@@ -22,11 +22,10 @@
             android:src="@drawable/title_search"
             android:onClick="onClickSearch" />
 	</LinearLayout>
-<ListView android:id="@id/android:list"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
-	android:background="#000fff"
-	android:layout_weight="2"
-	android:drawSelectorOnTop="false">
+	
+	<ListView android:id="@id/android:list"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" 
+	    android:drawSelectorOnTop="false">
 	</ListView>
 </LinearLayout>

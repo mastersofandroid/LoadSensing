@@ -7,7 +7,8 @@
     android:layout_height="fill_parent">
     <LinearLayout style="@style/TitleBar">
         <ImageView style="@style/TitleBarSeparator" />
-        <TextView style="@style/TitleBarText" />
+        <TextView style="@style/TitleBarText" 
+        	android:text="@string/app_name" />
         <ImageButton style="@style/TitleBarAction"
             android:contentDescription="@string/description_about"
             android:src="@drawable/title_about"
@@ -30,17 +31,17 @@
         android:layout_height="wrap_content"
         android:layout_weight="1">
         
-        <Button android:id="@+id/home_btn_feature1"
+        <Button android:id="@+id/llistatxarxes"
             style="@style/HomeButton"
             android:onClick="onClickFeature"
             android:text="@string/title_feature1"
-            android:drawableTop="@drawable/home_button1" />
+            android:drawableTop="@drawable/btnllistatxarxes" />
         
-        <Button android:id="@+id/home_btn_feature2"
+        <Button android:id="@+id/localitzacioxarxes"
             style="@style/HomeButton"
             android:onClick="onClickFeature"
             android:text="@string/title_feature2"
-            android:drawableTop="@drawable/home_button2" />
+            android:drawableTop="@drawable/btnlocalitzacioxarxes" />
     </LinearLayout>
 
     <LinearLayout
@@ -48,16 +49,16 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1">
-        <Button android:id="@+id/home_btn_feature3"
+        <Button android:id="@+id/localitzaciosensors"
             style="@style/HomeButton"
             android:onClick="onClickFeature"
             android:text="@string/title_feature3"
-            android:drawableTop="@drawable/home_button3" />
-        <Button android:id="@+id/home_btn_feature4"
+            android:drawableTop="@drawable/btnlocalitzaciosensors" />
+        <Button android:id="@+id/qrcode"
             style="@style/HomeButton"
             android:onClick="onClickFeature"
             android:text="@string/title_feature4"
-            android:drawableTop="@drawable/home_button4" />
+            android:drawableTop="@drawable/btnqrcode" />
     </LinearLayout>
 
 </LinearLayout>
