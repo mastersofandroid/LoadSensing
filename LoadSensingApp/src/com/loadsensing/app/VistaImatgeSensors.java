@@ -10,7 +10,9 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 
 import com.loadsensing.client.JsonClient;
 
@@ -71,26 +73,16 @@ public class VistaImatgeSensors extends View {
 				int coordx = Integer.parseInt(sensorJSON.getString("x"));
 				int coordy = Integer.parseInt(sensorJSON.getString("y"));
 				canvas.drawBitmap(myBitmap, coordx, coordy, null);
+				
+
 			}
+			
+			
+
+			
 		} catch (Exception e) {
 
 		}
 
 	}
-
-	/*
-	 * @Override protected boolean onTouch(MotionEvent event) { final int
-	 * x=(int)event.getX(); Log.i("***********xPos","="+x); final int
-	 * y=(int)event.getY(); Log.i("***********yPos","="+y);
-	 * 
-	 * if(event.getAction()==MotionEvent.ACTION_UP) {
-	 * 
-	 * } if(event.getAction()==MotionEvent.ACTION_DOWN) {
-	 * canvas.drawBitmap(mBitmap1,50+x,60,null ); this.postInvalidate();
-	 * 
-	 * } if(event.getAction()==MotionEvent.ACTION_MOVE) {
-	 * 
-	 * } return false; }
-	 */
-
 }
