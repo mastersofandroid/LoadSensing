@@ -117,7 +117,7 @@ public class SingleSensorActivity extends Activity {
 
 	public void graph(View v) {
 		Intent intent = new Intent();
-		intent.setClass(this.getApplicationContext(), Chart.class);
+		//intent.setClass(this.getApplicationContext(), Chart.class);
 		startActivity(intent);
 	}
 }
