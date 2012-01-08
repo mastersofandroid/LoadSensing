@@ -16,17 +16,11 @@
 -->
 <resources>
 
-    <string name="hello">Tria una de les següents opcions.</string>
+    
     <string name="description_logo">LoadSensing</string>
     <string name="default_intro">This is the default content view for an activity. Be sure to change your activity\'s onCreate method. Use setContentView on a custom layout.</string>
-    <string name="feature1_intro">Feature 1 content goes here.</string>
-    <string name="feature2_intro">Feature 2 content goes here.</string>
-    <string name="feature3_intro">Feature 3 content goes here.</string>
-    <string name="feature4_intro">Feature 4 content goes here.</string>
-    <string name="feature5_intro">Feature 5 content goes here.</string>
-    <string name="feature6_intro">Feature 6 content goes here.</string>
-    <string name="about_intro">This app is a demo to show you how to do an Android app based on the Dashboard pattern that has been used in apps like Twitter, Google IO, and Evernote.</string>
-    <string name="search_intro">Content for the Search page goes here.</string>
+    <string name="about_intro">Aquesta aplicació captura informació de xarxes de sensors sense fils.</string>
+    <string name="search_intro">Pàgina de cerca</string>
 
     <!-- GLOBALES -->
     <string name="app_name">LoadSensingApp</string>
@@ -42,17 +36,17 @@
     <string name="title_about">About</string>
     <string name="title_home">Home</string>
     <string name="title_search">Cercar</string>
-    <string name="title_feature1">Obtenir Llista Xarxes</string>
-    <string name="title_feature2">Localització</string>
-    <string name="title_feature3">Lectura QR-CODE</string>
-    <string name="title_feature4">Imatge</string>
+    <string name="title_feature1">Llistat Xarxes</string>
+    <string name="title_feature2">Localització Xarxes</string>
+    <string name="title_feature3">Localització Sensors</string>
+    <string name="title_feature4">Lectura QR-CODE</string>
     <string name="description_about">About</string>
     <string name="description_home">Home</string>
     <string name="description_search">Cercar</string>
-    <string name="description_feature1">Obtenir Llista Xarxes</string>
-    <string name="description_feature2">Localització</string>
-    <string name="description_feature3">Lectura QR-CODE</string>
-    <string name="description_feature4">Imatge</string>
+    <string name="description_feature1">Llistat Xarxes</string>
+    <string name="description_feature2">Localització Xarxes</string>
+    <string name="description_feature3">Localització Sensors</string>
+    <string name="description_feature4">Lectura QR-CODE</string>
 
     <!-- Single Sensor Layout -->
     <string name="graph">Mostrar gràfic</string>

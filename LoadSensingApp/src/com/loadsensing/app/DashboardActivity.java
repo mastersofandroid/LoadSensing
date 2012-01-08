@@ -182,19 +182,17 @@ public class DashboardActivity extends Activity {
 	public void onClickFeature(View v) {
 		int id = v.getId();
 		switch (id) {
-		case R.id.home_btn_feature1:
-			startActivity(new Intent(getApplicationContext(),
-					LlistaXarxesActivity.class));
+		case R.id.llistatxarxes:
+			startActivity(new Intent(getApplicationContext(), LlistaXarxesActivity.class));
 			break;
-		case R.id.home_btn_feature2:
+		case R.id.localitzacioxarxes:
 			startActivity(new Intent(getApplicationContext(), XarxaGMaps.class));
 			break;
-		case R.id.home_btn_feature3:
-			startActivity(new Intent(getApplicationContext(), QRActivity.class));
+		case R.id.localitzaciosensors:
+			startActivity(new Intent(getApplicationContext(), ImatgeXarxaSensors.class));
 			break;
-		case R.id.home_btn_feature4:
-			startActivity(new Intent(getApplicationContext(),
-					ImatgeXarxaSensors.class));
+		case R.id.qrcode:
+			startActivity(new Intent(getApplicationContext(),  QRActivity.class));
 			break;
 		default:
 			break;
