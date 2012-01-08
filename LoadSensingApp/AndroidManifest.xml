@@ -45,8 +45,13 @@
 		<activity android:name=".XarxaGMaps" android:theme="@style/Theme.D1"
 			android:label="@string/title_feature1" />
 		<activity android:name=".SingleSensorActivity" android:theme="@style/Theme.D1"
-			android:label="@string/app_name">
-		</activity>
+			android:label="@string/app_name" />
+			<activity android:name=".ImatgeXarxaSensors" android:theme="@style/Theme.D1"
+			android:label="@string/app_name" />
+			<activity android:name=".VistaImatgeBackground" android:theme="@style/Theme.D1"
+			android:label="@string/app_name" />
+			<activity android:name=".VistaImatgeSensors" android:theme="@style/Theme.D1"
+			android:label="@string/app_name" />
 		<activity android:name=".Chart" android:theme="@style/Theme.D1"
 			android:label="@string/app_name">
 		</activity>

@@ -192,6 +192,9 @@ public class DashboardActivity extends Activity {
 		case R.id.home_btn_feature3:
 			startActivity(new Intent(getApplicationContext(), QRActivity.class));
 			break;
+		case R.id.home_btn_feature4:
+			startActivity(new Intent(getApplicationContext(), ImatgeXarxaSensors.class));
+			break;
 		default:
 			break;
 		}
