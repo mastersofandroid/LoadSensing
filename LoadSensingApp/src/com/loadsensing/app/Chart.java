@@ -74,10 +74,11 @@ public class Chart extends DashboardActivity {
 
 		// Etiquetas eje X
 		mUrl = mUrl + "chxl=0:";
-
+		HashMap<String, String> a = null;
 		for (int i = 1; i < valorsURL.size(); i+=2) {
 			mUrl = mUrl + "|" + URLEncoder.encode(valorsURL.get(i).get("date"));
-			HashMap<String, String> a = valorsURL.get(i);
+			a = new HashMap<String, String>();
+			a = valorsURL.get(i);
 			Log.i(DEB_TAG, "URL Chart " + a.get("date"));
 			Log.i(DEB_TAG, "i: " + i);
 		}
