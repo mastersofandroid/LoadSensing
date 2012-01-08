@@ -74,13 +74,13 @@ public class LoginActivity extends DashboardActivity implements OnClickListener 
 	}
 
 	private String getSharedPreference(String fieldName) {
-		SharedPreferences settings = getSharedPreferences("LoadSensinsgApp",
+		SharedPreferences settings = getSharedPreferences("LoadSensingApp",
 				Context.MODE_PRIVATE);
 		return settings.getString(fieldName, "");
 	}
 
 	private void setSharedPreference(String fieldName, String value) {
-		SharedPreferences settings = getSharedPreferences("LoadSensinsgApp",
+		SharedPreferences settings = getSharedPreferences("LoadSensingApp",
 				Context.MODE_PRIVATE);
 		SharedPreferences.Editor editor = settings.edit();
 		editor.putString(fieldName, value);

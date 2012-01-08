@@ -53,7 +53,7 @@ public class XarxaGMaps extends MapActivity {
 		int minLongitude = Integer.MAX_VALUE;
 		int maxLongitude = Integer.MIN_VALUE;
 
-		SharedPreferences settings = getSharedPreferences("LoadSensinsgApp",
+		SharedPreferences settings = getSharedPreferences("LoadSensingApp",
 				Context.MODE_PRIVATE);
 		String address = SERVER_HOST + "?session="
 				+ settings.getString("session", "");

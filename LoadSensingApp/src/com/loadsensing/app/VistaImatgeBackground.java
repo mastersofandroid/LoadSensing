@@ -19,7 +19,8 @@ public class VistaImatgeBackground extends View {
 		// TODO Auto-generated constructor stub
 	}
 
-	public VistaImatgeBackground(Context context, AttributeSet attrs, int defStyle) {
+	public VistaImatgeBackground(Context context, AttributeSet attrs,
+			int defStyle) {
 		super(context, attrs, defStyle);
 		// TODO Auto-generated constructor stub
 	}
@@ -28,15 +29,16 @@ public class VistaImatgeBackground extends View {
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		// TODO Auto-generated method stub
 		setMeasuredDimension(MeasureSpec.getSize(widthMeasureSpec),
-				   MeasureSpec.getSize(heightMeasureSpec));
+				MeasureSpec.getSize(heightMeasureSpec));
 	}
 
 	@Override
 	protected void onDraw(Canvas canvas) {
 		// TODO Auto-generated method stub
-		Bitmap myBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.sagradafamilia);
-        canvas.drawBitmap(myBitmap, 0, 0, null);
-        
+		Bitmap myBitmap = BitmapFactory.decodeResource(getResources(),
+				R.drawable.sagradafamilia);
+		canvas.drawBitmap(myBitmap, 0, 0, null);
+
 	}
 
 }

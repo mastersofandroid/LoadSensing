@@ -72,7 +72,7 @@ public class LlistaXarxesActivity extends ListActivity {
 						R.id.text1, R.id.text2, R.id.text3, R.id.text4,
 						R.id.text5, R.id.text6 });
 
-		SharedPreferences settings = getSharedPreferences("LoadSensinsgApp",
+		SharedPreferences settings = getSharedPreferences("LoadSensingApp",
 				Context.MODE_PRIVATE);
 		String address = SERVER_HOST + "?session="
 				+ settings.getString("session", "");

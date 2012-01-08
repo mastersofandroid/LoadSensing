@@ -42,7 +42,7 @@ public class SingleSensorActivity extends Activity {
 					.getSerializable("XarxaSelected");
 		}
 
-		SharedPreferences settings = getSharedPreferences("LoadSensinsgApp",
+		SharedPreferences settings = getSharedPreferences("LoadSensingApp",
 				Context.MODE_PRIVATE);
 		String address = SERVER_HOST + "?sensor=" + SensorSelected
 				+ "&session=" + settings.getString("session", "");
@@ -117,7 +117,7 @@ public class SingleSensorActivity extends Activity {
 
 	public void graph(View v) {
 		Intent intent = new Intent();
-		//intent.setClass(this.getApplicationContext(), Chart.class);
+		intent.setClass(this.getApplicationContext(), Chart.class);
 		startActivity(intent);
 	}
 }
