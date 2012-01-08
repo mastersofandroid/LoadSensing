@@ -3,7 +3,6 @@ package com.loadsensing.app;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -37,7 +36,7 @@ public class Chart extends DashboardActivity {
 				+ settings.getString("session", "") + "&id=2&TipusGrafic=0";
 		Log.i(DEB_TAG, "Requesting to " + address);
 
-		List<HashMap<String, String>> valorsURL = new ArrayList<HashMap<String, String>>();
+		ArrayList<HashMap<String, String>> valorsURL = new ArrayList<HashMap<String, String>>();
 
 		try {
 			String jsonString = JsonClient.connectString(address);
@@ -63,7 +62,7 @@ public class Chart extends DashboardActivity {
 				valorHashMap.put("date", Valor.getString("date"));
 				valorHashMap.put("value", Valor.getString("value"));
 				valorsURL.add(valorHashMap);
-				// Log.i(DEB_TAG, "String " + valorsURL.get(i).get("date"));
+				Log.i(DEB_TAG, valorsURL.get(i).get("date"));
 			}
 
 		} catch (Exception e) {
@@ -73,26 +72,56 @@ public class Chart extends DashboardActivity {
 		// Montamos URL
 		String mUrl = CHART_URL;
 
-		// Ejes
+		// Etiquetas eje X
+		mUrl = mUrl + "chxl=0:";
+
+		for (int i = 1; i < valorsURL.size(); i+=2) {
+			mUrl = mUrl + "|" + URLEncoder.encode(valorsURL.get(i).get("date"));
+			HashMap<String, String> a = valorsURL.get(i);
+			Log.i(DEB_TAG, "URL Chart " + a.get("date"));
+			Log.i(DEB_TAG, "i: " + i);
+		}
+		mUrl = mUrl + "|Fecha";
+
+		// Posición etiquetas eje Y
+		mUrl = mUrl + "&chxp=0,10,30,50,70,90,110";
+
+		// Rango x,y
+		mUrl = mUrl + "&chxr=0,-5,110|1,1,2";
+
+		// Ejes visibles
 		mUrl = mUrl + "&chxt=x,y";
+
 		// Tipo de gráfico
 		mUrl = mUrl + "&cht=lxy";
+
 		// Medida del gráfico
 		mUrl = mUrl + "&chs=440x200";
 
-		// Etiquetas eje X
-		mUrl = mUrl + "chxl=0:";
-		for (int i = 0; i < valorsURL.size(); i += 2) {
-			// Etiquetas eje X
-			mUrl = mUrl + "|" + URLEncoder.encode(valorsURL.get(i).get("date"));
+		// Colores
+		mUrl = mUrl + "&chco=3072F3";
 
-		}
+		// Escala
+		mUrl = mUrl + "&chds=0,9,1.62,1.65";
 
-		// Posición etiquetas eje Y
-		mUrl = mUrl + "&chxp=0,0,20,40,60,80,100,110";
+		// Valores
+		mUrl = mUrl
+				+ "&chd=t:0,1,2,3,4,5,6,7,8,9|1.631,1.63,1.636,1.631,1.64,1.64,1.636,1.63,1.632,1.633";
+
+		// Leyenda
+		mUrl = mUrl + "&chdl=Sensor+strain+(V)&chdlp=b";
+
+		// Estilo de lineas
+		mUrl = mUrl + "&chls=2";
+
+		// Márgenes
+		mUrl = mUrl + "&chma=0,5,5,25|5";
+
+		// Marcador
+		mUrl = mUrl + "&chm=r,FF0000,0,0,0";
 
 		Log.i(DEB_TAG, "URL Chart " + mUrl);
 
-		// googleChartView.loadUrl(mUrl);
+		googleChartView.loadUrl(mUrl);
 	}
 }

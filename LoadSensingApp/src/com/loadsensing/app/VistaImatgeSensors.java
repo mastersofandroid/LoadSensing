@@ -10,9 +10,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnTouchListener;
 
 import com.loadsensing.client.JsonClient;
 
@@ -73,13 +71,9 @@ public class VistaImatgeSensors extends View {
 				int coordx = Integer.parseInt(sensorJSON.getString("x"));
 				int coordy = Integer.parseInt(sensorJSON.getString("y"));
 				canvas.drawBitmap(myBitmap, coordx, coordy, null);
-				
 
 			}
-			
-			
 
-			
 		} catch (Exception e) {
 
 		}
