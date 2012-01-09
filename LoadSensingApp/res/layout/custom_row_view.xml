@@ -2,56 +2,97 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/backgroundrepeat"
     android:orientation="vertical"
-    android:paddingLeft="10sp" android:paddingTop="2sp" android:paddingRight="10sp">
-    <TextView
-        android:id="@+id/text1"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="2dp" >
+
+    <TableLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:textColor="#FFFF00"
-        android:textSize="16sp"
-        android:textStyle="bold" 
-        android:typeface="sans" />
+        android:orientation="horizontal" >
 
-    <TextView
-        android:id="@+id/text2"
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:textColor="#FFFFFF"
-        android:textSize="14sp"
-        android:textStyle="bold" 
-		android:typeface="sans" />
+        <TableRow >
 
-    <TextView
-        android:id="@+id/text3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:textSize="14sp"
-        android:typeface="sans" />
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFF00"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:typeface="sans" />
+
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFF00"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:typeface="sans" />
+        </TableRow>
+
+        <TableRow >
+
+            <TextView
+                android:id="@+id/label_sensors"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@+string/numero_sensors"
+                android:textColor="#000000"
+                android:textSize="14dp"
+                android:typeface="sans" />
+
+            <TextView
+                android:id="@+id/text3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textSize="14dp"
+                android:typeface="sans" />
+        </TableRow>
+
+        <TableRow >
+
+            <TextView
+                android:id="@+id/flecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=">"
+                android:textColor="#000000"
+                android:textSize="14dp"
+                android:typeface="sans" />
+        </TableRow>
+    </TableLayout>
 
     <TextView
         android:id="@+id/text4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
-        android:textSize="14sp"
-        android:typeface="sans" />
+        android:textSize="14dp"
+        android:typeface="sans"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/text5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
-        android:textSize="14sp"
-        android:typeface="sans"/>
+        android:textSize="14dp"
+        android:typeface="sans"
+        android:visibility="gone" />
 
-        <TextView
+    <TextView
         android:id="@+id/text6"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#000000"
-        android:textSize="14sp"
+        android:textSize="14dp"
         android:typeface="sans"
-        android:visibility="gone" />        
+        android:visibility="gone" />
+
 </LinearLayout>

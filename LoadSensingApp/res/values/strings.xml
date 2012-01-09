@@ -48,6 +48,9 @@
     <string name="description_feature3">Localització Sensors</string>
     <string name="description_feature4">Lectura QR-CODE</string>
 
+        <!-- Llista de xarxes -->
+     <string name="numero_sensors">Número de sensors: </string>
+        
     <!-- Single Sensor Layout -->
     <string name="graph">Mostrar gràfic</string>
     

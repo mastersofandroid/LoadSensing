@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:paddingLeft="10sp" android:paddingTop="2sp" android:paddingRight="10sp">
+>
     
     <LinearLayout style="@style/TitleBar">
         <ImageButton style="@style/TitleBarAction"
