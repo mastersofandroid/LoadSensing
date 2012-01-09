@@ -72,18 +72,17 @@ public class XarxaGMaps extends MapActivity {
 				JSONObject xarxaJSON = new JSONObject();
 				xarxaJSON = llistaXarxesArray.getJSONObject(i);
 
-				GeoPoint point = new GeoPoint(Integer.parseInt(xarxaJSON
-						.getString("Lat").replace(".", "")),
-						Integer.parseInt(xarxaJSON.getString("Lon").replace(
-								".", "")));
+				float lat = Float.parseFloat(xarxaJSON.getString("Lat"));
+				float lon = Float.parseFloat(xarxaJSON.getString("Lon"));
+				GeoPoint point = new GeoPoint((int)(lat * 1E6), (int)(lon * 1E6));
 
-				int lat = point.getLatitudeE6();
-				int lon = point.getLongitudeE6();
+				int latInt = point.getLatitudeE6();
+				int lonInt = point.getLongitudeE6();
 
-				maxLatitude = Math.max(lat, maxLatitude);
-				minLatitude = Math.min(lat, minLatitude);
-				maxLongitude = Math.max(lon, maxLongitude);
-				minLongitude = Math.min(lon, minLongitude);
+				maxLatitude = Math.max(latInt, maxLatitude);
+				minLatitude = Math.min(latInt, minLatitude);
+				maxLongitude = Math.max(lonInt, maxLongitude);
+				minLongitude = Math.min(lonInt, minLongitude);
 
 				OverlayItem overlayitem = new OverlayItem(point,
 						xarxaJSON.getString("Nom") + " - "
