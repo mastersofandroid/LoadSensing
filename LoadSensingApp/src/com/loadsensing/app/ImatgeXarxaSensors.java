@@ -21,6 +21,11 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.View.OnClickListener;
+import android.widget.AbsoluteLayout;
+import android.widget.Toast;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.loadsensing.client.JsonClient;
 
@@ -50,7 +55,7 @@ public class ImatgeXarxaSensors extends Activity {
 			overlay = BitmapFactory.decodeResource(getResources(), R.drawable.reddot).copy(Config.ARGB_8888, true);
 		}
 
-		@Override
+/*		@Override
 		public boolean onTouchEvent(MotionEvent ev) 
 		{
 			// Let the ScaleGestureDetector inspect all events.
@@ -73,14 +78,13 @@ public class ImatgeXarxaSensors extends Activity {
 					        //tada, if this is true, you've started your click inside your bitmap
 					    }
 					    break;
-					}
+					}*/
 
-				*/
-				}
+				
+	/*			}
 			}
 			return true;
-		}
-
+		}*/
 		@Override
 		public void onDraw(Canvas canvas) {
 			super.onDraw(canvas);
@@ -130,13 +134,12 @@ public class ImatgeXarxaSensors extends Activity {
 				conn.setDoInput(true);
 				conn.connect();
 				int length = conn.getContentLength();
-				int[] bitmapData =new int[length];
-				byte[] bitmapData2 =new byte[length];
+				
 				InputStream is = conn.getInputStream();	
 				bgr = BitmapFactory.decodeStream(is);
 				//bgr = Bitmap.createScaledBitmap(bgr,480,800,true);
 				//bgr = BitmapFactory.decodeResource(getResources(), R.drawable.sagradafamilia);
-				canvas.scale(480, 800);
+				//canvas.scale(480, 800);
 				canvas.drawBitmap(bgr, 0, 0, null);	
 				
 			}
@@ -161,8 +164,38 @@ public class ImatgeXarxaSensors extends Activity {
 					int coordx = Integer.parseInt(sensorJSON.getString("x"));
 					int coordy = Integer.parseInt(sensorJSON.getString("y"));
 					//overlay = Bitmap.createScaledBitmap(overlay,480,800,true);
-					canvas.drawBitmap(overlay, coordx, coordy, null);
+					//canvas.drawBitmap(overlay, coordx, coordy, null);
+					
+					Button b = new Button(this.getContext());
+			        AbsoluteLayout ll = new AbsoluteLayout(this.getContext());
+			        AbsoluteLayout.LayoutParams layoutParams = new AbsoluteLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT,coordx,coordy);
+			        //layoutParams.setMargins(coordx, coordy, 0, 0);
+			        
 
+			        ll.addView(b, layoutParams);
+
+			       //Measure and layout the linear layout before drawing it
+			        ll.measure(MeasureSpec.getSize(ll.getMeasuredWidth()), MeasureSpec.getSize(ll.getMeasuredHeight()));
+			        ll.layout(0, 0, MeasureSpec.getSize(b.getMeasuredWidth()), MeasureSpec.getSize(b.getMeasuredHeight()));
+			        //Finally draw the linear layout on the canvas
+			        ll.draw(canvas);
+			        b.setOnTouchListener(new OnTouchListener() {						
+						@Override
+						public boolean onTouch(View v, MotionEvent event) {
+							Toast.makeText(getContext(), "button clicked \n", Toast.LENGTH_LONG);
+							Log.i(DEB_TAG,"toquem boto");
+							return false;
+						}
+					});
+			        //create an onClick event for the button
+			        /*b.setOnClickListener(new OnClickListener() {
+			            @Override
+			            public void onClick(View v) {
+			                Toast.makeText(getContext(), "button clicked \n", Toast.LENGTH_LONG);
+			            } //end of public void
+
+			       });		*/		    
+					
 				}
 			} 
 			catch (Exception ex) 
