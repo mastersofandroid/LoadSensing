@@ -29,6 +29,7 @@
             android:src="@drawable/title_search" />
     </LinearLayout>
 
+
     <WebView
         android:id="@+id/chart"
         android:layout_width="fill_parent"

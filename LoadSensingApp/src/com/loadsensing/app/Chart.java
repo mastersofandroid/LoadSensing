@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.webkit.WebView;
 
 import com.loadsensing.client.JsonClient;
@@ -25,7 +26,9 @@ public class Chart extends DashboardActivity {
 		super.onCreate(savedInstanceState);
 		// WebView googleChartView = new WebView(this);
 		setContentView(R.layout.chart);
+
 		WebView googleChartView = (WebView) findViewById(R.id.chart);
+
 		// URL example
 		// String mUrl
 		// ="http://chart.apis.google.com/chart?cht=p3&chd=t:30,60,10&chs=250x100&chl=cars|bikes|trucks";
@@ -44,8 +47,6 @@ public class Chart extends DashboardActivity {
 			// Convertim la resposta string a un JSONArray
 			JSONArray ValorsGrafica = new JSONArray(jsonString);
 
-			HashMap<String, String> valorHashMap = new HashMap<String, String>();
-
 			// En esta llamada sólo hay 1 objeto
 			JSONObject Valors = new JSONObject();
 			Valors = ValorsGrafica.getJSONObject(0);
@@ -59,9 +60,11 @@ public class Chart extends DashboardActivity {
 				JSONObject Valor = new JSONObject();
 				Valor = ValorGrafica.getJSONObject(i);
 
+				HashMap<String, String> valorHashMap = new HashMap<String, String>();
 				valorHashMap.put("date", Valor.getString("date"));
 				valorHashMap.put("value", Valor.getString("value"));
 				valorsURL.add(valorHashMap);
+
 				Log.i(DEB_TAG, valorsURL.get(i).get("date"));
 			}
 
@@ -74,42 +77,85 @@ public class Chart extends DashboardActivity {
 
 		// Etiquetas eje X
 		mUrl = mUrl + "chxl=0:";
-		HashMap<String, String> a = null;
-		for (int i = 1; i < valorsURL.size(); i+=2) {
+		for (int i = 3; i < valorsURL.size(); i += 4) {
 			mUrl = mUrl + "|" + URLEncoder.encode(valorsURL.get(i).get("date"));
-			a = new HashMap<String, String>();
-			a = valorsURL.get(i);
-			Log.i(DEB_TAG, "URL Chart " + a.get("date"));
-			Log.i(DEB_TAG, "i: " + i);
+			Log.i(DEB_TAG, "Value 1 " + valorsURL.get(i).get("date"));
 		}
+
 		mUrl = mUrl + "|Fecha";
 
+		mUrl = mUrl + "|1:";
+		for (int i = 1; i < valorsURL.size(); i += 4) {
+			mUrl = mUrl + "|" + URLEncoder.encode(valorsURL.get(i).get("date"));
+			Log.i(DEB_TAG, "Value 0 " + valorsURL.get(i).get("date"));
+		}
+
 		// Posición etiquetas eje Y
-		mUrl = mUrl + "&chxp=0,10,30,50,70,90,110";
+		mUrl = mUrl + "&chxp=0,30,70,110|1,10,50,90";
 
 		// Rango x,y
-		mUrl = mUrl + "&chxr=0,-5,110|1,1,2";
+
+		// Coger valor mínimo y máximo
+		float max = new Float(valorsURL.get(0).get("value"));
+		float min = new Float(valorsURL.get(0).get("value"));
+		for (int i = 1; i < valorsURL.size(); i++) {
+			Float valueFloat = new Float(valorsURL.get(i).get("value"));
+			max = Math.max(max, valueFloat);
+			min = Math.min(min, valueFloat);
+		}
+		Log.i(DEB_TAG, "max " + max);
+		Log.i(DEB_TAG, "min " + min);
+		float minRounded = 0;
+		if (min % 1 >= 0.5) {
+			minRounded = min - 1;
+		} else {
+			minRounded = min;
+		}
+
+		Log.i(DEB_TAG, "minRounded " + minRounded);
+		mUrl = mUrl + "&chxr=0,-5,110|1,-5,110|2,"
+				+ (int) Math.round(minRounded) + "," + (int) Math.round(max);
+		// mUrl = mUrl + "&chxr=0,-5,110|1,1,2";
 
 		// Ejes visibles
-		mUrl = mUrl + "&chxt=x,y";
+		mUrl = mUrl + "&chxt=x,x,y";
 
 		// Tipo de gráfico
 		mUrl = mUrl + "&cht=lxy";
 
 		// Medida del gráfico
-		mUrl = mUrl + "&chs=440x200";
+		// mUrl = mUrl + "&chs=440x200";
+		Display display = getWindowManager().getDefaultDisplay();
+		int width = display.getWidth() - 170;
+		int height = display.getHeight() - 345;
+		Log.i(DEB_TAG, "width " + width);
+		Log.i(DEB_TAG, "height " + height);
+
+		mUrl = mUrl + "&chs=" + width + "x" + height;
 
 		// Colores
 		mUrl = mUrl + "&chco=3072F3";
 
 		// Escala
+		// mUrl = mUrl + "&chds=0,9," + min + "," + max;
 		mUrl = mUrl + "&chds=0,9,1.62,1.65";
 
 		// Valores
-		mUrl = mUrl
-				+ "&chd=t:0,1,2,3,4,5,6,7,8,9|1.631,1.63,1.636,1.631,1.64,1.64,1.636,1.63,1.632,1.633";
+		// mUrl = mUrl +
+		// "&chd=t:0,1,2,3,4,5,6,7,8,9|1.631,1.63,1.636,1.631,1.64,1.64,1.636,1.63,1.632,1.633";
 
-		// Leyenda
+		mUrl = mUrl + "&chd=t:0";
+		for (int i = 1; i < valorsURL.size(); i++) {
+			mUrl = mUrl + "," + i;
+		}
+		mUrl = mUrl + "|";
+		mUrl = mUrl + valorsURL.get(0).get("value");
+		for (int i = 1; i < valorsURL.size(); i++) {
+			mUrl = mUrl + "," + valorsURL.get(i).get("value");
+			Log.i(DEB_TAG, "value " + valorsURL.get(i).get("value"));
+		}
+
+		// Título eyenda
 		mUrl = mUrl + "&chdl=Sensor+strain+(V)&chdlp=b";
 
 		// Estilo de lineas
@@ -124,5 +170,7 @@ public class Chart extends DashboardActivity {
 		Log.i(DEB_TAG, "URL Chart " + mUrl);
 
 		googleChartView.loadUrl(mUrl);
+		Log.i(DEB_TAG, "width " + googleChartView.getWidth());
 	}
+
 }
