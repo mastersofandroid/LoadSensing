@@ -1,5 +1,6 @@
 package com.loadsensing.app;
 
+import java.math.BigDecimal;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -111,16 +112,15 @@ public class Chart extends DashboardActivity {
 		}
 		Log.i(DEB_TAG, "max " + max);
 		Log.i(DEB_TAG, "min " + min);
-		float minRounded = 0;
-		if (min % 1 >= 0.5) {
-			minRounded = min - 1;
-		} else {
-			minRounded = min;
-		}
-
+		BigDecimal maxRounded = new BigDecimal(max);
+		maxRounded = maxRounded.setScale(1, BigDecimal.ROUND_CEILING);
+		BigDecimal minRounded = new BigDecimal(min);
+		minRounded = minRounded.setScale(1, BigDecimal.ROUND_FLOOR);
+		Log.i(DEB_TAG, "maxRounded " + maxRounded);
 		Log.i(DEB_TAG, "minRounded " + minRounded);
-		mUrl = mUrl + "&chxr=0,-5,110|1,-5,110|2,"
-				+ (int) Math.round(minRounded) + "," + (int) Math.round(max);
+
+		mUrl = mUrl + "&chxr=0,-5,110|1,-5,110|2," + minRounded + ","
+				+ maxRounded;
 		// mUrl = mUrl + "&chxr=0,-5,110|1,1,2";
 
 		// Ejes visibles
@@ -143,11 +143,8 @@ public class Chart extends DashboardActivity {
 		mUrl = mUrl + "&chco=3072F3";
 
 		// Escala
-		Log.i(DEB_TAG, "max " + max);
-		Log.i(DEB_TAG, "min " + min);
-		mUrl = mUrl + "&chds=0,9," + (int) Math.round(minRounded) + ","
-				+ (int) Math.round(max);
-		// mUrl = mUrl + "&chds=0,9,1.6,1.7";
+		// mUrl = mUrl + "&chds=a";
+		mUrl = mUrl + "&chds=0,9," + minRounded + "," + maxRounded;
 
 		// Valores
 		// mUrl = mUrl +
