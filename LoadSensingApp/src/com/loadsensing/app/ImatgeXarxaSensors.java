@@ -1,5 +1,9 @@
 package com.loadsensing.app;
 
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -23,6 +27,8 @@ public class ImatgeXarxaSensors extends Activity {
 
 	private static final String DEB_TAG = "Json_Android";
 	private String SERVER_HOST = "http://viuterrassa.com/Android/getLlistaSensorsImatges.php";
+	private String SERVER_HOST_IMAGE = "http://viuterrassa.com/Android/getLlistaImatges.php";
+	private String PATH_IMAGE = "http://viuterrassa.com/Android/Imatges/";
 	private SharedPreferences settings;
 
 	@Override
@@ -32,41 +38,46 @@ public class ImatgeXarxaSensors extends Activity {
 
 	}
 
-	class TouchView extends View {
+	class TouchView extends View  {
 		Bitmap bgr;
-		Bitmap overlayDefault;
 		Bitmap overlay;
-		Paint pTouch;
-		int X = -100;
-		int Y = -100;
-		Canvas c2;
 
 		public TouchView(Context context) {
 			super(context);
 
-			bgr = BitmapFactory.decodeResource(getResources(),
-					R.drawable.sagradafamilia);
-			overlayDefault = BitmapFactory.decodeResource(getResources(),
-					R.drawable.reddot);
-			overlay = BitmapFactory.decodeResource(getResources(),
-					R.drawable.reddot).copy(Config.ARGB_8888, true);
+			// COGER DE URL
+			
+			overlay = BitmapFactory.decodeResource(getResources(), R.drawable.reddot).copy(Config.ARGB_8888, true);
 		}
 
 		@Override
-		public boolean onTouchEvent(MotionEvent ev) {
+		public boolean onTouchEvent(MotionEvent ev) 
+		{
 			// Let the ScaleGestureDetector inspect all events.
 			final int action = ev.getAction();
-			switch (action & MotionEvent.ACTION_MASK) {
-			case MotionEvent.ACTION_DOWN: {
-				Intent intent = new Intent();
-				intent.setClass(getApplicationContext(),
-						SingleSensorActivity.class);
-				intent.putExtra("idsensorselected", "002");
-				startActivity(intent);
-				break;
-			}
-			}
+			float x = ev.getX();  // or getRawX();
+			float y = ev.getY();
+			
+			switch (action & MotionEvent.ACTION_MASK) 
+			{
+				case MotionEvent.ACTION_DOWN: {
+					Intent intent = new Intent();
+					intent.setClass(getApplicationContext(),
+							SingleSensorActivity.class);
+					intent.putExtra("idsensorselected", "002");
+					startActivity(intent);
+					break;
 
+					 /*   if (x >= overlay.getwi && x < (xOfYourBitmap + yourBitmap.getWidth())
+					            && y >= yOfYourBitmap && y < (yOfYourBitmap + yourBitmap.getHeight())) {
+					        //tada, if this is true, you've started your click inside your bitmap
+					    }
+					    break;
+					}
+
+				*/
+				}
+			}
 			return true;
 		}
 
@@ -74,24 +85,68 @@ public class ImatgeXarxaSensors extends Activity {
 		public void onDraw(Canvas canvas) {
 			super.onDraw(canvas);
 
-			// draw background
-			canvas.drawBitmap(bgr, 0, 0, null);
-			// copy the default overlay into temporary overlay and punch a hole
-			// in it
-			// c2.drawBitmap(overlayDefault, 0, 0, null); //exclude this line to
-			// show all as you draw
-
+			
 			// TODO Auto-generated method stub
-			SharedPreferences settings = this.getContext()
-					.getSharedPreferences("LoadSensingApp",
-							Context.MODE_PRIVATE);
-			// String address = SERVER_HOST +
-			// "?IdImatge=000&session=1326063600";
-			String address = SERVER_HOST + "?IdImatge=000&session="
-					+ settings.getString("session", "");
-			Log.i(DEB_TAG, "Requesting to " + address);
+			SharedPreferences settings = this.getContext().getSharedPreferences("LoadSensingApp", Context.MODE_PRIVATE);
+			
+			// Obtenim la imatge a partir del webservice
+			/*Bundle extras = null;
+			if (savedInstanceState == null) {
+				extras = getIntent().getExtras();
+				if (extras == null) {
+					XarxaSelected = null;
+				} else {
+					XarxaSelected = extras.getString("idxarxaselected");
+					Log.i(DEB_TAG, "Xarxa que hem triat anteriorment: "
+							+ XarxaSelected);
+				}
+			}*/
+			String idImg = "";
+			String pathImg = "";
+			
+			try
+			{
+			String IdXarxaParam = "002";
+			String addressImg = SERVER_HOST_IMAGE + "?IdXarxa="+IdXarxaParam+"&session=" + settings.getString("session", "");
+			String jsonStringImg = JsonClient.connectString(addressImg);
+			// Convertim la resposta string a un JSONArray
+			JSONArray imatgeArray = new JSONArray(jsonStringImg);
+			JSONObject imatgeJson = new JSONObject();
+			imatgeJson = imatgeArray.getJSONObject(0);
+			
+			// Capturem l'IdImatge per cridar al següent WebService que ens tornarà les posicions dels sensors en la imatge
+			// i capturem la key imatge per obtenir el nom que concatenat a la ruta de la imatge en el servidor, ens permetrà
+			// descarregar-la
+			
+			pathImg = PATH_IMAGE + imatgeJson.getString("imatge");
+			idImg = imatgeJson.getString("IdImatge");
+			
+			// draw background
+			URL imatgeURL =null;
 
-			try {
+				imatgeURL= new URL(pathImg);
+
+				HttpURLConnection conn= (HttpURLConnection)imatgeURL.openConnection();
+				conn.setDoInput(true);
+				conn.connect();
+				int length = conn.getContentLength();
+				int[] bitmapData =new int[length];
+				byte[] bitmapData2 =new byte[length];
+				InputStream is = conn.getInputStream();	
+				bgr = BitmapFactory.decodeStream(is);				
+	
+				//bgr = BitmapFactory.decodeResource(getResources(), R.drawable.sagradafamilia);
+				canvas.drawBitmap(bgr, 0, 0, null);				
+			}
+			catch (Exception ex)
+			{
+				
+			}			
+			
+			try 
+			{
+				String address = SERVER_HOST + "?IdImatge="+idImg+"&session=" + settings.getString("session", "");			
+				Log.i(DEB_TAG, "Requesting to " + address);
 				String jsonString = JsonClient.connectString(address);
 
 				// Convertim la resposta string a un JSONArray
@@ -104,9 +159,10 @@ public class ImatgeXarxaSensors extends Activity {
 					int coordx = Integer.parseInt(sensorJSON.getString("x"));
 					int coordy = Integer.parseInt(sensorJSON.getString("y"));
 					canvas.drawBitmap(overlay, coordx, coordy, null);
-
 				}
-			} catch (Exception ex) {
+			} 
+			catch (Exception ex) 
+			{
 
 			}
 		}
