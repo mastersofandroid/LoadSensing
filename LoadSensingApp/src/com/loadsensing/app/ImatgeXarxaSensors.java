@@ -20,6 +20,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 
 import com.loadsensing.client.JsonClient;
 
@@ -35,7 +36,6 @@ public class ImatgeXarxaSensors extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(new TouchView(this));
-
 	}
 
 	class TouchView extends View  {
@@ -133,10 +133,12 @@ public class ImatgeXarxaSensors extends Activity {
 				int[] bitmapData =new int[length];
 				byte[] bitmapData2 =new byte[length];
 				InputStream is = conn.getInputStream();	
-				bgr = BitmapFactory.decodeStream(is);				
-	
+				bgr = BitmapFactory.decodeStream(is);
+				//bgr = Bitmap.createScaledBitmap(bgr,480,800,true);
 				//bgr = BitmapFactory.decodeResource(getResources(), R.drawable.sagradafamilia);
-				canvas.drawBitmap(bgr, 0, 0, null);				
+				canvas.scale(480, 800);
+				canvas.drawBitmap(bgr, 0, 0, null);	
+				
 			}
 			catch (Exception ex)
 			{
@@ -158,7 +160,9 @@ public class ImatgeXarxaSensors extends Activity {
 					sensorJSON = llistaSensorsArray.getJSONObject(i);
 					int coordx = Integer.parseInt(sensorJSON.getString("x"));
 					int coordy = Integer.parseInt(sensorJSON.getString("y"));
+					//overlay = Bitmap.createScaledBitmap(overlay,480,800,true);
 					canvas.drawBitmap(overlay, coordx, coordy, null);
+
 				}
 			} 
 			catch (Exception ex) 
