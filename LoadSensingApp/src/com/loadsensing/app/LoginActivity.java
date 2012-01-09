@@ -149,7 +149,6 @@ public class LoginActivity extends DashboardActivity implements OnClickListener 
 		} else {
 			try {
 				showBusyCursor(true);
-
 				progress = ProgressDialog.show(this,
 						getResources()
 								.getString(R.string.pantalla_espera_title),
@@ -162,8 +161,6 @@ public class LoginActivity extends DashboardActivity implements OnClickListener 
 
 				JSONObject json = JsonClient.connectJSONObject(address);
 
-				progress.dismiss();
-
 				CheckBox rememberUserPassword = (CheckBox) findViewById(R.id.remember_user_password);
 				if (rememberUserPassword.isChecked()) {
 					setSharedPreference("login", sUserName);
@@ -173,15 +170,10 @@ public class LoginActivity extends DashboardActivity implements OnClickListener 
 					setSharedPreference("password", "");
 				}
 
-				// HashMap<String, String> map = new HashMap<String, String>();
-
-				// map.put("id", String.valueOf(i));
-				// map.put("login", json.getString("login"));
-				// map.put("session", json.getString("session"));
-
-				Log.i(DEB_TAG, json.getString("session"));
+				Log.i(DEB_TAG, "Session: " + json.getString("session"));
 
 				if (json.getString("session") != "0") {
+					progress.dismiss();
 					// Guardamos la session en SharedPreferences para utilizarla
 					// posteriormente
 					setSharedPreference("session", json.getString("session"));
@@ -192,6 +184,7 @@ public class LoginActivity extends DashboardActivity implements OnClickListener 
 					startActivity(intent);
 
 				} else {
+					progress.dismiss();
 					alertDialog.setTitle(getResources().getString(
 							R.string.error));
 					alertDialog.setMessage(getResources().getString(
@@ -207,6 +200,7 @@ public class LoginActivity extends DashboardActivity implements OnClickListener 
 				}
 
 			} catch (JSONException e) {
+				progress.dismiss();
 				Log.i(DEB_TAG, "Error parsing data " + e.toString());
 			}
 

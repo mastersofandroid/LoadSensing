@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Display;
 import android.webkit.WebView;
+import android.widget.RadioGroup;
 
 import com.loadsensing.client.JsonClient;
 
@@ -26,17 +27,28 @@ public class Chart extends DashboardActivity {
 		super.onCreate(savedInstanceState);
 		// WebView googleChartView = new WebView(this);
 		setContentView(R.layout.chart);
+		final WebView googleChartView = (WebView) findViewById(R.id.chart);
 
-		WebView googleChartView = (WebView) findViewById(R.id.chart);
+		RadioGroup rg = (RadioGroup) findViewById(R.id.tipochart);
+		rg.clearCheck();
+		rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+			public void onCheckedChanged(RadioGroup group, int checkedId) {
+				Log.i(DEB_TAG, "checkedId " + checkedId);
+				generaChart(googleChartView, checkedId);
+			}
+		});
 
 		// URL example
 		// String mUrl
 		// ="http://chart.apis.google.com/chart?cht=p3&chd=t:30,60,10&chs=250x100&chl=cars|bikes|trucks";
+	}
 
+	private void generaChart(WebView googleChartView, int checkedId) {
 		SharedPreferences settings = getSharedPreferences("LoadSensingApp",
 				Context.MODE_PRIVATE);
 		String address = SERVER_HOST + "?session="
-				+ settings.getString("session", "") + "&id=2&TipusGrafic=0";
+				+ settings.getString("session", "") + "&id=" + checkedId
+				+ "&TipusGrafic=0";
 		Log.i(DEB_TAG, "Requesting to " + address);
 
 		ArrayList<HashMap<String, String>> valorsURL = new ArrayList<HashMap<String, String>>();
@@ -64,8 +76,6 @@ public class Chart extends DashboardActivity {
 				valorHashMap.put("date", Valor.getString("date"));
 				valorHashMap.put("value", Valor.getString("value"));
 				valorsURL.add(valorHashMap);
-
-				Log.i(DEB_TAG, valorsURL.get(i).get("date"));
 			}
 
 		} catch (Exception e) {
@@ -75,19 +85,15 @@ public class Chart extends DashboardActivity {
 		// Montamos URL
 		String mUrl = CHART_URL;
 
-		// Etiquetas eje X
+		// Etiquetas eje X, columna 0 y 1
 		mUrl = mUrl + "chxl=0:";
 		for (int i = 3; i < valorsURL.size(); i += 4) {
 			mUrl = mUrl + "|" + URLEncoder.encode(valorsURL.get(i).get("date"));
-			Log.i(DEB_TAG, "Value 1 " + valorsURL.get(i).get("date"));
 		}
-
 		mUrl = mUrl + "|Fecha";
-
 		mUrl = mUrl + "|1:";
 		for (int i = 1; i < valorsURL.size(); i += 4) {
 			mUrl = mUrl + "|" + URLEncoder.encode(valorsURL.get(i).get("date"));
-			Log.i(DEB_TAG, "Value 0 " + valorsURL.get(i).get("date"));
 		}
 
 		// Posición etiquetas eje Y
@@ -127,7 +133,7 @@ public class Chart extends DashboardActivity {
 		// mUrl = mUrl + "&chs=440x200";
 		Display display = getWindowManager().getDefaultDisplay();
 		int width = display.getWidth() - 170;
-		int height = display.getHeight() - 345;
+		int height = display.getHeight() - 400;
 		Log.i(DEB_TAG, "width " + width);
 		Log.i(DEB_TAG, "height " + height);
 
@@ -137,13 +143,15 @@ public class Chart extends DashboardActivity {
 		mUrl = mUrl + "&chco=3072F3";
 
 		// Escala
-		// mUrl = mUrl + "&chds=0,9," + min + "," + max;
-		mUrl = mUrl + "&chds=0,9,1.62,1.65";
+		Log.i(DEB_TAG, "max " + max);
+		Log.i(DEB_TAG, "min " + min);
+		mUrl = mUrl + "&chds=0,9," + (int) Math.round(minRounded) + ","
+				+ (int) Math.round(max);
+		// mUrl = mUrl + "&chds=0,9,1.6,1.7";
 
 		// Valores
 		// mUrl = mUrl +
 		// "&chd=t:0,1,2,3,4,5,6,7,8,9|1.631,1.63,1.636,1.631,1.64,1.64,1.636,1.63,1.632,1.633";
-
 		mUrl = mUrl + "&chd=t:0";
 		for (int i = 1; i < valorsURL.size(); i++) {
 			mUrl = mUrl + "," + i;
@@ -156,7 +164,17 @@ public class Chart extends DashboardActivity {
 		}
 
 		// Título eyenda
-		mUrl = mUrl + "&chdl=Sensor+strain+(V)&chdlp=b";
+		switch (checkedId) {
+		case R.id.radio1:
+			mUrl = mUrl + "&chdl=Sensor+strain+(V)&chdlp=b";
+			break;
+		case R.id.radio2:
+			mUrl = mUrl + "&chdl=Excitation+power+(V)&chdlp=b";
+			break;
+		case R.id.radio3:
+			mUrl = mUrl + "&chdl=Counter+(cnts)&chdlp=b";
+			break;
+		}
 
 		// Estilo de lineas
 		mUrl = mUrl + "&chls=2";
@@ -170,7 +188,6 @@ public class Chart extends DashboardActivity {
 		Log.i(DEB_TAG, "URL Chart " + mUrl);
 
 		googleChartView.loadUrl(mUrl);
-		Log.i(DEB_TAG, "width " + googleChartView.getWidth());
 	}
 
 }
