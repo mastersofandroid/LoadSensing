@@ -51,9 +51,9 @@ public class SensorsActivity extends ListActivity {
 
 		SimpleAdapter adapter = new SimpleAdapter(this, list,
 				R.layout.sensor_row_list_view, new String[] { "id", "sensor",
-						"tipus", "descripcio", "poblacio" }, new int[] {
+						"tipus", "descripcio", "poblacio", "canal" }, new int[] {
 						R.id.text1, R.id.text2, R.id.text3, R.id.text4,
-						R.id.text5 });
+						R.id.text5, R.id.text6 });
 
 		SharedPreferences settings = getSharedPreferences("LoadSensingApp",
 				Context.MODE_PRIVATE);
