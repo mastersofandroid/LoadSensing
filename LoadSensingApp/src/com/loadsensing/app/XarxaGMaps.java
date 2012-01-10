@@ -74,7 +74,8 @@ public class XarxaGMaps extends MapActivity {
 
 				float lat = Float.parseFloat(xarxaJSON.getString("Lat"));
 				float lon = Float.parseFloat(xarxaJSON.getString("Lon"));
-				GeoPoint point = new GeoPoint((int)(lat * 1E6), (int)(lon * 1E6));
+				GeoPoint point = new GeoPoint((int) (lat * 1E6),
+						(int) (lon * 1E6));
 
 				int latInt = point.getLatitudeE6();
 				int lonInt = point.getLongitudeE6();

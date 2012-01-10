@@ -1,65 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/db1_root"
-    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/background">
-    <LinearLayout style="@style/TitleBar">
-        <ImageView style="@style/TitleBarSeparator" />
-        <TextView style="@style/TitleBarText" 
-        	android:text="@string/app_name" />
-        <ImageButton style="@style/TitleBarAction"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
+
+    <LinearLayout style="@style/TitleBar" >
+
+        <ImageView
+            style="@style/TitleBarText"
+            android:src="@drawable/logo" />
+
+        <ImageButton
+            style="@style/TitleBarAction"
             android:contentDescription="@string/description_about"
-            android:src="@drawable/title_about"
-            android:onClick="onClickAbout" />
-        <ImageButton style="@style/TitleBarAction"
+            android:onClick="onClickAbout"
+            android:src="@drawable/title_about" />
+
+        <ImageButton
+            style="@style/TitleBarAction"
             android:contentDescription="@string/description_search"
-            android:src="@drawable/title_search"
-            android:onClick="onClickSearch" />
-	</LinearLayout>
-<LinearLayout
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
->
-    
-            
-        <Button android:id="@+id/llistatxarxes"
-            style="@style/HomeButton"
+            android:onClick="onClickSearch"
+            android:src="@drawable/title_search" />
+    </LinearLayout>
+
+    <LinearLayout
+       android:background="#ff000000"
+       android:layout_width="fill_parent"
+       android:layout_height="1dp" 
+       android:layout_marginTop="2dp"
+       android:layout_marginBottom="2dp"
+        ></LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_margin="10dp" >
+
+        <Button
+            android:id="@+id/llistatxarxes"
+            android:drawableTop="@drawable/btnllistatxarxes"
             android:onClick="onClickFeature"
-            android:text="@string/title_feature1"
-            android:drawableTop="@drawable/btnllistatxarxes" 
-/>
-        
-        <ImageView 
-            android:id="@+id/separator"
-            android:src="@drawable/separator"
+            android:text="@string/title_feature1" 
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"/>
-        
-        <Button android:id="@+id/localitzacioxarxes"
+            android:layout_gravity="center_vertical"
+            android:background="@null"
+            android:layout_marginTop="5dp"
+            />
+
+        <ImageView
+            android:id="@+id/separator"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/separator" 
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"/>
+
+        <Button
+            android:id="@+id/localitzacioxarxes"
             style="@style/HomeButton"
+            android:drawableTop="@drawable/btnlocalitzacioxarxes"
             android:onClick="onClickFeature"
             android:text="@string/title_feature2"
-            android:drawableTop="@drawable/btnlocalitzacioxarxes" />
-    
-        <Button android:id="@+id/localitzaciosensors"
-            style="@style/HomeButton"
-            android:onClick="onClickFeature"
-            android:text="@string/title_feature3"
-            android:drawableTop="@drawable/btnlocalitzaciosensors" />
+             />
         
-        <Button android:id="@+id/qrcode"
+        <ImageView
+            android:id="@+id/separator"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/separator" 
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"/>        
+
+        <Button
+            android:id="@+id/localitzaciosensors"
             style="@style/HomeButton"
+            android:drawableTop="@drawable/btnlocalitzaciosensors"
             android:onClick="onClickFeature"
-            android:text="@string/title_feature4"
-            android:drawableTop="@drawable/btnqrcode" />
+            android:text="@string/title_feature3" />
+        
+        <ImageView
+            android:id="@+id/separator"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/separator" 
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"/>       
 
-
-</LinearLayout>
+        <Button
+            android:id="@+id/qrcode"
+            style="@style/HomeButton"
+            android:drawableTop="@drawable/btnqrcode"
+            android:onClick="onClickFeature"
+            android:text="@string/title_feature4" />
+    </LinearLayout>
 
 </LinearLayout>
