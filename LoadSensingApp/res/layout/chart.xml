@@ -11,11 +11,12 @@
             android:contentDescription="@string/description_home"
             android:onClick="onClickHome"
             android:src="@drawable/title_home" />
-
+        
+        <ImageView style="@style/TitleBarSeparator" />
+        
         <TextView style="@style/TitleBarText" 
-            android:text="@+string/grafic" />
+            android:text="@+string/title_grafic" />
 
-        <TextView style="@style/TitleBarText" />
         <ImageButton style="@style/TitleBarAction"
             android:contentDescription="@string/description_back"
             android:src="@drawable/atras"

@@ -1,5 +1,7 @@
 package com.loadsensing.app;
 
+import java.util.Locale;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -9,6 +11,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -27,8 +30,6 @@ public class LoginActivity extends DashboardActivity implements OnClickListener 
 	private static final String DEB_TAG = "LoadSensingApp_LOG";
 
 	private String SERVER_HOST = "http://viuterrassa.com/Android/login.php";
-
-	/* public static final String PREFS_NAME = "HelloAndroidPREFS"; */
 
 	private ProgressDialog progress;
 
@@ -64,6 +65,12 @@ public class LoginActivity extends DashboardActivity implements OnClickListener 
 			editText.setText(getSharedPreference("password"));
 		}
 
+		Button cambioIdiomaES = (Button) findViewById(R.id.idioma_es);
+		cambioIdiomaES.setOnClickListener(listenerCambioIdiomaES);
+		
+		Button cambioIdiomaEN = (Button) findViewById(R.id.idioma_en);
+		cambioIdiomaEN.setOnClickListener(listenerCambioIdiomaEN);
+		
 		// Delete session
 		setSharedPreference("session", "");
 

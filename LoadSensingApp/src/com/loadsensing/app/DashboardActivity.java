@@ -17,14 +17,20 @@
 package com.loadsensing.app;
 
 import java.util.List;
+import java.util.Locale;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -39,6 +45,8 @@ import android.widget.Toast;
 
 public class DashboardActivity extends Activity {
 
+	private static final String DEB_TAG = "LoadSensingApp_LOG";
+	
 	/**
 	 * onCreate - called when the activity is first created.
 	 * 
@@ -237,6 +245,37 @@ public class DashboardActivity extends Activity {
 		context.startActivity(intent);
 	}
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+	    MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.menu, menu);
+	    return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle item selection
+	    switch (item.getItemId()) {
+	    case R.id.about:
+	    	startActivity(new Intent(getApplicationContext(),
+					AboutActivity.class));
+	        return true;
+	        
+	    case R.id.logout:
+			SharedPreferences settings = getSharedPreferences("LoadSensingApp",
+					Context.MODE_PRIVATE);
+			SharedPreferences.Editor editor = settings.edit();
+			editor.putString("session", "");
+			editor.commit();
+			Log.d(DEB_TAG, "SharedPreferences. Session restarted.");
+			startActivity(new Intent(getApplicationContext(),
+					LoginActivity.class));
+			this.finish();
+	        return true;
+	    default:
+	        return super.onOptionsItemSelected(item);
+	    }
+	}
 	/**
 	 * Show a string on the screen via Toast.
 	 * 
@@ -257,4 +296,29 @@ public class DashboardActivity extends Activity {
 		toast(msg);
 	}
 
+	View.OnClickListener listenerCambioIdiomaES = new View.OnClickListener() {
+		public void onClick(View v) {
+			Locale locale = new Locale("es");
+			Locale.setDefault(locale);
+			Configuration config = new Configuration();
+			config.locale = locale;
+			getBaseContext().getResources().updateConfiguration(config,
+					getBaseContext().getResources().getDisplayMetrics());
+			startActivity(getIntent()); 
+			finish();
+		}
+	};
+	
+	View.OnClickListener listenerCambioIdiomaEN = new View.OnClickListener() {
+		public void onClick(View v) {
+			Locale locale = new Locale("en");
+			Locale.setDefault(locale);
+			Configuration config = new Configuration();
+			config.locale = locale;
+			getBaseContext().getResources().updateConfiguration(config,
+					getBaseContext().getResources().getDisplayMetrics());
+			startActivity(getIntent()); 
+			finish();
+		}
+	};	
 } // end class

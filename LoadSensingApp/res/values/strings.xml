@@ -2,8 +2,7 @@
 <resources>
 
     <string name="description_logo">LoadSensing</string>
-    <string name="about_intro">Aquesta aplicació captura informació de xarxes de sensors sense fils.</string>
-    <string name="search_intro">Pàgina de cerca</string>
+    <string name="search_intro">Pagina de búsqueda</string>
 
     <!-- GLOBALES -->
     <string name="app_name">LoadSensingApp</string>
@@ -12,59 +11,70 @@
     <string name="guion">" - "</string>
 
     <!-- LOGIN layout -->
-    <string name="iniciando_sesion">Iniciando sesión</string>
-    <string name="error_login">Nombre de usuario o contraseña incorrecto.</string>
-    <string name="error_no_internet">No hay ninguna conexión activa.</string>
-    <string name="username">Nombre de usuario</string>
+    <string name="iniciando_sesion">Iniciando sessión</string>
+    <string name="error_login">"Nombre de usuario o contraseña incorrectos."</string>
+    <string name="error_no_internet">"No hay ninguna conexión activa."</string>
+    <string name="username">"Nombre de usuario"</string>
     <string name="username_hint">Usuario</string>
     <string name="password">Contraseña</string>
+    <string name="remember_user_password">"Recordar usuario y contraseña"</string>
+    <string name="idioma_es">Español</string>
+    <string name="idioma_en">Inglés</string>
+        <string name="login">Iniciar sesión</string>
 
     <!-- HOME layout -->
-    <string name="title_about">Sobre</string>
+    <string name="title_about">Acerca de</string>
     <string name="title_home">Home</string>
-    <string name="title_search">Cercar</string>
-    <string name="title_feature1">Llistat de Xarxes</string>
-    <string name="title_feature2">Localització de Xarxes</string>
-    <string name="title_feature3">Localització de Sensors</string>
+    <string name="title_search">Buscar</string>
+    <string name="title_feature1">Listado de Redes</string>
+    <string name="title_feature2">Localización de Redes</string>
+    <string name="title_feature3">Localización de sensores</string>
     <string name="title_feature4">Lectura QR-CODE</string>
-    <string name="title_feature5">Llistat de Sensors</string>
-    <string name="title_feature6">Informació de Sensor</string>
-    <string name="title_grafic">Gràfic</string>
-    <string name="description_about">About</string>
+    <string name="title_feature5">Listado de Sensores</string>
+    <string name="title_feature6">Información de Sensor</string>
+    <string name="title_grafic">Grofico</string>
+    <string name="description_about">Acerca de</string>
     <string name="description_home">Home</string>
-    <string name="description_back">Enrerra</string>
-    <string name="description_search">Cercar</string>
-    <string name="description_feature1">Llistat de Xarxes</string>
-    <string name="description_feature2">Localització de Xarxes</string>
-    <string name="description_feature3">Localització de Sensors</string>
+    <string name="description_back">Atrás</string>
+    <string name="description_search">Buscar</string>
+    <string name="description_feature1">Listado de Redes</string>
+    <string name="description_feature2">Localización de Redes</string>
+    <string name="description_feature3">Localización de sensores</string>
     <string name="description_feature4">Lectura QR-CODE</string>
 
     <!-- Llista de xarxes -->
-    <string name="numero_sensors">"Número de sensors: "</string>
+    <string name="numero_sensors">"Número de sensores: "</string>
 
     <!-- Llista de xarxes -->
-    <string name="tipus_sensor">"Tipus de sensor: "</string>
-    <string name="descripcio">"Descripció: "</string>
-    <string name="poblacio">"Població: "</string>
+    <string name="tipus_sensor">"Tipo de sensor: "</string>
+    <string name="descripcio">"Descripción: "</string>
+    <string name="poblacio">"Población: "</string>
 
     <!-- Single Sensor Layout -->
     <string name="sensor">"Sensor: "</string>
-    <string name="nombre_sensor">"Nom sensor: "</string>
-    <string name="num_serie">"Núm. serie: "</string>
-    <string name="ultima_mesura">"Última mesura: "</string>
-    <string name="unitat_mesura">"Unitat de mesura: "</string>
-    <string name="max_load">"Valor màxim: "</string>
-    <string name="max_load_unit">"Unitat valor màxim: "</string>
-    <string name="sensibilitat">"Sensibilitat: "</string>
-    <string name="unitat_sensibilitat">"Unitat de sensibilitat: "</string>
+    <string name="nombre_sensor">"Nombre sensor: "</string>
+    <string name="num_serie">"Núm. série: "</string>
+    <string name="ultima_mesura">"Última medida: "</string>
+    <string name="unitat_mesura">"Unidad de medida: "</string>
+    <string name="max_load">"Valor máximo: "</string>
+    <string name="max_load_unit">"Unidad valor máximo: "</string>
+    <string name="sensibilitat">"Sensibilidad: "</string>
+    <string name="unitat_sensibilitat">"Unidad de sensibilidad: "</string>
     <string name="offset">"Offset: "</string>
-    <string name="unitat_offset">"Unitat d'offset: "</string>
+    <string name="unitat_offset">"Unidad de offset: "</string>
     <string name="alarm_at">"Alarma a: "</string>
-    <string name="unitat_alarma">"Unitat d'alarma: "</string>
-    <string name="data_ultima_mida">"Data última mida: "</string>
+    <string name="unitat_alarma">"Unidad de alarma: "</string>
+    <string name="data_ultima_mida">"Fecha última medida: "</string>
     <string name="canal">"Canal: "</string>
-    <string name="tipus">"Tipus: "</string>
-    <string name="nom">"Nom: "</string>
-    <string name="graph">Mostrar gràfic</string>
+    <string name="tipus">"Tipo: "</string>
+    <string name="nom">"Nombre: "</string>
+    <string name="graph">Mostrar gráfico</string>
+
+    <!-- ABOUT -->
+    <string name="about_intro">"Aquesta aplicació captura informació de xarxes de sensors sense fils. Esta creada per David Garcia i Jose Antonio Gómez."</string>
+
+    <!-- MENU -->
+    <string name="about">Sobre</string>
+    <string name="logout">Desconnectar</string>
 
 </resources>

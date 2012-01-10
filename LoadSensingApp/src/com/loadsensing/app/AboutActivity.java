@@ -26,8 +26,7 @@ public class AboutActivity extends HomeActivity {
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
-		setContentView(R.layout.home);
+		setContentView(R.layout.about);
 		// setTitleFromActivityLabel (R.id.title_text);
 	}
 
