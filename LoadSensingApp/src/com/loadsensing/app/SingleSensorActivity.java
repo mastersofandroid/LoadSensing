@@ -109,7 +109,7 @@ public class SingleSensorActivity extends DashboardActivity {
 		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		context.startActivity(intent);
 	}
-	
+
 	public void graph(View v) {
 		Intent intent = new Intent();
 		intent.setClass(this.getApplicationContext(), Chart.class);

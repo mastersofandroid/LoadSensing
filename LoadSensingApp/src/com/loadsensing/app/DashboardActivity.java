@@ -46,7 +46,7 @@ import android.widget.Toast;
 public class DashboardActivity extends Activity {
 
 	private static final String DEB_TAG = "LoadSensingApp_LOG";
-	
+
 	/**
 	 * onCreate - called when the activity is first created.
 	 * 
@@ -247,21 +247,21 @@ public class DashboardActivity extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-	    MenuInflater inflater = getMenuInflater();
-	    inflater.inflate(R.menu.menu, menu);
-	    return true;
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.menu, menu);
+		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-	    // Handle item selection
-	    switch (item.getItemId()) {
-	    case R.id.about:
-	    	startActivity(new Intent(getApplicationContext(),
+		// Handle item selection
+		switch (item.getItemId()) {
+		case R.id.about:
+			startActivity(new Intent(getApplicationContext(),
 					AboutActivity.class));
-	        return true;
-	        
-	    case R.id.logout:
+			return true;
+
+		case R.id.logout:
 			SharedPreferences settings = getSharedPreferences("LoadSensingApp",
 					Context.MODE_PRIVATE);
 			SharedPreferences.Editor editor = settings.edit();
@@ -271,11 +271,12 @@ public class DashboardActivity extends Activity {
 			startActivity(new Intent(getApplicationContext(),
 					LoginActivity.class));
 			this.finish();
-	        return true;
-	    default:
-	        return super.onOptionsItemSelected(item);
-	    }
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
 	}
+
 	/**
 	 * Show a string on the screen via Toast.
 	 * 
@@ -304,11 +305,11 @@ public class DashboardActivity extends Activity {
 			config.locale = locale;
 			getBaseContext().getResources().updateConfiguration(config,
 					getBaseContext().getResources().getDisplayMetrics());
-			startActivity(getIntent()); 
+			startActivity(getIntent());
 			finish();
 		}
 	};
-	
+
 	View.OnClickListener listenerCambioIdiomaEN = new View.OnClickListener() {
 		public void onClick(View v) {
 			Locale locale = new Locale("en");
@@ -317,8 +318,8 @@ public class DashboardActivity extends Activity {
 			config.locale = locale;
 			getBaseContext().getResources().updateConfiguration(config,
 					getBaseContext().getResources().getDisplayMetrics());
-			startActivity(getIntent()); 
+			startActivity(getIntent());
 			finish();
 		}
-	};	
+	};
 } // end class

@@ -203,6 +203,7 @@ public class ImatgeXarxaSensors extends Activity {
 		}
 
 	}
+
 	public void goHome(Context context) {
 		final Intent intent = new Intent(context, HomeActivity.class);
 		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
