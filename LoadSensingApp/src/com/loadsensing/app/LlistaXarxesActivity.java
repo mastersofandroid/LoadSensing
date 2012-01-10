@@ -36,7 +36,7 @@ import android.widget.TextView;
 import com.loadsensing.client.JsonClient;
 
 public class LlistaXarxesActivity extends ListActivity {
-	private static final String DEB_TAG = "Json_Android";
+	private static final String DEB_TAG = "LoadSensingApp_LOG";
 	private String SERVER_HOST = "http://viuterrassa.com/Android/getLlistatXarxes.php";
 
 	/**

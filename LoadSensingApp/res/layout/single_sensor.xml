@@ -1,141 +1,450 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/background">
-       <LinearLayout style="@style/TitleBar">
-        <ImageButton style="@style/TitleBarAction"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
+
+    <LinearLayout style="@style/TitleBar" >
+
+        <ImageButton
+            style="@style/TitleBarAction"
             android:contentDescription="@string/description_home"
-            android:src="@drawable/atras"
-            android:onClick="goBack" />
+            android:onClick="goBack"
+            android:src="@drawable/atras" />
 
         <ImageView style="@style/TitleBarSeparator" />
-        <TextView style="@style/TitleBarText" 
-            android:text="@+string/title_feature6"/>
-	</LinearLayout>
 
-	<TextView android:id="@+id/sensor"         
-	  	android:textSize="14sp"         
-	  	android:textStyle="bold"
-	  	android:textColor="#0000FF"        
+        <TextView
+            style="@style/TitleBarText"
+            android:text="@+string/title_feature6" />
+    </LinearLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
-	<TextView android:id="@+id/sensorname"
-	  	android:textSize="14sp"         
-	  	android:textStyle="bold" 
-	  	android:textColor="#DDDDDD"        
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
-	<TextView android:id="@+id/serialnumber"         
-	  	android:textSize="14sp"         
-	  	android:textStyle="bold" 
-	  	android:textColor="#000000"        
-	  	android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
-	<TextView android:id="@+id/measure"         
-	  	android:textSize="14sp"         
-	  	android:textStyle="bold" 
-	  	android:textColor="#000000"        
-	  	android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
-	<TextView android:id="@+id/measureunit"         
-	  	android:textSize="14sp"         
-	  	android:textStyle="bold" 
-	  	android:textColor="#000000"        
-	  	android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
-	<TextView android:id="@+id/maxload"         
-	  	android:textSize="14sp"         
-	  	android:textStyle="bold" 
-	  	android:textColor="#000000"        
-	  	android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
-	<TextView android:id="@+id/maxloadunit"         
-	  	android:textSize="14sp"         
-	  	android:textStyle="bold" 
-	  	android:textColor="#000000"        
-	  	android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
-	<TextView android:id="@+id/sensitivity"         
-	  	android:textSize="14sp"         
-	  	android:textStyle="bold" 
-	  	android:textColor="#000000"        
-	  	android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
-	<TextView android:id="@+id/sensitivityunit"         
-	  	android:textSize="14sp"         
-	  	android:textStyle="bold" 
-	  	android:textColor="#000000"        
-	  	android:layout_width="fill_parent"         
-	  	android:layout_height="wrap_content"/>
-	<TextView android:id="@+id/offset"         
-	  	android:textSize="14sp"         
-	  	android:textStyle="bold" 
-	  	android:textColor="#000000"        
-	  	android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
-	<TextView android:id="@+id/offsetunit"         
-	  	android:textSize="14sp"         
-	  	android:textStyle="bold" 
-	  	android:textColor="#000000"        
-	  	android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
-	<TextView android:id="@+id/alarmat"         
-	  	android:textSize="14sp"         
-	  	android:textStyle="bold" 
-	  	android:textColor="#000000"        
-	  	android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
-	<TextView android:id="@+id/alarmAtunit"         
-	  	android:textSize="14sp"         
-	  	android:textStyle="bold" 
-	  	android:textColor="#000000"        
-	  	android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
-	<TextView android:id="@+id/lasttare"         
-	  	android:textSize="14sp"         
-	  	android:textStyle="bold" 
-	  	android:textColor="#000000"        
-	  	android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
-	<TextView android:id="@+id/canal"         
-	  	android:textSize="14sp"         
-	  	android:textStyle="bold" 
-	  	android:textColor="#000000"        
-	  	android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
-	<TextView android:id="@+id/tipus"         
-	  	android:textSize="14sp"         
-	  	android:textStyle="bold" 
-	  	android:textColor="#000000"        
-	  	android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
-	<TextView android:id="@+id/descripcio"         
-	  	android:textSize="14sp"         
-	  	android:textStyle="bold" 
-	  	android:textColor="#000000"        
-	  	android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
-	<TextView android:id="@+id/poblacio"         
-	  	android:textSize="14sp"         
-	  	android:textStyle="bold" 
-	  	android:textColor="#000000"        
-	  	android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
-	<TextView android:id="@+id/nom"         
-	  	android:textSize="14sp"         
-	  	android:textStyle="bold" 
-	  	android:textColor="#000000"        
-	  	android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        />
-<Button android:id="@+id/graph"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true"
-    android:layout_gravity="center"
-    android:text="@string/graph" 
-    android:onClick="graph" />
-	
+        android:orientation="horizontal" >
+        <TextView
+            android:id="@+id/sensor_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:textSize="14sp"
+            android:text="@+string/sensor"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/sensor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:id="@+id/sensorname_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:textSize="14sp"
+            android:text="@+string/nombre_sensor"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/sensorname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#DDDDDD"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:id="@+id/serialnumber_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:textSize="14sp"
+            android:text="@+string/num_serie"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/serialnumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:id="@+id/measure_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:textSize="14sp"
+            android:text="@+string/ultima_mesura"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/measure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:id="@+id/measureunit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:textSize="14sp"
+            android:text="@+string/unitat_mesura"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/measureunit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:id="@+id/maxload_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:textSize="14sp"
+            android:text="@+string/max_load"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/maxload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:id="@+id/maxloadunit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:textSize="14sp"
+            android:text="@+string/max_load_unit"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/maxloadunit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:id="@+id/sensitivity_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:textSize="14sp"
+            android:text="@+string/sensibilitat"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/sensitivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:id="@+id/sensitivityunit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:textSize="14sp"
+            android:text="@+string/unitat_sensibilitat"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/sensitivityunit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:id="@+id/offset_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:textSize="14sp"
+            android:text="@+string/offset"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/offset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:id="@+id/offsetunit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:textSize="14sp"
+            android:text="@+string/unitat_offset"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/offsetunit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:id="@+id/alarmat_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:textSize="14sp"
+            android:text="@+string/alarm_at"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/alarmat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:id="@+id/alarmAtunit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:textSize="14sp"
+            android:text="@+string/unitat_alarma"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/alarmAtunit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:id="@+id/lasttare_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:textSize="14sp"
+            android:text="@+string/data_ultima_mida"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/lasttare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:id="@+id/canal_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:textSize="14sp"
+            android:text="@+string/canal"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/canal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:id="@+id/tipus_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:textSize="14sp"
+            android:text="@+string/tipus"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tipus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:id="@+id/descripcio_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:textSize="14sp"
+            android:text="@+string/descripcio"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/descripcio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:id="@+id/poblacio_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:textSize="14sp"
+            android:text="@+string/poblacio"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/poblacio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        <TextView
+            android:id="@+id/nom_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#0000FF"
+            android:textSize="14sp"
+            android:text="@+string/nom"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/nom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/graph"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:onClick="graph"
+        android:text="@string/graph" />
+
 </LinearLayout>

@@ -17,7 +17,8 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
         android:orientation="vertical" >
 
         <Button
@@ -46,22 +47,6 @@
             android:drawableTop="@drawable/btnlocalitzacioxarxes"
             android:onClick="onClickFeature"
             android:text="@string/title_feature2" />
-
-        <ImageView
-            android:id="@+id/separator"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="15dp"
-            android:layout_marginTop="15dp"
-            android:src="@drawable/separator" />
-
-        <Button
-            android:id="@+id/localitzaciosensors"
-            style="@style/HomeButton"
-            android:drawableTop="@drawable/btnlocalitzaciosensors"
-            android:onClick="onClickFeature"
-            android:text="@string/title_feature3" />
 
         <ImageView
             android:id="@+id/separator"

@@ -188,10 +188,7 @@ public class DashboardActivity extends Activity {
 		case R.id.localitzacioxarxes:
 			startActivity(new Intent(getApplicationContext(), XarxaGMaps.class));
 			break;
-		case R.id.localitzaciosensors:
-			startActivity(new Intent(getApplicationContext(),
-					ImatgeXarxaSensors.class));
-			break;
+
 		case R.id.qrcode:
 			startActivity(new Intent(getApplicationContext(), QRActivity.class));
 			break;

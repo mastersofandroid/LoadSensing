@@ -16,7 +16,7 @@ import com.loadsensing.client.JsonClient;
 public class SingleSensorActivity extends DashboardActivity {
 	/** Called when the activity is first created. */
 
-	private static final String DEB_TAG = "Json_Android";
+	private static final String DEB_TAG = "LoadSensingApp_LOG";
 	private String SERVER_HOST = "http://viuterrassa.com/Android/getSensorInfo.php";
 
 	@Override
@@ -74,36 +74,25 @@ public class SingleSensorActivity extends DashboardActivity {
 			TextView Poblacio = (TextView) findViewById(R.id.poblacio);
 			TextView Nom = (TextView) findViewById(R.id.nom);
 
-			idsensor.setText(R.string.sensor + sensorJSON.getString("sensor"));
-			nomsensor.setText(R.string.nombre_sensor
-					+ sensorJSON.getString("sensorName"));
-			serialnumber.setText(R.string.num_serie
-					+ sensorJSON.getString("serialNumber"));
-			mesura.setText(R.string.ultima_mesura
-					+ sensorJSON.getString("measure"));
-			unitatmesura.setText(R.string.unitat_mesura
-					+ sensorJSON.getString("measureUnit"));
-			maxload.setText(R.string.max_load + sensorJSON.getString("MaxLoad"));
-			MaxLoadUnit.setText(R.string.max_load_unit
-					+ sensorJSON.getString("MaxLoadUnit"));
-			Sensivity.setText(R.string.sensibilitat
-					+ sensorJSON.getString("Sensivity"));
-			SensivityUnit.setText(R.string.unitat_sensibilitat
-					+ sensorJSON.getString("SensivityUnit"));
-			offset.setText("offset: " + sensorJSON.getString("offset"));
-			offsetUnit.setText("offsetUnit: "
-					+ sensorJSON.getString("offsetUnit"));
-			AlarmAt.setText("AlarmAt:" + sensorJSON.getString("AlarmAt"));
-			AlarmAtUnit.setText("AlarmAtUnit:"
-					+ sensorJSON.getString("AlarmAtUnit"));
-			LastTare.setText("LastTare:" + sensorJSON.getString("LastTare"));
-			canal.setText("canal" + sensorJSON.getString("canal"));
-			tipus.setText("tipus: " + sensorJSON.getString("tipus"));
-			Descripcio.setText(R.string.descripcio
-					+ sensorJSON.getString("Descripcio"));
-			Poblacio.setText(R.string.poblacio
-					+ sensorJSON.getString("Poblacio"));
-			Nom.setText("Nom: " + sensorJSON.getString("Nom"));
+			idsensor.setText(sensorJSON.getString("sensor"));
+			nomsensor.setText(sensorJSON.getString("sensorName"));
+			serialnumber.setText(sensorJSON.getString("serialNumber"));
+			mesura.setText(sensorJSON.getString("measure"));
+			unitatmesura.setText(sensorJSON.getString("measureUnit"));
+			maxload.setText(sensorJSON.getString("MaxLoad"));
+			MaxLoadUnit.setText(sensorJSON.getString("MaxLoadUnit"));
+			Sensivity.setText(sensorJSON.getString("Sensivity"));
+			SensivityUnit.setText(sensorJSON.getString("SensivityUnit"));
+			offset.setText(sensorJSON.getString("offset"));
+			offsetUnit.setText(sensorJSON.getString("offsetUnit"));
+			AlarmAt.setText(sensorJSON.getString("AlarmAt"));
+			AlarmAtUnit.setText(sensorJSON.getString("AlarmAtUnit"));
+			LastTare.setText(sensorJSON.getString("LastTare"));
+			canal.setText(sensorJSON.getString("canal"));
+			tipus.setText(sensorJSON.getString("tipus"));
+			Descripcio.setText(sensorJSON.getString("Descripcio"));
+			Poblacio.setText(sensorJSON.getString("Poblacio"));
+			Nom.setText(sensorJSON.getString("Nom"));
 
 			Log.i(DEB_TAG, sensorJSON.getString("sensor"));
 			Log.i(DEB_TAG, sensorJSON.getString("canal"));

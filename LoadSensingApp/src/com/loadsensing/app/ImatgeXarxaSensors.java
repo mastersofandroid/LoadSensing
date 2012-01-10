@@ -26,7 +26,7 @@ import com.loadsensing.client.JsonClient;
 
 public class ImatgeXarxaSensors extends Activity {
 
-	private static final String DEB_TAG = "Json_Android";
+	private static final String DEB_TAG = "LoadSensingApp_LOG";
 	private String SERVER_HOST = "http://viuterrassa.com/Android/getLlistaSensorsImatges.php";
 	private String SERVER_HOST_IMAGE = "http://viuterrassa.com/Android/getLlistaImatges.php";
 	private String PATH_IMAGE = "http://viuterrassa.com/Android/Imatges/";

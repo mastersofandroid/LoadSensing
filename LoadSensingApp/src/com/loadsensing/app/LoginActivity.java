@@ -24,7 +24,7 @@ import com.loadsensing.client.JsonClient;
 
 public class LoginActivity extends DashboardActivity implements OnClickListener {
 
-	private static final String DEB_TAG = "Json_Android";
+	private static final String DEB_TAG = "LoadSensingApp_LOG";
 
 	private String SERVER_HOST = "http://viuterrassa.com/Android/login.php";
 

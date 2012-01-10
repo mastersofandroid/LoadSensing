@@ -22,7 +22,7 @@ import com.loadsensing.client.JsonClient;
 public class SensorsActivity extends ListActivity {
 	/** Called when the activity is first created. */
 
-	private static final String DEB_TAG = "Json_Android";
+	private static final String DEB_TAG = "LoadSensingApp_LOG";
 	private String SERVER_HOST = "http://viuterrassa.com/Android/getLlistaSensors.php";
 
 	@Override

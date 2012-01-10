@@ -20,7 +20,7 @@ import com.loadsensing.client.JsonClient;
 
 public class Chart extends DashboardActivity {
 
-	private static final String DEB_TAG = "Json_Android";
+	private static final String DEB_TAG = "LoadSensingApp_LOG";
 	private String SERVER_HOST = "http://viuterrassa.com/Android/getValorsGrafic.php";
 	private String CHART_URL = "http://chart.apis.google.com/chart?";
 

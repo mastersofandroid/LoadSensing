@@ -38,9 +38,8 @@ public class VistaImatgeSensors extends View {
 				MeasureSpec.getSize(heightMeasureSpec));
 	}
 
-	private static final String DEB_TAG = "Json_Android";
+	private static final String DEB_TAG = "LoadSensingApp_LOG";
 	private String SERVER_HOST = "http://viuterrassa.com/Android/getLlistaSensorsImatges.php";
-	private SharedPreferences settings;
 
 	@Override
 	protected void onDraw(Canvas canvas) {

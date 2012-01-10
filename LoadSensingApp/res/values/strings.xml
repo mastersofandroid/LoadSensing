@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>    
+<resources>
+
     <string name="description_logo">LoadSensing</string>
     <string name="about_intro">Aquesta aplicació captura informació de xarxes de sensors sense fils.</string>
     <string name="search_intro">Pàgina de cerca</string>
@@ -14,6 +15,9 @@
     <string name="iniciando_sesion">Iniciando sesión</string>
     <string name="error_login">Nombre de usuario o contraseña incorrecto.</string>
     <string name="error_no_internet">No hay ninguna conexión activa.</string>
+    <string name="username">Nombre de usuario</string>
+    <string name="username_hint">Usuario</string>
+    <string name="password">Contraseña</string>
 
     <!-- HOME layout -->
     <string name="title_about">Sobre</string>
@@ -40,10 +44,10 @@
     <string name="tipus_sensor">"Tipus de sensor: "</string>
     <string name="descripcio">"Descripció: "</string>
     <string name="poblacio">"Població: "</string>
-    
+
     <!-- Single Sensor Layout -->
     <string name="sensor">"Sensor: "</string>
-    <string name="nombre_sensor">"Nombre sensor: "</string>
+    <string name="nombre_sensor">"Nom sensor: "</string>
     <string name="num_serie">"Núm. serie: "</string>
     <string name="ultima_mesura">"Última mesura: "</string>
     <string name="unitat_mesura">"Unitat de mesura: "</string>
@@ -51,14 +55,14 @@
     <string name="max_load_unit">"Unitat valor màxim: "</string>
     <string name="sensibilitat">"Sensibilitat: "</string>
     <string name="unitat_sensibilitat">"Unitat de sensibilitat: "</string>
-    <string name="Offset">"Offset: "</string>
+    <string name="offset">"Offset: "</string>
     <string name="unitat_offset">"Unitat d'offset: "</string>
-	<string name="alarm_at">"Alarma a: "</string>
-	<string name="unitat_alarma">"Unitat d'alarma: "</string>
-
-
-
-			     
+    <string name="alarm_at">"Alarma a: "</string>
+    <string name="unitat_alarma">"Unitat d'alarma: "</string>
+    <string name="data_ultima_mida">"Data última mida: "</string>
+    <string name="canal">"Canal: "</string>
+    <string name="tipus">"Tipus: "</string>
+    <string name="nom">"Nom: "</string>
     <string name="graph">Mostrar gràfic</string>
-    
+
 </resources>

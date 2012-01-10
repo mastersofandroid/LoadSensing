@@ -15,7 +15,7 @@ public class OverlayXarxa extends BalloonItemizedOverlay<OverlayItem> {
 
 	private ArrayList<OverlayItem> mOverlays = new ArrayList<OverlayItem>();
 	private Context mContext;
-	private static final String DEB_TAG = "Json_Android";
+	private static final String DEB_TAG = "LoadSensingApp_LOG";
 
 	public OverlayXarxa(Drawable defaultMarker, MapView mapView) {
 		super(boundCenter(defaultMarker), mapView);
