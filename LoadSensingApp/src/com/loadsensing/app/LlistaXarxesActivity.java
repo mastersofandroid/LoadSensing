@@ -62,12 +62,12 @@ public class LlistaXarxesActivity extends ListActivity {
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.custom_list_view);
+		setContentView(R.layout.list_view);
 		setTitleFromActivityLabel(R.id.title_text);
 		// call the backend using Get parameters
 		ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 		SimpleAdapter adapter = new SimpleAdapter(this, list,
-				R.layout.custom_row_view, new String[] { "nom", "poblacio",
+				R.layout.row_list_view, new String[] { "nom", "poblacio",
 						"sensors", "lat", "lon", "idXarxa" }, new int[] {
 						R.id.text1, R.id.text2, R.id.text3, R.id.text4,
 						R.id.text5, R.id.text6 });
