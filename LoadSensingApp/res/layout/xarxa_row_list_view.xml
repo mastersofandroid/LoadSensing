@@ -9,15 +9,14 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:orientation="vertical"
- >
+        android:orientation="vertical" >
 
         <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:orientation="horizontal"
-            android:layout_margin="5dp">
+            android:layout_margin="2dp">
 
             <TextView
                 android:id="@+id/text1"
@@ -49,7 +48,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_margin="5dp" >
+            android:layout_margin="2dp" >
 
             <TextView
                 android:id="@+id/label_sensors"
@@ -67,8 +66,7 @@
                 android:textColor="#000000"
                 android:textSize="14dp"
                 android:typeface="normal" />
-        </LinearLayout>
-        
+        </LinearLayout>       
         <!-- Camps ocults -->
         <LinearLayout
             xmlns:android="http://schemas.android.com/apk/res/android"

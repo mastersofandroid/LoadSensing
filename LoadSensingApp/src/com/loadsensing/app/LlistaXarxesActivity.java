@@ -107,7 +107,6 @@ public class LlistaXarxesActivity extends ListActivity {
 	}
 
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-
 		/*
 		 * Open Sensor
 		 */
@@ -120,11 +119,6 @@ public class LlistaXarxesActivity extends ListActivity {
 		intent.putExtra("idxarxaselected", idxarxaselected);
 		startActivity(intent);
 
-		/*
-		 * Object o = this.getListAdapter().getItem(position); String pen =
-		 * o.toString(); Toast.makeText(this, "Has seleccionat la xarxa " + " "
-		 * + pen, Toast.LENGTH_LONG).show();
-		 */
 	}
 
 	public void goBack(View v) {

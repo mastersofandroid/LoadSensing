@@ -113,7 +113,7 @@ public class XarxaGMaps extends MapActivity {
 	protected boolean isRouteDisplayed() {
 		return false;
 	}
-	
+
 	public void goBack(View v) {
 		finish();
 	}
