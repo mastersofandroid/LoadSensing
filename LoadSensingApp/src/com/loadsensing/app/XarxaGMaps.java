@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
@@ -103,6 +104,7 @@ public class XarxaGMaps extends MapActivity {
 		mapController = mapa.getController();
 		mapController.zoomToSpan(Math.abs(maxLatitude - minLatitude),
 				Math.abs(maxLongitude - minLongitude));
+		mapController.zoomOut();
 		mapController.animateTo(new GeoPoint((maxLatitude + minLatitude) / 2,
 				(maxLongitude + minLongitude) / 2));
 	}
@@ -110,5 +112,9 @@ public class XarxaGMaps extends MapActivity {
 	@Override
 	protected boolean isRouteDisplayed() {
 		return false;
+	}
+	
+	public void goBack(View v) {
+		finish();
 	}
 }

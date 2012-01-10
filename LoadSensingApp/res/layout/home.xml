@@ -12,17 +12,6 @@
             style="@style/TitleBarText"
             android:src="@drawable/logo" />
 
-        <ImageButton
-            style="@style/TitleBarAction"
-            android:contentDescription="@string/description_about"
-            android:onClick="onClickAbout"
-            android:src="@drawable/title_about" />
-
-        <ImageButton
-            style="@style/TitleBarAction"
-            android:contentDescription="@string/description_search"
-            android:onClick="onClickSearch"
-            android:src="@drawable/title_search" />
     </LinearLayout>
 
     <LinearLayout

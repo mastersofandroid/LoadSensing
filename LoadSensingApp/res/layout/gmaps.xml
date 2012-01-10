@@ -3,24 +3,16 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
-    
-<LinearLayout style="@style/TitleBar">
-        <ImageButton style="@style/TitleBarAction"
-            android:contentDescription="@string/description_home"
-            android:src="@drawable/title_home"
-            android:onClick="onClickHome" />
 
-        <ImageView style="@style/TitleBarSeparator" />
-        <TextView style="@style/TitleBarText" />
-        <ImageButton style="@style/TitleBarAction"
-            android:contentDescription="@string/description_about"
-            android:src="@drawable/title_about"
-            android:onClick="onClickAbout" />
-        <ImageButton style="@style/TitleBarAction"
-            android:contentDescription="@string/description_search"
-            android:src="@drawable/title_search"
-            android:onClick="onClickSearch" />
+    <LinearLayout style="@style/TitleBar" >
+
+        <ImageButton
+            style="@style/TitleBarAction"
+            android:contentDescription="@string/description_home"
+            android:onClick="onClickHome"
+            android:src="@drawable/title_home" />
     </LinearLayout>
+
     <com.google.android.maps.MapView
         android:id="@+id/mapa"
         android:layout_width="fill_parent"
@@ -28,12 +20,11 @@
         android:apiKey="0gPVYwxzMqvoHIyzbq1ZRBnFVVkzXdG4jfhZ_Mw"
         android:clickable="true" />
 
-</LinearLayout>
-<!--
+</LinearLayout><!--
 JOSE
-android:apiKey="0gPVYwxzMqvoHIyzbq1ZRBnFVVkzXdG4jfhZ_Mw"
+android:apiKey="0gPVYwxzMqvoHIyzbq1ZRBnFVVkzXdG4jfhZ_Mw"
 -->
-<!-- 
+<!--
 DAVID
-android:apiKey="0Fh_e0DswBeAOUv3tUHVwf6Sfr-1FD0t-uPhP_Q"
- -->
+android:apiKey="0Fh_e0DswBeAOUv3tUHVwf6Sfr-1FD0t-uPhP_Q"
+-->

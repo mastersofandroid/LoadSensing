@@ -36,7 +36,7 @@ public class VistaImatgeBackground extends View {
 	protected void onDraw(Canvas canvas) {
 		// TODO Auto-generated method stub
 		Bitmap myBitmap = BitmapFactory.decodeResource(getResources(),
-				R.drawable.sagradafamilia);
+				R.drawable.logo);
 		canvas.drawBitmap(myBitmap, 0, 0, null);
 
 	}
