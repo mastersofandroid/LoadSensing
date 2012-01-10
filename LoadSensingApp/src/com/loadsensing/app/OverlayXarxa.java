@@ -39,9 +39,6 @@ public class OverlayXarxa extends BalloonItemizedOverlay<OverlayItem> {
 
 	@Override
 	protected boolean onBalloonTap(int index, OverlayItem item) {
-		/*
-		 * TODO: Poner parametro
-		 */
 		Intent intent = new Intent();
 		intent.setClass(mContext, ImatgeXarxaSensors.class);
 		intent.putExtra("idxarxaselected", index);

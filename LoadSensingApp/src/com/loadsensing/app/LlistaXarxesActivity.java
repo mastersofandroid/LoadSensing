@@ -35,12 +35,6 @@ import android.widget.TextView;
 
 import com.loadsensing.client.JsonClient;
 
-/**
- * This is the activity for feature 1 in the dashboard application. It displays
- * some text and provides a way to get back to the home activity.
- * 
- */
-
 public class LlistaXarxesActivity extends ListActivity {
 	private static final String DEB_TAG = "Json_Android";
 	private String SERVER_HOST = "http://viuterrassa.com/Android/getLlistatXarxes.php";
