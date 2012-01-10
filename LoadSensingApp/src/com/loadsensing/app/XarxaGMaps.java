@@ -45,7 +45,7 @@ public class XarxaGMaps extends MapActivity {
 		OverlayXarxa itemizedOverlay;
 
 		mapOverlays = mapa.getOverlays();
-		drawable = this.getResources().getDrawable(R.drawable.gmaps_marker);
+		drawable = this.getResources().getDrawable(R.drawable.reddot);
 		itemizedOverlay = new OverlayXarxa(drawable, mapa);
 
 		int minLatitude = Integer.MAX_VALUE;

@@ -4,7 +4,8 @@
     android:id="@+id/db1_root"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:background="@drawable/background">
     <LinearLayout style="@style/TitleBar">
         <ImageView style="@style/TitleBarSeparator" />
         <TextView style="@style/TitleBarText" 
@@ -23,43 +24,41 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:layout_weight="1"
-    android:padding="6dip">
+>
     
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-        
+            
         <Button android:id="@+id/llistatxarxes"
             style="@style/HomeButton"
             android:onClick="onClickFeature"
             android:text="@string/title_feature1"
-            android:drawableTop="@drawable/btnllistatxarxes" />
+            android:drawableTop="@drawable/btnllistatxarxes" 
+/>
+        
+        <ImageView 
+            android:id="@+id/separator"
+            android:src="@drawable/separator"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
         
         <Button android:id="@+id/localitzacioxarxes"
             style="@style/HomeButton"
             android:onClick="onClickFeature"
             android:text="@string/title_feature2"
             android:drawableTop="@drawable/btnlocalitzacioxarxes" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
+    
         <Button android:id="@+id/localitzaciosensors"
             style="@style/HomeButton"
             android:onClick="onClickFeature"
             android:text="@string/title_feature3"
             android:drawableTop="@drawable/btnlocalitzaciosensors" />
+        
         <Button android:id="@+id/qrcode"
             style="@style/HomeButton"
             android:onClick="onClickFeature"
             android:text="@string/title_feature4"
             android:drawableTop="@drawable/btnqrcode" />
-    </LinearLayout>
+
 
 </LinearLayout>
 

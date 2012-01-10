@@ -2,9 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/backgroundrepeat"
-    android:orientation="vertical" 
-    >
+    android:background="@drawable/background"
+    android:orientation="vertical" >
 
     <ImageView
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -12,9 +11,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/logo"
-        android:layout_gravity="center_horizontal" 
-        />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/logo" />
 
     <TextView
         android:id="@+id/username_text"
@@ -22,16 +22,18 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/welcome_text"
         android:layout_gravity="center"
-        android:text="username:" 
-        />
+        android:layout_marginTop="5dp"
+        android:text="username:" />
+
     <EditText
         android:id="@+id/txt_username"
         android:layout_width="250px"
         android:layout_height="wrap_content"
         android:layout_below="@+id/username_text"
         android:layout_gravity="center_horizontal"
-        android:singleLine="true" 
-        android:hint="Username"/>
+        android:hint="Username"
+        android:singleLine="true" />
+
     <TextView
         android:id="@+id/password_text"
         android:layout_width="wrap_content"
@@ -39,22 +41,26 @@
         android:layout_below="@+id/txt_username"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:text="password:" 
-        />
+        android:layout_marginTop="5dp"
+        android:text="password:" />
+
     <EditText
         android:id="@+id/txt_password"
         android:layout_width="250px"
         android:layout_height="wrap_content"
         android:layout_below="@+id/password_text"
         android:layout_gravity="center_horizontal"
+        android:hint="Password"
         android:password="true"
-        android:singleLine="true" 
-        android:hint="Password"/>
+        android:singleLine="true" />
 
     <CheckBox
         android:id="@+id/remember_user_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
         android:text="Recordar usuario y contraseña" />
 
     <Button
@@ -63,6 +69,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/txt_password"
         android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
         android:text="Login!" />
 
 </LinearLayout>
