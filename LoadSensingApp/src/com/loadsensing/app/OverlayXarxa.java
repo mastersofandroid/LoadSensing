@@ -42,7 +42,7 @@ public class OverlayXarxa extends BalloonItemizedOverlay<OverlayItem> {
 		Intent intent = new Intent();
 		intent.setClass(mContext, ImatgeXarxaSensors.class);
 		intent.putExtra("idxarxaselected", Integer.toString(index));
-		Log.i(DEB_TAG, Integer.toString(index));
+		Log.d(DEB_TAG, Integer.toString(index));
 		mContext.startActivity(intent);
 
 		// Toast.makeText(mContext, "onBalloonTap for overlay index " + index,

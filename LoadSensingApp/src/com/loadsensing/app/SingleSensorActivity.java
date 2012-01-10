@@ -33,7 +33,7 @@ public class SingleSensorActivity extends DashboardActivity {
 				SensorSelected = null;
 			} else {
 				SensorSelected = extras.getString("idsensorselected");
-				Log.i(DEB_TAG, "Xarxa que hem triat anteriorment: "
+				Log.d(DEB_TAG, "Xarxa que hem triat anteriorment: "
 						+ SensorSelected);
 			}
 		} else {
@@ -45,7 +45,7 @@ public class SingleSensorActivity extends DashboardActivity {
 				Context.MODE_PRIVATE);
 		String address = SERVER_HOST + "?sensor=" + SensorSelected
 				+ "&session=" + settings.getString("session", "");
-		Log.i(DEB_TAG, "Requesting to " + address);
+		Log.d(DEB_TAG, "Requesting to " + address);
 
 		try {
 			String jsonString = JsonClient.connectString(address);
@@ -53,7 +53,7 @@ public class SingleSensorActivity extends DashboardActivity {
 			// Convertim la resposta string a un JSONArray
 			JSONArray llistaSensorsArray = new JSONArray(jsonString);
 			JSONObject sensorJSON = llistaSensorsArray.getJSONObject(0);
-			Log.i(DEB_TAG, sensorJSON.toString());
+			Log.d(DEB_TAG, sensorJSON.toString());
 			TextView idsensor = (TextView) findViewById(R.id.sensor);
 			TextView nomsensor = (TextView) findViewById(R.id.sensorname);
 			TextView serialnumber = (TextView) findViewById(R.id.serialnumber);
@@ -94,10 +94,9 @@ public class SingleSensorActivity extends DashboardActivity {
 			Poblacio.setText(sensorJSON.getString("Poblacio"));
 			Nom.setText(sensorJSON.getString("Nom"));
 
-			Log.i(DEB_TAG, sensorJSON.getString("sensor"));
-			Log.i(DEB_TAG, sensorJSON.getString("canal"));
-			Log.i(DEB_TAG, sensorJSON.getString("Nom"));
+			Log.d(DEB_TAG, sensorJSON.getString("sensorName"));
 		} catch (Exception ex) {
+			Log.d(DEB_TAG, "Exception: " + ex.getMessage());
 		}
 	}
 

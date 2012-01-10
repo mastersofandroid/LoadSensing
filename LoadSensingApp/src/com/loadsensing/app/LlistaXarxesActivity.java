@@ -68,7 +68,7 @@ public class LlistaXarxesActivity extends ListActivity {
 				Context.MODE_PRIVATE);
 		String address = SERVER_HOST + "?session="
 				+ settings.getString("session", "");
-		Log.i(DEB_TAG, "Requesting to " + address);
+		Log.d(DEB_TAG, "Requesting to " + address);
 
 		try {
 			String jsonString = JsonClient.connectString(address);
@@ -90,13 +90,13 @@ public class LlistaXarxesActivity extends ListActivity {
 				xarxa.put("sensors", xarxaJSON.getString("Sensors"));
 				xarxa.put("lat", xarxaJSON.getString("Lat"));
 				xarxa.put("lon", xarxaJSON.getString("Lon"));
-				Log.i(DEB_TAG, xarxaJSON.getString("Poblacio"));
+				Log.d(DEB_TAG, xarxaJSON.getString("Poblacio"));
 				list.add(xarxa);
 			}
 			setListAdapter(adapter);
 
 		} catch (Exception e) {
-			Log.i(DEB_TAG, "Error rebent xarxes");
+			Log.d(DEB_TAG, "Error rebent xarxes");
 		}
 	}
 
@@ -106,7 +106,7 @@ public class LlistaXarxesActivity extends ListActivity {
 		 */
 		TextView c = (TextView) v.findViewById(R.id.text6);
 		String idxarxaselected = c.getText().toString();
-		Log.i(DEB_TAG, "idxarxaseleccionada: " + c.getText().toString());
+		Log.d(DEB_TAG, "idxarxaseleccionada: " + c.getText().toString());
 
 		Intent intent = new Intent();
 		intent.setClass(this.getApplicationContext(), SensorsActivity.class);

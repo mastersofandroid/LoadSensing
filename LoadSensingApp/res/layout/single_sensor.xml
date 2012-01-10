@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#0000FF"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:text="@+string/sensor"
             android:textStyle="bold" />
         <TextView
@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#0000FF"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -52,15 +52,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#0000FF"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:text="@+string/nombre_sensor"
             android:textStyle="bold" />
         <TextView
             android:id="@+id/sensorname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#DDDDDD"
-            android:textSize="14sp"
+            android:textColor="#0000FF"
+            android:textSize="14dp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -74,7 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#0000FF"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:text="@+string/num_serie"
             android:textStyle="bold" />
         <TextView
@@ -82,7 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -96,7 +96,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#0000FF"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:text="@+string/ultima_mesura"
             android:textStyle="bold" />
         <TextView
@@ -104,7 +104,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -118,7 +118,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#0000FF"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:text="@+string/unitat_mesura"
             android:textStyle="bold" />
         <TextView
@@ -126,7 +126,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -140,7 +140,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#0000FF"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:text="@+string/max_load"
             android:textStyle="bold" />
         <TextView
@@ -148,7 +148,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -162,7 +162,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#0000FF"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:text="@+string/max_load_unit"
             android:textStyle="bold" />
         <TextView
@@ -170,7 +170,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -184,7 +184,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#0000FF"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:text="@+string/sensibilitat"
             android:textStyle="bold" />
         <TextView
@@ -192,7 +192,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -206,7 +206,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#0000FF"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:text="@+string/unitat_sensibilitat"
             android:textStyle="bold" />
         <TextView
@@ -214,7 +214,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -228,7 +228,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#0000FF"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:text="@+string/offset"
             android:textStyle="bold" />
         <TextView
@@ -236,7 +236,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -250,7 +250,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#0000FF"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:text="@+string/unitat_offset"
             android:textStyle="bold" />
         <TextView
@@ -258,7 +258,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -272,7 +272,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#0000FF"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:text="@+string/alarm_at"
             android:textStyle="bold" />
         <TextView
@@ -280,7 +280,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -294,7 +294,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#0000FF"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:text="@+string/unitat_alarma"
             android:textStyle="bold" />
         <TextView
@@ -302,7 +302,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -316,7 +316,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#0000FF"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:text="@+string/data_ultima_mida"
             android:textStyle="bold" />
         <TextView
@@ -324,7 +324,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -338,7 +338,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#0000FF"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:text="@+string/canal"
             android:textStyle="bold" />
         <TextView
@@ -346,7 +346,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -360,7 +360,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#0000FF"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:text="@+string/tipus"
             android:textStyle="bold" />
         <TextView
@@ -368,7 +368,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -382,7 +382,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#0000FF"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:text="@+string/descripcio"
             android:textStyle="bold" />
         <TextView
@@ -390,7 +390,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -404,7 +404,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#0000FF"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:text="@+string/poblacio"
             android:textStyle="bold" />
         <TextView
@@ -412,7 +412,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -426,7 +426,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#0000FF"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:text="@+string/nom"
             android:textStyle="bold" />
         <TextView
@@ -434,7 +434,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000000"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:textStyle="bold" />
     </LinearLayout>
 

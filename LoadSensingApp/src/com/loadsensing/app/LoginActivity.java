@@ -85,7 +85,7 @@ public class LoginActivity extends DashboardActivity implements OnClickListener 
 		SharedPreferences.Editor editor = settings.edit();
 		editor.putString(fieldName, value);
 		editor.commit();
-		Log.i(DEB_TAG, "SharedPreferences. fieldName = " + fieldName
+		Log.d(DEB_TAG, "SharedPreferences. fieldName = " + fieldName
 				+ " set to " + value);
 	}
 
@@ -155,9 +155,9 @@ public class LoginActivity extends DashboardActivity implements OnClickListener 
 						getResources().getString(R.string.iniciando_sesion),
 						true);
 
-				Log.i(DEB_TAG, "Username: " + sUserName + " nPassword: "
+				Log.d(DEB_TAG, "Username: " + sUserName + " nPassword: "
 						+ sPassword);
-				Log.i(DEB_TAG, "Requesting to " + address);
+				Log.d(DEB_TAG, "Requesting to " + address);
 
 				JSONObject json = JsonClient.connectJSONObject(address);
 
@@ -170,7 +170,7 @@ public class LoginActivity extends DashboardActivity implements OnClickListener 
 					setSharedPreference("password", "");
 				}
 
-				Log.i(DEB_TAG, "Session: " + json.getString("session"));
+				Log.d(DEB_TAG, "Session: " + json.getString("session"));
 
 				if (json.getString("session") != "0") {
 					progress.dismiss();
@@ -201,7 +201,7 @@ public class LoginActivity extends DashboardActivity implements OnClickListener 
 
 			} catch (JSONException e) {
 				progress.dismiss();
-				Log.i(DEB_TAG, "Error parsing data " + e.toString());
+				Log.d(DEB_TAG, "Error parsing data " + e.toString());
 			}
 
 			showBusyCursor(false);

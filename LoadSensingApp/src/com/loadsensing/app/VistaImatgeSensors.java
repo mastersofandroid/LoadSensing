@@ -50,7 +50,7 @@ public class VistaImatgeSensors extends View {
 		// String address = SERVER_HOST + "?IdImatge=000&session=1326063600";
 		String address = SERVER_HOST + "?IdImatge=000&session="
 				+ settings.getString("session", "");
-		Log.i(DEB_TAG, "Requesting to " + address);
+		Log.d(DEB_TAG, "Requesting to " + address);
 
 		Bitmap myBitmap = BitmapFactory.decodeResource(getResources(),
 				R.drawable.reddot);

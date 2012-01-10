@@ -57,7 +57,7 @@ public class XarxaGMaps extends MapActivity {
 				Context.MODE_PRIVATE);
 		String address = SERVER_HOST + "?session="
 				+ settings.getString("session", "");
-		Log.i(DEB_TAG, "Requesting to " + address);
+		Log.d(DEB_TAG, "Requesting to " + address);
 
 		try {
 			String jsonString = JsonClient.connectString(address);
@@ -96,7 +96,7 @@ public class XarxaGMaps extends MapActivity {
 			// setListAdapter(adapter);
 
 		} catch (Exception e) {
-			Log.i(DEB_TAG, "Error rebent xarxes");
+			Log.d(DEB_TAG, "Error rebent xarxes");
 		}
 
 		// Definimos zoom y centramos el mapa

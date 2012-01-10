@@ -67,7 +67,7 @@ public class ImatgeXarxaSensors extends Activity {
 				XarxaSelected = null;
 			} else {
 				XarxaSelected = extras.getString("idxarxaselected");
-				Log.i(DEB_TAG, "Xarxa que hem triat anteriorment: "
+				Log.d(DEB_TAG, "Xarxa que hem triat anteriorment: "
 						+ XarxaSelected);
 			}
 
@@ -77,7 +77,7 @@ public class ImatgeXarxaSensors extends Activity {
 			try {
 				// String IdXarxaParam = "002";
 				String IdXarxaParam = "00" + XarxaSelected;
-				Log.i(DEB_TAG, "Xarxa que hem triat anteriorment: "
+				Log.d(DEB_TAG, "Xarxa que hem triat anteriorment: "
 						+ IdXarxaParam);
 				String addressImg = SERVER_HOST_IMAGE + "?IdXarxa="
 						+ IdXarxaParam + "&session="
@@ -121,7 +121,7 @@ public class ImatgeXarxaSensors extends Activity {
 			try {
 				String address = SERVER_HOST + "?IdImatge=" + idImg
 						+ "&session=" + settings.getString("session", "");
-				Log.i(DEB_TAG, "Requesting to " + address);
+				Log.d(DEB_TAG, "Requesting to " + address);
 				String jsonString = JsonClient.connectString(address);
 
 				// Convertim la resposta string a un JSONArray
@@ -164,19 +164,19 @@ public class ImatgeXarxaSensors extends Activity {
 					sensor = listaSensors.get(j);
 					int coordenadaxsensor = Integer.parseInt(sensor.get("x"));
 					int coordenadaysensor = Integer.parseInt(sensor.get("y"));
-					Log.i(DEB_TAG, "x donde se hace click : " + x);
-					Log.i(DEB_TAG, "y donde se hace click: " + y);
-					Log.i(DEB_TAG, "coordenada sensor x: " + coordenadaxsensor);
-					Log.i(DEB_TAG, "coordenada sensor y: " + coordenadaysensor);
-					Log.i(DEB_TAG,
+					Log.d(DEB_TAG, "x donde se hace click : " + x);
+					Log.d(DEB_TAG, "y donde se hace click: " + y);
+					Log.d(DEB_TAG, "coordenada sensor x: " + coordenadaxsensor);
+					Log.d(DEB_TAG, "coordenada sensor y: " + coordenadaysensor);
+					Log.d(DEB_TAG,
 							"overlay.getHeight() : " + overlay.getHeight());
-					Log.i(DEB_TAG, "overlay.getWidth() : " + overlay.getWidth());
+					Log.d(DEB_TAG, "overlay.getWidth() : " + overlay.getWidth());
 
 					if (x >= (coordenadaxsensor - overlay.getWidth())
 							&& x < (coordenadaxsensor + overlay.getWidth())
 							&& y >= (coordenadaysensor - overlay.getHeight())
 							&& y < (coordenadaysensor + overlay.getHeight())) {
-						Log.i(DEB_TAG, "Click dentro");
+						Log.d(DEB_TAG, "Click dentro");
 						Intent intent = new Intent();
 						intent.setClass(getApplicationContext(),
 								SingleSensorActivity.class);

@@ -39,7 +39,7 @@ public class SensorsActivity extends ListActivity {
 				XarxaSelected = null;
 			} else {
 				XarxaSelected = extras.getString("idxarxaselected");
-				Log.i(DEB_TAG, "Xarxa que hem triat anteriorment: "
+				Log.d(DEB_TAG, "Xarxa que hem triat anteriorment: "
 						+ XarxaSelected);
 			}
 		} else {
@@ -59,7 +59,7 @@ public class SensorsActivity extends ListActivity {
 				Context.MODE_PRIVATE);
 		String address = SERVER_HOST + "?IdXarxa=" + XarxaSelected
 				+ "&session=" + settings.getString("session", "");
-		Log.i(DEB_TAG, "Requesting to " + address);
+		Log.d(DEB_TAG, "Requesting to " + address);
 
 		try {
 			String jsonString = JsonClient.connectString(address);
@@ -78,7 +78,7 @@ public class SensorsActivity extends ListActivity {
 				sensors.put("tipus", xarxaJSON.getString("tipus"));
 				sensors.put("descripcio", xarxaJSON.getString("Descripcio"));
 				sensors.put("poblacio", xarxaJSON.getString("Poblacio"));
-				Log.i(DEB_TAG, xarxaJSON.getString("Poblacio"));
+				Log.d(DEB_TAG, xarxaJSON.getString("Poblacio"));
 
 				list.add(sensors);
 			}
@@ -91,7 +91,7 @@ public class SensorsActivity extends ListActivity {
 
 		TextView c = (TextView) v.findViewById(R.id.text1);
 		String idsensorselected = c.getText().toString();
-		Log.i(DEB_TAG, "idsensorselected: " + c.getText().toString());
+		Log.d(DEB_TAG, "idsensorselected: " + c.getText().toString());
 
 		Intent intent = new Intent();
 		intent.setClass(this.getApplicationContext(),

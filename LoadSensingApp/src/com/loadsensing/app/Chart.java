@@ -34,7 +34,7 @@ public class Chart extends DashboardActivity {
 		rg.clearCheck();
 		rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
-				Log.i(DEB_TAG, "checkedId " + checkedId);
+				Log.d(DEB_TAG, "checkedId " + checkedId);
 				generaChart(googleChartView, checkedId);
 			}
 		});
@@ -50,7 +50,7 @@ public class Chart extends DashboardActivity {
 		String address = SERVER_HOST + "?session="
 				+ settings.getString("session", "") + "&id=" + checkedId
 				+ "&TipusGrafic=0";
-		Log.i(DEB_TAG, "Requesting to " + address);
+		Log.d(DEB_TAG, "Requesting to " + address);
 
 		ArrayList<HashMap<String, String>> valorsURL = new ArrayList<HashMap<String, String>>();
 
@@ -65,7 +65,7 @@ public class Chart extends DashboardActivity {
 			Valors = ValorsGrafica.getJSONObject(0);
 
 			String grafica = Valors.getString("ValorsGrafica");
-			Log.i(DEB_TAG, "String " + grafica);
+			Log.d(DEB_TAG, "String " + grafica);
 
 			// Sobre el string de ValorGrafica, volvemos a parsearlo
 			JSONArray ValorGrafica = new JSONArray(grafica);
@@ -80,7 +80,7 @@ public class Chart extends DashboardActivity {
 			}
 
 		} catch (Exception e) {
-			Log.i(DEB_TAG, "Error rebent xarxes");
+			Log.d(DEB_TAG, "Error rebent xarxes");
 		}
 
 		// Montamos URL
@@ -110,14 +110,14 @@ public class Chart extends DashboardActivity {
 			max = Math.max(max, valueFloat);
 			min = Math.min(min, valueFloat);
 		}
-		Log.i(DEB_TAG, "max " + max);
-		Log.i(DEB_TAG, "min " + min);
+		Log.d(DEB_TAG, "max " + max);
+		Log.d(DEB_TAG, "min " + min);
 		BigDecimal maxRounded = new BigDecimal(max);
 		maxRounded = maxRounded.setScale(1, BigDecimal.ROUND_CEILING);
 		BigDecimal minRounded = new BigDecimal(min);
 		minRounded = minRounded.setScale(1, BigDecimal.ROUND_FLOOR);
-		Log.i(DEB_TAG, "maxRounded " + maxRounded);
-		Log.i(DEB_TAG, "minRounded " + minRounded);
+		Log.d(DEB_TAG, "maxRounded " + maxRounded);
+		Log.d(DEB_TAG, "minRounded " + minRounded);
 
 		mUrl = mUrl + "&chxr=0,-5,110|1,-5,110|2," + minRounded + ","
 				+ maxRounded;
@@ -134,8 +134,8 @@ public class Chart extends DashboardActivity {
 		Display display = getWindowManager().getDefaultDisplay();
 		int width = display.getWidth() - 170;
 		int height = display.getHeight() - 400;
-		Log.i(DEB_TAG, "width " + width);
-		Log.i(DEB_TAG, "height " + height);
+		Log.d(DEB_TAG, "width " + width);
+		Log.d(DEB_TAG, "height " + height);
 
 		mUrl = mUrl + "&chs=" + width + "x" + height;
 
@@ -157,7 +157,7 @@ public class Chart extends DashboardActivity {
 		mUrl = mUrl + valorsURL.get(0).get("value");
 		for (int i = 1; i < valorsURL.size(); i++) {
 			mUrl = mUrl + "," + valorsURL.get(i).get("value");
-			Log.i(DEB_TAG, "value " + valorsURL.get(i).get("value"));
+			Log.d(DEB_TAG, "value " + valorsURL.get(i).get("value"));
 		}
 
 		// Título eyenda
@@ -182,7 +182,7 @@ public class Chart extends DashboardActivity {
 		// Marcador
 		mUrl = mUrl + "&chm=r,FF0000,0,0,0";
 
-		Log.i(DEB_TAG, "URL Chart " + mUrl);
+		Log.d(DEB_TAG, "URL Chart " + mUrl);
 
 		googleChartView.loadUrl(mUrl);
 	}
