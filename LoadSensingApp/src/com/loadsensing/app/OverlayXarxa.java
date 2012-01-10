@@ -16,7 +16,7 @@ public class OverlayXarxa extends BalloonItemizedOverlay<OverlayItem> {
 	private ArrayList<OverlayItem> mOverlays = new ArrayList<OverlayItem>();
 	private Context mContext;
 	private static final String DEB_TAG = "Json_Android";
-	
+
 	public OverlayXarxa(Drawable defaultMarker, MapView mapView) {
 		super(boundCenter(defaultMarker), mapView);
 		mContext = mapView.getContext();
@@ -41,7 +41,7 @@ public class OverlayXarxa extends BalloonItemizedOverlay<OverlayItem> {
 	protected boolean onBalloonTap(int index, OverlayItem item) {
 		Intent intent = new Intent();
 		intent.setClass(mContext, ImatgeXarxaSensors.class);
-		intent.putExtra("idxarxaselected", index);
+		intent.putExtra("idxarxaselected", Integer.toString(index));
 		Log.i(DEB_TAG, Integer.toString(index));
 		mContext.startActivity(intent);
 

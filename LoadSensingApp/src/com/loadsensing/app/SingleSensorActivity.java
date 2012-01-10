@@ -3,7 +3,6 @@ package com.loadsensing.app;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -80,14 +79,15 @@ public class SingleSensorActivity extends DashboardActivity {
 					+ sensorJSON.getString("sensorName"));
 			serialnumber.setText(R.string.num_serie
 					+ sensorJSON.getString("serialNumber"));
-			mesura.setText(R.string.ultima_mesura + sensorJSON.getString("measure"));
+			mesura.setText(R.string.ultima_mesura
+					+ sensorJSON.getString("measure"));
 			unitatmesura.setText(R.string.unitat_mesura
 					+ sensorJSON.getString("measureUnit"));
 			maxload.setText(R.string.max_load + sensorJSON.getString("MaxLoad"));
 			MaxLoadUnit.setText(R.string.max_load_unit
 					+ sensorJSON.getString("MaxLoadUnit"));
-			Sensivity
-					.setText(R.string.sensibilitat + sensorJSON.getString("Sensivity"));
+			Sensivity.setText(R.string.sensibilitat
+					+ sensorJSON.getString("Sensivity"));
 			SensivityUnit.setText(R.string.unitat_sensibilitat
 					+ sensorJSON.getString("SensivityUnit"));
 			offset.setText("offset: " + sensorJSON.getString("offset"));
@@ -101,7 +101,8 @@ public class SingleSensorActivity extends DashboardActivity {
 			tipus.setText("tipus: " + sensorJSON.getString("tipus"));
 			Descripcio.setText(R.string.descripcio
 					+ sensorJSON.getString("Descripcio"));
-			Poblacio.setText(R.string.poblacio + sensorJSON.getString("Poblacio"));
+			Poblacio.setText(R.string.poblacio
+					+ sensorJSON.getString("Poblacio"));
 			Nom.setText("Nom: " + sensorJSON.getString("Nom"));
 
 			Log.i(DEB_TAG, sensorJSON.getString("sensor"));
