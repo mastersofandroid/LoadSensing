@@ -28,7 +28,7 @@ public class SensorsActivity extends ListActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.custom_list_view);
+		setContentView(R.layout.sensor_list_view);
 
 		// Get Intent parameters
 		String XarxaSelected = "";
@@ -50,7 +50,7 @@ public class SensorsActivity extends ListActivity {
 		ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 
 		SimpleAdapter adapter = new SimpleAdapter(this, list,
-				R.layout.custom_row_view, new String[] { "id", "sensor",
+				R.layout.sensor_row_list_view, new String[] { "id", "sensor",
 						"tipus", "descripcio", "poblacio" }, new int[] {
 						R.id.text1, R.id.text2, R.id.text3, R.id.text4,
 						R.id.text5 });
@@ -104,5 +104,4 @@ public class SensorsActivity extends ListActivity {
 	public void goBack(View v) {
 		finish();
 	}
-
 }

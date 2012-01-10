@@ -10,61 +10,51 @@
 
         <ImageView
             style="@style/TitleBarText"
-            android:src="@drawable/logo" />
-
+            android:src="@drawable/logo_bar"
+            android:layout_margin="3dp" />
     </LinearLayout>
 
     <LinearLayout
-       android:background="#ff000000"
-       android:layout_width="fill_parent"
-       android:layout_height="1dp" 
-       android:layout_marginTop="2dp"
-       android:layout_marginBottom="2dp"
-        ></LinearLayout>
-    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:layout_margin="10dp" >
+        android:layout_margin="10dp"
+        android:orientation="vertical" >
 
         <Button
             android:id="@+id/llistatxarxes"
-            android:drawableTop="@drawable/btnllistatxarxes"
-            android:onClick="onClickFeature"
-            android:text="@string/title_feature1" 
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:background="@null"
             android:layout_marginTop="5dp"
-            />
+            android:background="@null"
+            android:drawableTop="@drawable/btnllistatxarxes"
+            android:onClick="onClickFeature"
+            android:text="@string/title_feature1" />
 
         <ImageView
             android:id="@+id/separator"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/separator" 
+            android:layout_marginBottom="15dp"
             android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"/>
+            android:src="@drawable/separator" />
 
         <Button
             android:id="@+id/localitzacioxarxes"
             style="@style/HomeButton"
             android:drawableTop="@drawable/btnlocalitzacioxarxes"
             android:onClick="onClickFeature"
-            android:text="@string/title_feature2"
-             />
-        
+            android:text="@string/title_feature2" />
+
         <ImageView
             android:id="@+id/separator"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/separator" 
+            android:layout_marginBottom="15dp"
             android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"/>        
+            android:src="@drawable/separator" />
 
         <Button
             android:id="@+id/localitzaciosensors"
@@ -72,15 +62,15 @@
             android:drawableTop="@drawable/btnlocalitzaciosensors"
             android:onClick="onClickFeature"
             android:text="@string/title_feature3" />
-        
+
         <ImageView
             android:id="@+id/separator"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/separator" 
+            android:layout_marginBottom="15dp"
             android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"/>       
+            android:src="@drawable/separator" />
 
         <Button
             android:id="@+id/qrcode"

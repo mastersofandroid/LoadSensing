@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.loadsensing.client.JsonClient;
 
-public class SingleSensorActivity extends Activity {
+public class SingleSensorActivity extends DashboardActivity {
 	/** Called when the activity is first created. */
 
 	private static final String DEB_TAG = "Json_Android";
@@ -75,20 +75,20 @@ public class SingleSensorActivity extends Activity {
 			TextView Poblacio = (TextView) findViewById(R.id.poblacio);
 			TextView Nom = (TextView) findViewById(R.id.nom);
 
-			idsensor.setText("Sensor: " + sensorJSON.getString("sensor"));
-			nomsensor.setText("Nombre sensor: "
+			idsensor.setText(R.string.sensor + sensorJSON.getString("sensor"));
+			nomsensor.setText(R.string.nombre_sensor
 					+ sensorJSON.getString("sensorName"));
-			serialnumber.setText("Num. serie: "
+			serialnumber.setText(R.string.num_serie
 					+ sensorJSON.getString("serialNumber"));
-			mesura.setText("Measure: " + sensorJSON.getString("measure"));
-			unitatmesura.setText("Measure unit: "
+			mesura.setText(R.string.ultima_mesura + sensorJSON.getString("measure"));
+			unitatmesura.setText(R.string.unitat_mesura
 					+ sensorJSON.getString("measureUnit"));
-			maxload.setText("Max Load: " + sensorJSON.getString("MaxLoad"));
-			MaxLoadUnit.setText("MaxLoadUnit: "
+			maxload.setText(R.string.max_load + sensorJSON.getString("MaxLoad"));
+			MaxLoadUnit.setText(R.string.max_load_unit
 					+ sensorJSON.getString("MaxLoadUnit"));
 			Sensivity
-					.setText("Sensivity: " + sensorJSON.getString("Sensivity"));
-			SensivityUnit.setText("SensivityUnit: "
+					.setText(R.string.sensibilitat + sensorJSON.getString("Sensivity"));
+			SensivityUnit.setText(R.string.unitat_sensibilitat
 					+ sensorJSON.getString("SensivityUnit"));
 			offset.setText("offset: " + sensorJSON.getString("offset"));
 			offsetUnit.setText("offsetUnit: "
@@ -99,9 +99,9 @@ public class SingleSensorActivity extends Activity {
 			LastTare.setText("LastTare:" + sensorJSON.getString("LastTare"));
 			canal.setText("canal" + sensorJSON.getString("canal"));
 			tipus.setText("tipus: " + sensorJSON.getString("tipus"));
-			Descripcio.setText("Descripcio:"
+			Descripcio.setText(R.string.descripcio
 					+ sensorJSON.getString("Descripcio"));
-			Poblacio.setText("Poblacio:" + sensorJSON.getString("Poblacio"));
+			Poblacio.setText(R.string.poblacio + sensorJSON.getString("Poblacio"));
 			Nom.setText("Nom: " + sensorJSON.getString("Nom"));
 
 			Log.i(DEB_TAG, sensorJSON.getString("sensor"));

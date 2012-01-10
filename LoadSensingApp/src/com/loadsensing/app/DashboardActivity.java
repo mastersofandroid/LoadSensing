@@ -242,25 +242,6 @@ public class DashboardActivity extends Activity {
 	}
 
 	/**
-	 * Use the activity label to set the text in the activity's title text view.
-	 * The argument gives the name of the view.
-	 * 
-	 * <p>
-	 * This method is needed because we have a custom title bar rather than the
-	 * default Android title bar. See the theme definitons in styles.xml.
-	 * 
-	 * @param textViewId
-	 *            int
-	 * @return void
-	 */
-
-	public void setTitleFromActivityLabel(int textViewId) {
-		TextView tv = (TextView) findViewById(textViewId);
-		if (tv != null)
-			tv.setText(getTitle());
-	} // end setTitleText
-
-	/**
 	 * Show a string on the screen via Toast.
 	 * 
 	 * @param msg

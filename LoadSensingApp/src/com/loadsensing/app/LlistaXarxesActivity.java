@@ -44,7 +44,6 @@ import com.loadsensing.client.JsonClient;
 public class LlistaXarxesActivity extends ListActivity {
 	private static final String DEB_TAG = "Json_Android";
 	private String SERVER_HOST = "http://viuterrassa.com/Android/getLlistatXarxes.php";
-	private SharedPreferences settings;
 
 	/**
 	 * onCreate
@@ -62,12 +61,11 @@ public class LlistaXarxesActivity extends ListActivity {
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.custom_list_view);
-		setTitleFromActivityLabel(R.id.title_text);
+		setContentView(R.layout.xarxa_list_view);
 		// call the backend using Get parameters
 		ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 		SimpleAdapter adapter = new SimpleAdapter(this, list,
-				R.layout.custom_row_view, new String[] { "nom", "poblacio",
+				R.layout.xarxa_row_list_view, new String[] { "nom", "poblacio",
 						"sensors", "lat", "lon", "idXarxa" }, new int[] {
 						R.id.text1, R.id.text2, R.id.text3, R.id.text4,
 						R.id.text5, R.id.text6 });
@@ -109,7 +107,6 @@ public class LlistaXarxesActivity extends ListActivity {
 	}
 
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-
 		/*
 		 * Open Sensor
 		 */
@@ -122,20 +119,10 @@ public class LlistaXarxesActivity extends ListActivity {
 		intent.putExtra("idxarxaselected", idxarxaselected);
 		startActivity(intent);
 
-		/*
-		 * Object o = this.getListAdapter().getItem(position); String pen =
-		 * o.toString(); Toast.makeText(this, "Has seleccionat la xarxa " + " "
-		 * + pen, Toast.LENGTH_LONG).show();
-		 */
 	}
 
 	public void goBack(View v) {
 		finish();
 	}
 
-	public void setTitleFromActivityLabel(int textViewId) {
-		TextView tv = (TextView) findViewById(textViewId);
-		if (tv != null)
-			tv.setText(getTitle());
-	} // end setTitleText
 }
