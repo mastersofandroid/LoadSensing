@@ -104,7 +104,6 @@ public class XarxaGMaps extends MapActivity {
 		mapController = mapa.getController();
 		mapController.zoomToSpan(Math.abs(maxLatitude - minLatitude),
 				Math.abs(maxLongitude - minLongitude));
-		mapController.zoomOut();
 		mapController.animateTo(new GeoPoint((maxLatitude + minLatitude) / 2,
 				(maxLongitude + minLongitude) / 2));
 	}
