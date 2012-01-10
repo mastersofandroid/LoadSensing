@@ -12,21 +12,14 @@
             android:onClick="onClickHome"
             android:src="@drawable/title_home" />
 
-        <ImageView style="@style/TitleBarSeparator" />
+        <TextView style="@style/TitleBarText" 
+            android:text="@+string/grafic" />
 
         <TextView style="@style/TitleBarText" />
-
-        <ImageButton
-            style="@style/TitleBarAction"
-            android:contentDescription="@string/description_about"
-            android:onClick="onClickAbout"
-            android:src="@drawable/title_about" />
-
-        <ImageButton
-            style="@style/TitleBarAction"
-            android:contentDescription="@string/description_search"
-            android:onClick="onClickSearch"
-            android:src="@drawable/title_search" />
+        <ImageButton style="@style/TitleBarAction"
+            android:contentDescription="@string/description_back"
+            android:src="@drawable/atras"
+            android:onClick="goBack" /> 
     </LinearLayout>
 
     <RadioGroup

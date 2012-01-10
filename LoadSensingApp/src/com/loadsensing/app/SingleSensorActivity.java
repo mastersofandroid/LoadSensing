@@ -104,6 +104,12 @@ public class SingleSensorActivity extends DashboardActivity {
 		finish();
 	}
 
+	public void goHome(Context context) {
+		final Intent intent = new Intent(context, HomeActivity.class);
+		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		context.startActivity(intent);
+	}
+	
 	public void graph(View v) {
 		Intent intent = new Intent();
 		intent.setClass(this.getApplicationContext(), Chart.class);

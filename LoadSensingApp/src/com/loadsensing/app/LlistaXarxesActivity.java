@@ -119,4 +119,9 @@ public class LlistaXarxesActivity extends ListActivity {
 		finish();
 	}
 
+	public void goHome(Context context) {
+		final Intent intent = new Intent(context, HomeActivity.class);
+		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		context.startActivity(intent);
+	}
 }

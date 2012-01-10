@@ -6,11 +6,11 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
@@ -112,7 +112,9 @@ public class XarxaGMaps extends MapActivity {
 		return false;
 	}
 
-	public void goBack(View v) {
-		finish();
+	public void goHome(Context context) {
+		final Intent intent = new Intent(context, HomeActivity.class);
+		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		context.startActivity(intent);
 	}
 }
