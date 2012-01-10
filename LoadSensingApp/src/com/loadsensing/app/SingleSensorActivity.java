@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.loadsensing.client.JsonClient;
 
-public class SingleSensorActivity extends Activity {
+public class SingleSensorActivity extends DashboardActivity {
 	/** Called when the activity is first created. */
 
 	private static final String DEB_TAG = "Json_Android";

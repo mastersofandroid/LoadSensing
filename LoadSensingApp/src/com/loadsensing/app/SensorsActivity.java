@@ -28,8 +28,9 @@ public class SensorsActivity extends ListActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.list_view);
-
+		setContentView(R.layout.sensor_list_view);
+		setTitleFromActivityLabel(R.id.title_text);
+		
 		// Get Intent parameters
 		String XarxaSelected = "";
 		Bundle extras = null;
@@ -50,7 +51,7 @@ public class SensorsActivity extends ListActivity {
 		ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 
 		SimpleAdapter adapter = new SimpleAdapter(this, list,
-				R.layout.row_list_view, new String[] { "id", "sensor",
+				R.layout.sensor_row_list_view, new String[] { "id", "sensor",
 						"tipus", "descripcio", "poblacio" }, new int[] {
 						R.id.text1, R.id.text2, R.id.text3, R.id.text4,
 						R.id.text5 });
@@ -105,4 +106,23 @@ public class SensorsActivity extends ListActivity {
 		finish();
 	}
 
+	/**
+	 * Use the activity label to set the text in the activity's title text view.
+	 * The argument gives the name of the view.
+	 * 
+	 * <p>
+	 * This method is needed because we have a custom title bar rather than the
+	 * default Android title bar. See the theme definitons in styles.xml.
+	 * 
+	 * @param textViewId
+	 *            int
+	 * @return void
+	 */
+
+	public void setTitleFromActivityLabel(int textViewId) {
+		TextView tv = (TextView) findViewById(textViewId);
+		if (tv != null)
+			tv.setText(getTitle());
+	} // end setTitleText
+	
 }
