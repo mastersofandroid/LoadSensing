@@ -43,7 +43,7 @@ public class OverlayXarxa extends BalloonItemizedOverlay<OverlayItem> {
 		 * TODO: Poner parametro
 		 */
 		Intent intent = new Intent();
-		intent.setClass(mContext, SingleSensorActivity.class);
+		intent.setClass(mContext, ImatgeXarxaSensors.class);
 		intent.putExtra("idxarxaselected", index);
 		Log.i(DEB_TAG, Integer.toString(index));
 		mContext.startActivity(intent);
