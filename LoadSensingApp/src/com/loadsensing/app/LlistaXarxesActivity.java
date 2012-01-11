@@ -118,6 +118,10 @@ public class LlistaXarxesActivity extends ListActivity {
 	public void goBack(View v) {
 		finish();
 	}
+	
+	public void onClickHome(View v) {
+		goHome(this);
+	}
 
 	public void goHome(Context context) {
 		final Intent intent = new Intent(context, HomeActivity.class);

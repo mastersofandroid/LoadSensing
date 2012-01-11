@@ -13,14 +13,19 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AbsoluteLayout.LayoutParams;
+import android.widget.FrameLayout;
 
 import com.loadsensing.client.JsonClient;
 
@@ -35,8 +40,9 @@ public class ImatgeXarxaSensors extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//setContentView(new TouchView(this));
-		setContentView(R.layout.imatge_xarxa_sensors);
+		setContentView(new TouchView(this));
+		
+		//setContentView(R.layout.imatge_xarxa_sensors);
 		// getWindow().setBackgroundDrawableResource(R.drawable.menulocalitzacioxarxes);
 	}
 
@@ -47,8 +53,10 @@ public class ImatgeXarxaSensors extends Activity {
 
 		public TouchView(Context context) {
 			super(context);
+			int color = Color.parseColor("#000000");
+			//setHorizontalScrollBarEnabled(true);
+			setBackgroundColor(color);
 
-			// COGER DE URL
 			overlay = BitmapFactory.decodeResource(getResources(),
 					R.drawable.sensor).copy(Config.ARGB_8888, true);
 		}
@@ -75,6 +83,10 @@ public class ImatgeXarxaSensors extends Activity {
 			String idImg = "";
 			String pathImg = "";
 			float escala = 0;
+			
+			FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(LayoutParams.FILL_PARENT,  LayoutParams.FILL_PARENT);
+			params.gravity = Gravity.BOTTOM | Gravity.CENTER;
+			
 			
 			try {
 				// String IdXarxaParam = "002";
@@ -113,13 +125,30 @@ public class ImatgeXarxaSensors extends Activity {
 				// bgr = Bitmap.createScaledBitmap(bgr,480,800,true);
 				// bgr = BitmapFactory.decodeResource(getResources(),
 				// R.drawable.sagradafamilia);
-				
-				escala = (float)getWindowManager().getDefaultDisplay().getHeight()/(float)bgr.getHeight();
-
-				//canvas.scale((float)bgr.getWidth()*escala, (float)getWindowManager().getDefaultDisplay().getHeight());
-				canvas.scale(escala,escala);
-				canvas.drawBitmap(bgr, 0, 0, null);
-
+				float ampladapantalla = getWindowManager().getDefaultDisplay().getWidth();
+				int orientacio = getRequestedOrientation();
+				if ( ampladapantalla < bgr.getWidth())
+				{
+					Log.i(DEB_TAG,"amplada pantalla: " + ampladapantalla + " --> width bgr: " + bgr.getWidth());
+					setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+					canvas.drawBitmap(bgr, 0, 0, null);
+				}
+				else
+				{
+					if (orientacio != 0)
+					{
+						escala = (float)getWindowManager().getDefaultDisplay().getHeight()/(float)bgr.getHeight();
+						Log.i(DEB_TAG,"escalem imatge");
+						//canvas.scale((float)bgr.getWidth()*escala, (float)getWindowManager().getDefaultDisplay().getHeight());
+						
+					}
+					else
+					{
+						escala = 1;
+					}
+					canvas.scale(escala,escala);
+					canvas.drawBitmap(bgr, 0, 0, null);
+				}
 			} catch (Exception ex) {
 
 			}
@@ -129,7 +158,7 @@ public class ImatgeXarxaSensors extends Activity {
 						+ "&session=" + settings.getString("session", "");
 				Log.d(DEB_TAG, "Requesting to " + address);
 				String jsonString = JsonClient.connectString(address);
-
+				Log.i(DEB_TAG, "jstonstring: " + jsonString);
 				// Convertim la resposta string a un JSONArray
 				JSONArray llistaSensorsArray = new JSONArray(jsonString);
 				HashMap<String, String> sensor = null;
@@ -165,7 +194,9 @@ public class ImatgeXarxaSensors extends Activity {
 
 			switch (action & MotionEvent.ACTION_MASK) {
 			case MotionEvent.ACTION_DOWN: {
+				Log.i(DEB_TAG, "SIZE de la lista: " + listaSensors.size());
 				for (int j = 0; j < listaSensors.size(); j++) {
+					Log.d(DEB_TAG, "Sensor : " + j);
 					HashMap<String, String> sensor = new HashMap<String, String>();
 					sensor = listaSensors.get(j);
 					int coordenadaxsensor = Math.round(Float.valueOf(sensor.get("x")));
