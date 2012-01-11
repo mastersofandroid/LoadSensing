@@ -20,18 +20,21 @@ import java.util.List;
 import java.util.Locale;
 
 import android.app.Activity;
+import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
+import android.location.GpsStatus.Listener;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.Toast;
 
 /**
@@ -243,6 +246,10 @@ public class DashboardActivity extends Activity {
 		final Intent intent = new Intent(context, HomeActivity.class);
 		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		context.startActivity(intent);
+	}
+	
+	public void goBack(View v) {
+		finish();
 	}
 
 	@Override
