@@ -35,7 +35,8 @@ public class ImatgeXarxaSensors extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(new TouchView(this));
+		//setContentView(new TouchView(this));
+		setContentView(R.layout.imatge_xarxa_sensors);
 		// getWindow().setBackgroundDrawableResource(R.drawable.menulocalitzacioxarxes);
 	}
 
@@ -73,7 +74,8 @@ public class ImatgeXarxaSensors extends Activity {
 
 			String idImg = "";
 			String pathImg = "";
-
+			float escala = 0;
+			
 			try {
 				// String IdXarxaParam = "002";
 				String IdXarxaParam = "00" + XarxaSelected;
@@ -111,7 +113,11 @@ public class ImatgeXarxaSensors extends Activity {
 				// bgr = Bitmap.createScaledBitmap(bgr,480,800,true);
 				// bgr = BitmapFactory.decodeResource(getResources(),
 				// R.drawable.sagradafamilia);
-				// canvas.scale(480, 800);
+				
+				escala = (float)getWindowManager().getDefaultDisplay().getHeight()/(float)bgr.getHeight();
+
+				//canvas.scale((float)bgr.getWidth()*escala, (float)getWindowManager().getDefaultDisplay().getHeight());
+				canvas.scale(escala,escala);
 				canvas.drawBitmap(bgr, 0, 0, null);
 
 			} catch (Exception ex) {
@@ -138,12 +144,12 @@ public class ImatgeXarxaSensors extends Activity {
 
 					// Integer.parseInt(sensorJSON.getString("x"));
 					sensor.put("idsensor", sensorJSON.getString("id"));
-					sensor.put("x", coordx);
-					sensor.put("y", coordy);
+					sensor.put("x", Float.toString(Float.valueOf(coordx)*escala));
+					sensor.put("y", Float.toString(Float.valueOf(coordy)*escala));
 					// overlay =
 					// Bitmap.createScaledBitmap(overlay,480,800,true);
-					canvas.drawBitmap(overlay, Integer.parseInt(coordx),
-							Integer.parseInt(coordy), null);
+					canvas.drawBitmap(overlay, Integer.parseInt(coordx)-(overlay.getWidth()/2),
+							Integer.parseInt(coordy)-(overlay.getHeight()/2), null);
 					listaSensors.add(sensor);
 				}
 			} catch (Exception ex) {
@@ -162,8 +168,8 @@ public class ImatgeXarxaSensors extends Activity {
 				for (int j = 0; j < listaSensors.size(); j++) {
 					HashMap<String, String> sensor = new HashMap<String, String>();
 					sensor = listaSensors.get(j);
-					int coordenadaxsensor = Integer.parseInt(sensor.get("x"));
-					int coordenadaysensor = Integer.parseInt(sensor.get("y"));
+					int coordenadaxsensor = Math.round(Float.valueOf(sensor.get("x")));
+					int coordenadaysensor = Math.round(Float.valueOf(sensor.get("y")));
 					Log.d(DEB_TAG, "x donde se hace click : " + x);
 					Log.d(DEB_TAG, "y donde se hace click: " + y);
 					Log.d(DEB_TAG, "coordenada sensor x: " + coordenadaxsensor);
