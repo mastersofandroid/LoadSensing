@@ -55,7 +55,7 @@
 
         <Button
             android:id="@+id/qrcode"
-            style="@style/HomeButton"
+			style="@style/HomeButton"
             android:drawableTop="@drawable/btnqrcode"
             android:onClick="onClickFeature"
             android:text="@string/title_feature4" />
