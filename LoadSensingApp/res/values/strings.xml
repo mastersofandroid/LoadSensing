@@ -23,16 +23,14 @@
     <string name="login">Iniciar sesión</string>
 
     <!-- HOME layout -->
-    <string name="title_about">Acerca de</string>
     <string name="title_home">Home</string>
-    <string name="title_search">Buscar</string>
     <string name="title_feature1">Listado de Redes</string>
     <string name="title_feature2">Localización de Redes</string>
     <string name="title_feature3">Localización de sensores</string>
     <string name="title_feature4">Lectura QR-CODE</string>
     <string name="title_feature5">Listado de Sensores</string>
     <string name="title_feature6">Información de Sensor</string>
-    <string name="title_grafic">Grofico</string>
+    <string name="title_grafic">Gráfico</string>
     <string name="description_about">Acerca de</string>
     <string name="description_home">Home</string>
     <string name="description_back">Atrás</string>
@@ -83,7 +81,10 @@
     <string name="autologin">Login automático</string>
     <string name="autologin_description">Permite loginarse automáticamente con el usuario y password recordado.</string>
     <string name="location">Idioma</string>
-    <string name="location_description">Idioma utilizado en la aplicación.</string>
-    <string name="preference_set">Preferencia seteada.</string>
+    <string name="location_description">Idioma utilizado en la aplicación</string>
+    <string name="preference_set">Preferencia establecida</string>
+    <string name="choose_language">Elige idioma</string>
+<string name="about">Acerca de</string>
+<string name="about_description">Conoce a los creadores de la app</string>
 
 </resources>

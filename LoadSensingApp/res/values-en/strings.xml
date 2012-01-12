@@ -70,7 +70,8 @@
 
 	<!-- ABOUT -->
 	<string name="about_intro">"This application capture wireless network info. It
-		has been developed by David Garcia and Jose Antonio Gómez."</string>
+		has been developed by David Garcia and Jose Antonio Gómez."
+	</string>
 
 	<!-- MENU -->
 	<string name="logout">Log out</string>
@@ -81,10 +82,13 @@
 	<string name="configuration">Configuration</string>
 	<string name="autologin">Auto Login</string>
 	<string name="autologin_description">Log in automatically with the stored user and
-		password.</string>
+		password
+	</string>
 	<string name="location">Language</string>
-	<string name="location_description">Set the application language.</string>
-	    <string name="preference_set">Preference set.</string>
-
+	<string name="location_description">Set the application language</string>
+	<string name="preference_set">Preference set</string>
+	<string name="choose_language">Choose language</string>
+	<string name="about">About</string>
+	<string name="about_description">Meet the developers</string>
 
 </resources>

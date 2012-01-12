@@ -8,5 +8,4 @@ public class AboutActivity extends HomeActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.about);
 	}
-
 }

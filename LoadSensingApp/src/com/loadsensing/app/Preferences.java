@@ -2,6 +2,7 @@ package com.loadsensing.app;
 
 import java.util.Locale;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -59,5 +60,7 @@ public class Preferences extends PreferenceActivity {
 				return true;
 			}
 		});
+
+
 	}
 }

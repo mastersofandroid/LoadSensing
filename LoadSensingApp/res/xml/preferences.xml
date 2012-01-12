@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory android:title="@string/configuration" >
-        
-        <CheckBoxPreference
-            android:key="autologin"
-            android:summary="@string/autologin_description"
-            android:title="@string/autologin" />
+	<PreferenceCategory android:title="@string/configuration">
 
-        <ListPreference
-            android:entries="@array/locations"
-            android:entryValues="@array/locations_key"
-            android:key="location"
-            android:summary="@string/location_description"
-            android:title="@string/location" 
-            android:dialogTitle="Introduce valor"/>
-    </PreferenceCategory>
+		<CheckBoxPreference android:key="autologin"
+			android:summary="@string/autologin_description" android:title="@string/autologin" />
 
+		<ListPreference android:entries="@array/locations"
+			android:entryValues="@array/locations_key" android:key="location"
+			android:summary="@string/location_description" android:title="@string/location"
+			android:dialogTitle="@string/choose_language" />
+	</PreferenceCategory>
+
+	<PreferenceCategory android:title="@string/about">
+		<Preference android:title="@string/about" android:summary="@string/about_description"
+			android:key="about">
+			<intent android:action="com.loadsensing.app.ABOUTACTIVITY" />
+		</Preference>
+	</PreferenceCategory>
 </PreferenceScreen>
