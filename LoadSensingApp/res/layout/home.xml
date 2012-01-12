@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	style="@style/Activity" >
+    style="@style/Activity" >
 
     <LinearLayout style="@style/TitleBar" >
 
         <ImageView
             style="@style/TitleBarText"
-            android:src="@drawable/logo_bar"
-            android:layout_margin="3dp" />
+            android:layout_margin="3dp"
+            android:src="@drawable/logo_bar" />
     </LinearLayout>
 
     <LinearLayout
@@ -19,14 +19,13 @@
 
         <Button
             android:id="@+id/llistatxarxes"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            style="@style/LabelCentered"
             android:layout_marginTop="5dp"
             android:background="@null"
             android:drawableTop="@drawable/btnllistatxarxes"
             android:onClick="onClickFeature"
-            android:text="@string/title_feature1" />
+            android:text="@string/title_feature1"
+            android:textSize="16dp" />
 
         <ImageView
             android:id="@+id/separator"
@@ -39,10 +38,12 @@
 
         <Button
             android:id="@+id/localitzacioxarxes"
-            style="@style/HomeButton"
+            style="@style/LabelCentered"
+            android:background="@null"            
             android:drawableTop="@drawable/btnlocalitzacioxarxes"
             android:onClick="onClickFeature"
-            android:text="@string/title_feature2" />
+            android:text="@string/title_feature2"
+            android:textSize="16dp" />
 
         <ImageView
             android:id="@+id/separator"
@@ -55,10 +56,12 @@
 
         <Button
             android:id="@+id/qrcode"
-			style="@style/HomeButton"
+            style="@style/LabelCentered"
+            android:background="@null"            
             android:drawableTop="@drawable/btnqrcode"
             android:onClick="onClickFeature"
-            android:text="@string/title_feature4" />
+            android:text="@string/title_feature4"
+            android:textSize="16dp" />
     </LinearLayout>
 
 </LinearLayout>

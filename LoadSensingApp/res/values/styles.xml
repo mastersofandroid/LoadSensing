@@ -26,7 +26,7 @@
     </style>
 
     <style name="TitleBarSeparator">
-        <item name="android:layout_width">1px</item>
+        <item name="android:layout_width">1dp</item>
         <item name="android:layout_height">fill_parent</item>
         <item name="android:background">#40ffffff</item>
     </style>
@@ -36,7 +36,7 @@
         <item name="android:layout_height">fill_parent</item>
         <item name="android:layout_weight">1</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">18dp</item>
         <item name="android:paddingLeft">12dip</item>
         <item name="android:paddingRight">12dip</item>
         <item name="android:textStyle">bold</item>
@@ -51,5 +51,14 @@
         <item name="android:background">@drawable/background</item>
         <item name="android:orientation">vertical</item>
     </style>
+    
+    <style name="LabelCentered">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textColor">#1b2630</item>
+        <item name="android:textStyle">bold</item>
+    </style>        
 
 </resources>
