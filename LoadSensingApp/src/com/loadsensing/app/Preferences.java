@@ -2,6 +2,8 @@ package com.loadsensing.app;
 
 import java.util.Locale;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -11,10 +13,16 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 public class Preferences extends PreferenceActivity {
 
+	public static final String DEB_TAG = "LoadSensingApp_LOG";
+	
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
@@ -60,5 +68,38 @@ public class Preferences extends PreferenceActivity {
 			}
 		});
 
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.menu, menu);
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle item selection
+		switch (item.getItemId()) {
+		case R.id.logout:
+			SharedPreferences settings = getSharedPreferences("LoadSensingApp",
+					Context.MODE_PRIVATE);
+			SharedPreferences.Editor editor = settings.edit();
+			editor.putString("session", "");
+			editor.commit();
+			Log.d(DEB_TAG, "SharedPreferences. Session restarted.");
+			startActivity(new Intent(getApplicationContext(),
+					LoginActivity.class));
+			this.finish();
+			return true;
+		case R.id.preferences:
+			startActivity(new Intent(getApplicationContext(), Preferences.class));
+			return true;
+		case R.id.exit:
+			moveTaskToBack(true);
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
 	}
 }

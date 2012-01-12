@@ -28,6 +28,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -113,5 +116,38 @@ public class LlistaXarxesActivity extends ListActivity {
 		final Intent intent = new Intent(context, HomeActivity.class);
 		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		context.startActivity(intent);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.menu, menu);
+		return true;
+	}	
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle item selection
+		switch (item.getItemId()) {
+		case R.id.logout:
+			SharedPreferences settings = getSharedPreferences("LoadSensingApp",
+					Context.MODE_PRIVATE);
+			SharedPreferences.Editor editor = settings.edit();
+			editor.putString("session", "");
+			editor.commit();
+			Log.d(DEB_TAG, "SharedPreferences. Session restarted.");
+			startActivity(new Intent(getApplicationContext(),
+					LoginActivity.class));
+			this.finish();
+			return true;
+		case R.id.preferences:
+			startActivity(new Intent(getApplicationContext(), Preferences.class));
+			return true;
+		case R.id.exit:
+			moveTaskToBack(true);
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
 	}
 }
