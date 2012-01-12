@@ -19,7 +19,7 @@
             android:text="@+string/title_feature6" />
         <ImageButton style="@style/TitleBarAction"
             android:contentDescription="@string/description_back"
-            android:src="@drawable/atras"
+            android:src="@drawable/title_back"
             android:onClick="goBack" />        
     </LinearLayout>
 
@@ -448,6 +448,7 @@
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
         android:onClick="graph"
-        android:text="@string/graph" />
+        android:text="@string/graph"
+        android:drawableLeft="@drawable/grafic_default"/>
 
 </LinearLayout>

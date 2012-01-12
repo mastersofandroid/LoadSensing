@@ -18,7 +18,7 @@
 
         <ImageButton style="@style/TitleBarAction"
             android:contentDescription="@string/description_back"
-            android:src="@drawable/atras"
+            android:src="@drawable/title_back"
             android:onClick="goBack" /> 
     </LinearLayout>
 
