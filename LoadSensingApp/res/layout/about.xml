@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	style="@style/Activity"  >
+    style="@style/Activity" >
 
     <LinearLayout style="@style/TitleBar" >
 
@@ -15,16 +15,24 @@
         <TextView
             style="@style/TitleBarText"
             android:text="@+string/title_about" />
-        
-        <ImageButton style="@style/TitleBarAction"
+
+        <ImageButton
+            style="@style/TitleBarAction"
             android:contentDescription="@string/description_back"
-            android:src="@drawable/title_back"
-            android:onClick="goBack" />         
+            android:onClick="goBack"
+            android:src="@drawable/title_back" />
     </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@+string/about_intro" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:src="@drawable/piticli" />
 
 </LinearLayout>
