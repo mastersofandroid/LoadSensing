@@ -263,11 +263,6 @@ public class DashboardActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle item selection
 		switch (item.getItemId()) {
-		case R.id.about:
-			startActivity(new Intent(getApplicationContext(),
-					AboutActivity.class));
-			return true;
-
 		case R.id.logout:
 			SharedPreferences settings = getSharedPreferences("LoadSensingApp",
 					Context.MODE_PRIVATE);
@@ -279,6 +274,14 @@ public class DashboardActivity extends Activity {
 					LoginActivity.class));
 			this.finish();
 			return true;
+		case R.id.preferences:
+			startActivity(new Intent(getApplicationContext(),
+					Preferences.class));
+			return true;
+		case R.id.exit:
+			finish();
+			System.exit(0);
+			return true;			
 		default:
 			return super.onOptionsItemSelected(item);
 		}
@@ -319,7 +322,7 @@ public class DashboardActivity extends Activity {
 
 	View.OnClickListener listenerCambioIdiomaEN = new View.OnClickListener() {
 		public void onClick(View v) {
-			Locale locale = new Locale("en");
+			Locale locale = new Locale("en_US");
 			Locale.setDefault(locale);
 			Configuration config = new Configuration();
 			config.locale = locale;

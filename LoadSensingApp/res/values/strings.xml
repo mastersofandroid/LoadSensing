@@ -20,7 +20,7 @@
     <string name="remember_user_password">"Recordar usuario y contraseña"</string>
     <string name="idioma_es">Español</string>
     <string name="idioma_en">Inglés</string>
-        <string name="login">Iniciar sesión</string>
+    <string name="login">Iniciar sesión</string>
 
     <!-- HOME layout -->
     <string name="title_about">Acerca de</string>
@@ -71,10 +71,19 @@
     <string name="graph">Mostrar gráfico</string>
 
     <!-- ABOUT -->
-    <string name="about_intro">"Aquesta aplicació captura informació de xarxes de sensors sense fils. Esta creada per David Garcia i Jose Antonio Gómez."</string>
+    <string name="about_intro">Esta aplicación captura información de redes de sensores sin hilos. Está creada por David Garcia i Jose Antonio Gómez.</string>
 
     <!-- MENU -->
-    <string name="about">Sobre</string>
-    <string name="logout">Desconnectar</string>
+    <string name="logout">Desconectar</string>
+    <string name="preferences">Preferencias</string>
+    <string name="exit">Salir</string>
+
+    <!-- PREFERENCES -->
+<string name="configuration">Configuración</string>
+    <string name="autologin">Login automático</string>
+    <string name="autologin_description">Permite loginarse automáticamente con el usuario y password recordado.</string>
+    <string name="location">Idioma</string>
+    <string name="location_description">Idioma utilizado en la aplicación.</string>
+    <string name="preference_set">Preferencia seteada.</string>
 
 </resources>

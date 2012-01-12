@@ -68,8 +68,10 @@ public class QRActivity extends DashboardActivity {
 							SingleSensorActivity.class);
 					intent.putExtra("idsensorselected", idsensor);
 					startActivity(intent);
+					finish();
 				}
 			}
+			finish();
 			break;
 		}
 		}
