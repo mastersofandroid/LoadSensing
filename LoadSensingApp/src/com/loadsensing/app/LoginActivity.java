@@ -12,6 +12,7 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -39,6 +40,11 @@ public class LoginActivity extends DashboardActivity implements OnClickListener 
 
 		// load up the layout
 		setContentView(R.layout.login);
+		// SharedPreferences settings = getSharedPreferences("LoadSensingApp",
+		// Context.MODE_PRIVATE);
+
+		SharedPreferences settings = PreferenceManager
+				.getDefaultSharedPreferences(LoginActivity.this);
 
 		// Set "Remember username and password" 1/0 if checked/unchecked
 		CheckBox rememberUserPassword = (CheckBox) findViewById(R.id.remember_user_password);
@@ -62,19 +68,18 @@ public class LoginActivity extends DashboardActivity implements OnClickListener 
 			editText.setText(getSharedPreference("password"));
 		}
 
-		Button cambioIdiomaES = (Button) findViewById(R.id.idioma_es);
-		cambioIdiomaES.setOnClickListener(listenerCambioIdiomaES);
-
-		Button cambioIdiomaEN = (Button) findViewById(R.id.idioma_en);
-		cambioIdiomaEN.setOnClickListener(listenerCambioIdiomaEN);
-
-		// Delete session
-		setSharedPreference("session", "");
-
 		// get the button resource in the xml file and assign it to a local
 		// variable of type Button
 		Button login = (Button) findViewById(R.id.login_button);
 		login.setOnClickListener(this);
+
+		if (settings.getBoolean("autologin", false)) {
+			login.performClick();
+		}
+
+		// Delete session
+		setSharedPreference("session", "");
+
 	}
 
 	private String getSharedPreference(String fieldName) {

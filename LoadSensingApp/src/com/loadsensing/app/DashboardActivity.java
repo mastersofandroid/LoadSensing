@@ -20,22 +20,19 @@ import java.util.List;
 import java.util.Locale;
 
 import android.app.Activity;
-import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
-import android.location.GpsStatus.Listener;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Adapter;
-import android.widget.Toast;
 
 /**
  * This is the base class for activities in the dashboard application. It
@@ -103,6 +100,19 @@ public class DashboardActivity extends Activity {
 
 	protected void onRestart() {
 		super.onRestart();
+		// TODO Auto-generated method stub
+		super.onDestroy();
+		SharedPreferences settings = PreferenceManager
+				.getDefaultSharedPreferences(DashboardActivity.this);
+		Log.d("loc", settings.getString("location", ""));
+		Locale locale = new Locale(settings.getString("location", "es"));
+		Locale.setDefault(locale);
+		Configuration config = new Configuration();
+		config.locale = locale;
+		getApplicationContext().getResources().updateConfiguration(config,
+				getBaseContext().getResources().getDisplayMetrics());
+		startActivity(getIntent());
+		finish();
 	}
 
 	/**
@@ -247,7 +257,7 @@ public class DashboardActivity extends Activity {
 		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		context.startActivity(intent);
 	}
-	
+
 	public void goBack(View v) {
 		finish();
 	}
@@ -275,61 +285,13 @@ public class DashboardActivity extends Activity {
 			this.finish();
 			return true;
 		case R.id.preferences:
-			startActivity(new Intent(getApplicationContext(),
-					Preferences.class));
+			startActivity(new Intent(getApplicationContext(), Preferences.class));
 			return true;
 		case R.id.exit:
-			finish();
-			System.exit(0);
-			return true;			
+			moveTaskToBack(true);
+			return true;
 		default:
 			return super.onOptionsItemSelected(item);
 		}
 	}
-
-	/**
-	 * Show a string on the screen via Toast.
-	 * 
-	 * @param msg
-	 *            String
-	 * @return void
-	 */
-
-	public void toast(String msg) {
-		Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
-	} // end toast
-
-	/**
-	 * Send a message to the debug log and display it using Toast.
-	 */
-	public void trace(String msg) {
-		Log.d("Demo", msg);
-		toast(msg);
-	}
-
-	View.OnClickListener listenerCambioIdiomaES = new View.OnClickListener() {
-		public void onClick(View v) {
-			Locale locale = new Locale("es");
-			Locale.setDefault(locale);
-			Configuration config = new Configuration();
-			config.locale = locale;
-			getBaseContext().getResources().updateConfiguration(config,
-					getBaseContext().getResources().getDisplayMetrics());
-			startActivity(getIntent());
-			finish();
-		}
-	};
-
-	View.OnClickListener listenerCambioIdiomaEN = new View.OnClickListener() {
-		public void onClick(View v) {
-			Locale locale = new Locale("en_US");
-			Locale.setDefault(locale);
-			Configuration config = new Configuration();
-			config.locale = locale;
-			getBaseContext().getResources().updateConfiguration(config,
-					getBaseContext().getResources().getDisplayMetrics());
-			startActivity(getIntent());
-			finish();
-		}
-	};
-} // end class
+}

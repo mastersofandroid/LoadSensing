@@ -1,11 +1,16 @@
 package com.loadsensing.app;
 
-import android.app.Activity;
+import java.util.Locale;
+
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.MotionEvent;
 
-public class SplashActivity extends Activity {
+public class SplashActivity extends DashboardActivity {
 
 	protected boolean active = true;
 
@@ -17,6 +22,17 @@ public class SplashActivity extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.splash);
+
+		SharedPreferences settings = PreferenceManager
+				.getDefaultSharedPreferences(SplashActivity.this);
+
+		Log.d("location", settings.getString("location", "es"));
+		Locale locale = new Locale(settings.getString("location", "es"));
+		Locale.setDefault(locale);
+		Configuration config = new Configuration();
+		config.locale = locale;
+		getBaseContext().getResources().updateConfiguration(config,
+				getBaseContext().getResources().getDisplayMetrics());
 
 		Thread timer = new Thread() {
 			public void run() {

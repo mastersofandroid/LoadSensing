@@ -4,7 +4,6 @@
     <PreferenceCategory android:title="@string/configuration" >
         
         <CheckBoxPreference
-            android:defaultValue="false"
             android:key="autologin"
             android:summary="@string/autologin_description"
             android:title="@string/autologin" />
@@ -14,7 +13,8 @@
             android:entryValues="@array/locations_key"
             android:key="location"
             android:summary="@string/location_description"
-            android:title="@string/location" />
+            android:title="@string/location" 
+            android:dialogTitle="Introduce valor"/>
     </PreferenceCategory>
 
 </PreferenceScreen>

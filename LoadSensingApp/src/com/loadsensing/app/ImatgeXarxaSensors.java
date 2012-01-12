@@ -41,8 +41,8 @@ public class ImatgeXarxaSensors extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(new TouchView(this));
-		
-		//setContentView(R.layout.imatge_xarxa_sensors);
+
+		// setContentView(R.layout.imatge_xarxa_sensors);
 		// getWindow().setBackgroundDrawableResource(R.drawable.menulocalitzacioxarxes);
 	}
 
@@ -54,7 +54,7 @@ public class ImatgeXarxaSensors extends Activity {
 		public TouchView(Context context) {
 			super(context);
 			int color = Color.parseColor("#000000");
-			//setHorizontalScrollBarEnabled(true);
+			// setHorizontalScrollBarEnabled(true);
 			setBackgroundColor(color);
 
 			overlay = BitmapFactory.decodeResource(getResources(),
@@ -83,11 +83,11 @@ public class ImatgeXarxaSensors extends Activity {
 			String idImg = "";
 			String pathImg = "";
 			float escala = 0;
-			
-			FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(LayoutParams.FILL_PARENT,  LayoutParams.FILL_PARENT);
+
+			FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
+					LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
 			params.gravity = Gravity.BOTTOM | Gravity.CENTER;
-			
-			
+
 			try {
 				// String IdXarxaParam = "002";
 				String IdXarxaParam = "00" + XarxaSelected;
@@ -125,28 +125,26 @@ public class ImatgeXarxaSensors extends Activity {
 				// bgr = Bitmap.createScaledBitmap(bgr,480,800,true);
 				// bgr = BitmapFactory.decodeResource(getResources(),
 				// R.drawable.sagradafamilia);
-				float ampladapantalla = getWindowManager().getDefaultDisplay().getWidth();
+				float ampladapantalla = getWindowManager().getDefaultDisplay()
+						.getWidth();
 				int orientacio = getRequestedOrientation();
-				if ( ampladapantalla < bgr.getWidth())
-				{
-					Log.i(DEB_TAG,"amplada pantalla: " + ampladapantalla + " --> width bgr: " + bgr.getWidth());
+				if (ampladapantalla < bgr.getWidth()) {
+					Log.i(DEB_TAG, "amplada pantalla: " + ampladapantalla
+							+ " --> width bgr: " + bgr.getWidth());
 					setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 					canvas.drawBitmap(bgr, 0, 0, null);
-				}
-				else
-				{
-					if (orientacio != 0)
-					{
-						escala = (float)getWindowManager().getDefaultDisplay().getHeight()/(float)bgr.getHeight();
-						Log.i(DEB_TAG,"escalem imatge");
-						//canvas.scale((float)bgr.getWidth()*escala, (float)getWindowManager().getDefaultDisplay().getHeight());
-						
-					}
-					else
-					{
+				} else {
+					if (orientacio != 0) {
+						escala = (float) getWindowManager().getDefaultDisplay()
+								.getHeight() / (float) bgr.getHeight();
+						Log.i(DEB_TAG, "escalem imatge");
+						// canvas.scale((float)bgr.getWidth()*escala,
+						// (float)getWindowManager().getDefaultDisplay().getHeight());
+
+					} else {
 						escala = 1;
 					}
-					canvas.scale(escala,escala);
+					canvas.scale(escala, escala);
 					canvas.drawBitmap(bgr, 0, 0, null);
 				}
 			} catch (Exception ex) {
@@ -173,12 +171,16 @@ public class ImatgeXarxaSensors extends Activity {
 
 					// Integer.parseInt(sensorJSON.getString("x"));
 					sensor.put("idsensor", sensorJSON.getString("id"));
-					sensor.put("x", Float.toString(Float.valueOf(coordx)*escala));
-					sensor.put("y", Float.toString(Float.valueOf(coordy)*escala));
+					sensor.put("x",
+							Float.toString(Float.valueOf(coordx) * escala));
+					sensor.put("y",
+							Float.toString(Float.valueOf(coordy) * escala));
 					// overlay =
 					// Bitmap.createScaledBitmap(overlay,480,800,true);
-					canvas.drawBitmap(overlay, Integer.parseInt(coordx)-(overlay.getWidth()/2),
-							Integer.parseInt(coordy)-(overlay.getHeight()/2), null);
+					canvas.drawBitmap(overlay, Integer.parseInt(coordx)
+							- (overlay.getWidth() / 2),
+							Integer.parseInt(coordy)
+									- (overlay.getHeight() / 2), null);
 					listaSensors.add(sensor);
 				}
 			} catch (Exception ex) {
@@ -199,8 +201,10 @@ public class ImatgeXarxaSensors extends Activity {
 					Log.d(DEB_TAG, "Sensor : " + j);
 					HashMap<String, String> sensor = new HashMap<String, String>();
 					sensor = listaSensors.get(j);
-					int coordenadaxsensor = Math.round(Float.valueOf(sensor.get("x")));
-					int coordenadaysensor = Math.round(Float.valueOf(sensor.get("y")));
+					int coordenadaxsensor = Math.round(Float.valueOf(sensor
+							.get("x")));
+					int coordenadaysensor = Math.round(Float.valueOf(sensor
+							.get("y")));
 					Log.d(DEB_TAG, "x donde se hace click : " + x);
 					Log.d(DEB_TAG, "y donde se hace click: " + y);
 					Log.d(DEB_TAG, "coordenada sensor x: " + coordenadaxsensor);

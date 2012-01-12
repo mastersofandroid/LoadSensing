@@ -118,7 +118,7 @@ public class LlistaXarxesActivity extends ListActivity {
 	public void goBack(View v) {
 		finish();
 	}
-	
+
 	public void onClickHome(View v) {
 		goHome(this);
 	}

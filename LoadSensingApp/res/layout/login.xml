@@ -1,116 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
 
-    <LinearLayout
+    <ImageView
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="@drawable/background"
-        android:orientation="vertical" >
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/logo" />
 
-        <ImageView
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/imageView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/logo" />
+    <TextView
+        android:id="@+id/username_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/welcome_text"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:text="@+string/username" />
 
-        <TextView
-            android:id="@+id/username_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/welcome_text"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:text="@+string/username" />
+    <EditText
+        android:id="@+id/txt_username"
+        android:layout_width="250px"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/username_text"
+        android:layout_gravity="center_horizontal"
+        android:hint="@+string/username_hint"
+        android:singleLine="true" />
 
-        <EditText
-            android:id="@+id/txt_username"
-            android:layout_width="250px"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/username_text"
-            android:layout_gravity="center_horizontal"
-            android:hint="@+string/username_hint"
-            android:singleLine="true" />
+    <TextView
+        android:id="@+id/password_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_username"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:text="@+string/password" />
 
-        <TextView
-            android:id="@+id/password_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_username"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:text="@+string/password" />
+    <EditText
+        android:id="@+id/txt_password"
+        android:layout_width="250px"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/password_text"
+        android:layout_gravity="center_horizontal"
+        android:hint="@+string/password"
+        android:password="true"
+        android:singleLine="true" />
 
-        <EditText
-            android:id="@+id/txt_password"
-            android:layout_width="250px"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/password_text"
-            android:layout_gravity="center_horizontal"
-            android:hint="@+string/password"
-            android:password="true"
-            android:singleLine="true" />
+    <CheckBox
+        android:id="@+id/remember_user_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:text="@+string/remember_user_password" />
 
-        <CheckBox
-            android:id="@+id/remember_user_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp"
-            android:text="@+string/remember_user_password" />
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_password"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:text="@+string/login" />
 
-        <Button
-            android:id="@+id/login_button"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txt_password"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp"
-            android:text="@+string/login" />
-
-        <RelativeLayout
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="20dp" >
-
-            <Button
-                android:id="@+id/idioma_en"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:layout_below="@+id/txt_password"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:background="@null"
-                android:drawableTop="@drawable/english"
-                android:text="@+string/idioma_en" />
-
-            <Button
-                android:id="@+id/idioma_es"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_below="@+id/txt_password"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_toLeftOf="@id/idioma_en"
-                android:background="@null"
-                android:drawableTop="@drawable/spanish"
-                android:text="@+string/idioma_es" />
-        </RelativeLayout>
-    </LinearLayout>
-
-</RelativeLayout>
+</LinearLayout>

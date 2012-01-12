@@ -84,7 +84,7 @@
 		password.</string>
 	<string name="location">Language</string>
 	<string name="location_description">Set the application language.</string>
-	    <string name="preference_set">Preference setted.</string>
+	    <string name="preference_set">Preference set.</string>
 
 
 </resources>
