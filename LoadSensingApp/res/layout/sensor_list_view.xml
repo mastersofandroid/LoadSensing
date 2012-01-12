@@ -20,10 +20,6 @@
             android:contentDescription="@string/description_back"
             android:src="@drawable/atras"
             android:onClick="goBack" />        
-        <ImageButton style="@style/TitleBarAction"
-            android:contentDescription="@string/description_search"
-            android:src="@drawable/title_search"
-            android:onClick="onClickSearch" />
 	</LinearLayout>
 	
 	<ListView android:id="@id/android:list"

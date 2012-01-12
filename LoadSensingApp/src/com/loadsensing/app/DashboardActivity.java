@@ -97,18 +97,6 @@ public class DashboardActivity extends Activity {
 	}
 
 	/**
-	 * Handle the click on the search button.
-	 * 
-	 * @param v
-	 *            View
-	 * @return void
-	 */
-
-	public void onClickSearch(View v) {
-		startActivity(new Intent(getApplicationContext(), SearchActivity.class));
-	}
-
-	/**
 	 * Handle the click on the About button.
 	 * 
 	 * @param v
