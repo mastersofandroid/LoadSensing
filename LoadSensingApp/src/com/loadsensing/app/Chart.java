@@ -20,13 +20,12 @@ import com.loadsensing.client.JsonClient;
 
 public class Chart extends DashboardActivity {
 
-	private static final String DEB_TAG = "LoadSensingApp_LOG";
 	private String SERVER_HOST = "http://viuterrassa.com/Android/getValorsGrafic.php";
 	private String CHART_URL = "http://chart.apis.google.com/chart?";
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// WebView googleChartView = new WebView(this);
+
 		setContentView(R.layout.chart);
 		final WebView googleChartView = (WebView) findViewById(R.id.chart);
 
@@ -38,10 +37,6 @@ public class Chart extends DashboardActivity {
 				generaChart(googleChartView, checkedId);
 			}
 		});
-
-		// URL example
-		// String mUrl
-		// ="http://chart.apis.google.com/chart?cht=p3&chd=t:30,60,10&chs=250x100&chl=cars|bikes|trucks";
 	}
 
 	private void generaChart(WebView googleChartView, int checkedId) {
@@ -121,7 +116,6 @@ public class Chart extends DashboardActivity {
 
 		mUrl = mUrl + "&chxr=0,-5,110|1,-5,110|2," + minRounded + ","
 				+ maxRounded;
-		// mUrl = mUrl + "&chxr=0,-5,110|1,1,2";
 
 		// Ejes visibles
 		mUrl = mUrl + "&chxt=x,x,y";
@@ -130,7 +124,6 @@ public class Chart extends DashboardActivity {
 		mUrl = mUrl + "&cht=lxy";
 
 		// Medida del gráfico
-		// mUrl = mUrl + "&chs=440x200";
 		Display display = getWindowManager().getDefaultDisplay();
 		int width = display.getWidth() - 170;
 		int height = display.getHeight() - 400;
@@ -143,12 +136,9 @@ public class Chart extends DashboardActivity {
 		mUrl = mUrl + "&chco=3072F3";
 
 		// Escala
-		// mUrl = mUrl + "&chds=a";
 		mUrl = mUrl + "&chds=0,9," + minRounded + "," + maxRounded;
 
 		// Valores
-		// mUrl = mUrl +
-		// "&chd=t:0,1,2,3,4,5,6,7,8,9|1.631,1.63,1.636,1.631,1.64,1.64,1.636,1.63,1.632,1.633";
 		mUrl = mUrl + "&chd=t:0";
 		for (int i = 1; i < valorsURL.size(); i++) {
 			mUrl = mUrl + "," + i;
@@ -186,5 +176,4 @@ public class Chart extends DashboardActivity {
 
 		googleChartView.loadUrl(mUrl);
 	}
-
 }

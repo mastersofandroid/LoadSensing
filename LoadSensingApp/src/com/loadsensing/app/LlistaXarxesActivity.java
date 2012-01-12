@@ -39,20 +39,6 @@ public class LlistaXarxesActivity extends ListActivity {
 	private static final String DEB_TAG = "LoadSensingApp_LOG";
 	private String SERVER_HOST = "http://viuterrassa.com/Android/getLlistatXarxes.php";
 
-	/**
-	 * onCreate
-	 * 
-	 * Called when the activity is first created. This is where you should do
-	 * all of your normal static set up: create views, bind data to lists, etc.
-	 * This method also provides you with a Bundle containing the activity's
-	 * previously frozen state, if there was one.
-	 * 
-	 * Always followed by onStart().
-	 * 
-	 * @param savedInstanceState
-	 *            Bundle
-	 */
-
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.xarxa_list_view);

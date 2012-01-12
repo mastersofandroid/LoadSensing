@@ -45,9 +45,6 @@ public class OverlayXarxa extends BalloonItemizedOverlay<OverlayItem> {
 		Log.d(DEB_TAG, Integer.toString(index));
 		mContext.startActivity(intent);
 
-		// Toast.makeText(mContext, "onBalloonTap for overlay index " + index,
-		// Toast.LENGTH_LONG).show();
-
 		return true;
 	}
 }

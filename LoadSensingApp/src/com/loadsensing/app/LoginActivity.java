@@ -25,13 +25,8 @@ import com.loadsensing.client.JsonClient;
 
 public class LoginActivity extends DashboardActivity implements OnClickListener {
 
-	private static final String DEB_TAG = "LoadSensingApp_LOG";
-
 	private String SERVER_HOST = "http://viuterrassa.com/Android/login.php";
-
 	private ProgressDialog progress;
-
-	/** Called when the activity is first created. */
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -40,8 +35,6 @@ public class LoginActivity extends DashboardActivity implements OnClickListener 
 
 		// load up the layout
 		setContentView(R.layout.login);
-		// SharedPreferences settings = getSharedPreferences("LoadSensingApp",
-		// Context.MODE_PRIVATE);
 
 		SharedPreferences settings = PreferenceManager
 				.getDefaultSharedPreferences(LoginActivity.this);
@@ -215,12 +208,9 @@ public class LoginActivity extends DashboardActivity implements OnClickListener 
 
 			showBusyCursor(false);
 
-		}// end else
-	}// end OnClick
+		}
+	}
 
-	/*
-	 *
-	 */
 	private void showBusyCursor(Boolean $show) {
 		setProgressBarIndeterminateVisibility($show);
 	}

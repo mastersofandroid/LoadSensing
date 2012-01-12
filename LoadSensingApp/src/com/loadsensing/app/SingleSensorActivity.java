@@ -14,9 +14,7 @@ import android.widget.TextView;
 import com.loadsensing.client.JsonClient;
 
 public class SingleSensorActivity extends DashboardActivity {
-	/** Called when the activity is first created. */
 
-	private static final String DEB_TAG = "LoadSensingApp_LOG";
 	private String SERVER_HOST = "http://viuterrassa.com/Android/getSensorInfo.php";
 
 	@Override
@@ -98,16 +96,6 @@ public class SingleSensorActivity extends DashboardActivity {
 		} catch (Exception ex) {
 			Log.d(DEB_TAG, "Exception: " + ex.getMessage());
 		}
-	}
-
-	public void goBack(View v) {
-		finish();
-	}
-
-	public void goHome(Context context) {
-		final Intent intent = new Intent(context, HomeActivity.class);
-		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-		context.startActivity(intent);
 	}
 
 	public void graph(View v) {

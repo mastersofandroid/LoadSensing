@@ -1,22 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    This is a modified version of a class from the IO Schedule app.
-    The original copyright and license information follows.
-
-    Copyright 2010 Google Inc.
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-
-         http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
--->
 <resources>
     <!-- Base application theme is the default theme. -->
     <style name="Theme" parent="android:Theme"></style>
@@ -51,7 +33,6 @@
     </style>
 
     <style name="TitleBar">
-        <item name="android:id">@id/title_container</item>
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">45dp</item>
         <item name="android:orientation">horizontal</item>
@@ -81,7 +62,6 @@
     </style>
 
     <style name="TitleBarLogo">
-        <item name="android:id">@id/title_logo</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">fill_parent</item>
         <item name="android:clickable">true</item>
@@ -94,7 +74,6 @@
     </style>
 
     <style name="TitleBarText">
-        <item name="android:id">@id/title_text</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">fill_parent</item>
         <item name="android:layout_weight">1</item>
