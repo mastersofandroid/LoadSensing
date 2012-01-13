@@ -2,7 +2,6 @@
 <resources>
 
     <string name="description_logo">LoadSensing</string>
-    <string name="search_intro">Pagina de búsqueda</string>
 
     <!-- GLOBALES -->
     <string name="app_name">LoadSensingApp</string>
@@ -78,14 +77,14 @@
     <string name="exit">Salir</string>
 
     <!-- PREFERENCES -->
-<string name="configuration">Configuración</string>
+    <string name="configuration">Configuración</string>
     <string name="autologin">Login automático</string>
     <string name="autologin_description">Permite loginarse automáticamente con el usuario y password recordado.</string>
     <string name="location">Idioma</string>
     <string name="location_description">Idioma utilizado en la aplicación</string>
     <string name="preference_set">Preferencia establecida</string>
     <string name="choose_language">Elige idioma</string>
-<string name="about">Acerca de</string>
-<string name="about_description">Conoce a los creadores de la app</string>
+    <string name="about">Acerca de</string>
+    <string name="about_description">Conoce a los creadores de la app</string>
 
 </resources>

@@ -2,11 +2,10 @@
 <resources>
 
 	<string name="description_logo">LoadSensing</string>
-	<string name="search_intro">Pàgina de cerca</string>
 
 	<!-- GLOBALES -->
 	<string name="app_name">LoadSensingApp</string>
-	<string name="pantalla_espera_title">Por favor espere...</string>
+	<string name="pantalla_espera_title">Please waite...</string>
 	<string name="error">Error</string>
 	<string name="guion">" - "</string>
 

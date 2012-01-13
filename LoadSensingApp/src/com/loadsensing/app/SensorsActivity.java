@@ -27,7 +27,8 @@ public class SensorsActivity extends ListActivity {
 
 	private static final String DEB_TAG = "LoadSensingApp_LOG";
 	private String SERVER_HOST = "http://viuterrassa.com/Android/getLlistaSensors.php";
-
+	ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
+	HashMap<String, String> sensors = null;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -48,9 +49,7 @@ public class SensorsActivity extends ListActivity {
 		} else {
 			XarxaSelected = (String) savedInstanceState
 					.getSerializable("XarxaSelected");
-		}
-
-		ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
+		}		
 
 		SimpleAdapter adapter = new SimpleAdapter(this, list,
 				R.layout.sensor_row_list_view, new String[] { "id", "sensor",
@@ -70,9 +69,7 @@ public class SensorsActivity extends ListActivity {
 			// Convertim la resposta string a un JSONArray
 			JSONArray llistaSensorsArray = new JSONArray(jsonString);
 
-			HashMap<String, String> sensors = null;
-
-			for (int i = 0; i < llistaSensorsArray.length(); i++) {
+			for (int i = 0; i < 2; i++) {
 				JSONObject xarxaJSON = llistaSensorsArray.getJSONObject(i);
 				sensors = new HashMap<String, String>();
 				sensors.put("id", xarxaJSON.getString("id"));
@@ -85,7 +82,9 @@ public class SensorsActivity extends ListActivity {
 
 				list.add(sensors);
 			}
+			
 			setListAdapter(adapter);
+			
 		} catch (Exception ex) {
 		}
 	}
@@ -149,5 +148,5 @@ public class SensorsActivity extends ListActivity {
 		default:
 			return super.onOptionsItemSelected(item);
 		}
-	}
+	}	
 }

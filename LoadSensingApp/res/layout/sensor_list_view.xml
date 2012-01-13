@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/background"
->
-    
-    <LinearLayout style="@style/TitleBar">
+    android:orientation="vertical" >
+
+    <LinearLayout style="@style/TitleBar" >
+
         <ImageButton
             style="@style/TitleBarAction"
             android:contentDescription="@string/description_home"
             android:onClick="onClickHome"
             android:src="@drawable/title_home" />
-        <ImageView style="@style/TitleBarSeparator"/>
-        <TextView style="@style/TitleBarText" 
+
+        <ImageView style="@style/TitleBarSeparator" />
+
+        <TextView
+            style="@style/TitleBarText"
             android:text="@+string/title_feature5" />
-        <ImageButton style="@style/TitleBarAction"
+
+        <ImageButton
+            style="@style/TitleBarAction"
             android:contentDescription="@string/description_back"
-            android:src="@drawable/title_back"
-            android:onClick="goBack" />        
-	</LinearLayout>
-	
+            android:onClick="goBack"
+            android:src="@drawable/title_back" />
+    </LinearLayout>
+
 	<ListView android:id="@id/android:list"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content" 
 	    android:drawSelectorOnTop="false">
 	</ListView>
+
 </LinearLayout>

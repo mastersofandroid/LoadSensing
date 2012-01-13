@@ -16,7 +16,8 @@ import com.loadsensing.client.JsonClient;
 public class SingleSensorActivity extends DashboardActivity {
 
 	private String SERVER_HOST = "http://viuterrassa.com/Android/getSensorInfo.php";
-
+	public static final String DEB_TAG = "LoadSensingApp_LOG";
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
