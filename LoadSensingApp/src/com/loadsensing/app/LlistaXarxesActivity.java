@@ -49,9 +49,9 @@ public class LlistaXarxesActivity extends ListActivity {
 		ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 		SimpleAdapter adapter = new SimpleAdapter(this, list,
 				R.layout.xarxa_row_list_view, new String[] { "nom", "poblacio",
-						"sensors", "lat", "lon", "idXarxa" }, new int[] {
+						"sensors", "lat", "lon", "idXarxa", "nomThumbnail" }, new int[] {
 						R.id.text1, R.id.text2, R.id.text3, R.id.text4,
-						R.id.text5, R.id.text6 });
+						R.id.text5, R.id.text6, R.id.thumbnailxarxa});
 
 		SharedPreferences settings = getSharedPreferences("LoadSensingApp",
 				Context.MODE_PRIVATE);
@@ -71,16 +71,20 @@ public class LlistaXarxesActivity extends ListActivity {
 				xarxa = new HashMap<String, String>();
 				JSONObject xarxaJSON = new JSONObject();
 				xarxaJSON = llistaXarxesArray.getJSONObject(i);
-
-				xarxa.put("id", String.valueOf(i));
+				String nomImatge = obtenirNomImatge(xarxaJSON.getString("IdXarxa"));
+				Log.i(DEB_TAG,"nom: " + nomImatge);
+				xarxa.put("id", String.valueOf(i));				
 				xarxa.put("poblacio", xarxaJSON.getString("Poblacio"));
 				xarxa.put("nom", xarxaJSON.getString("Nom"));
 				xarxa.put("idXarxa", xarxaJSON.getString("IdXarxa"));
 				xarxa.put("sensors", xarxaJSON.getString("Sensors"));
 				xarxa.put("lat", xarxaJSON.getString("Lat"));
 				xarxa.put("lon", xarxaJSON.getString("Lon"));
+				xarxa.put("nomThumbnail", nomImatge);
+				
 				Log.d(DEB_TAG, xarxaJSON.getString("Poblacio"));
 				list.add(xarxa);
+				
 			}
 			setListAdapter(adapter);
 
@@ -106,6 +110,26 @@ public class LlistaXarxesActivity extends ListActivity {
 
 	public void goBack(View v) {
 		finish();
+	}
+	
+	public String obtenirNomImatge(String idXarxa)  {
+		
+		String nomImatge = "";
+		
+		switch (Integer.parseInt(idXarxa)) {
+		case 1:
+			nomImatge = "sagradafamilia";
+			break;
+		case 2:
+			nomImatge = "torreagbar";
+			break;
+		case 3:
+			nomImatge = "pontvalencia";
+			break;
+		default:
+			break;
+		}
+		return nomImatge;
 	}
 
 	public void onClickHome(View v) {
