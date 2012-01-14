@@ -78,6 +78,11 @@ public class SensorsActivity extends ListActivity {
 				sensors.put("tipus", xarxaJSON.getString("tipus"));
 				sensors.put("descripcio", xarxaJSON.getString("Descripcio"));
 				sensors.put("poblacio", xarxaJSON.getString("Poblacio"));
+				Log.d(DEB_TAG, xarxaJSON.getString("id"));
+				Log.d(DEB_TAG, xarxaJSON.getString("sensor"));
+				Log.d(DEB_TAG, xarxaJSON.getString("canal"));
+				Log.d(DEB_TAG, xarxaJSON.getString("tipus"));
+				Log.d(DEB_TAG, xarxaJSON.getString("Descripcio"));
 				Log.d(DEB_TAG, xarxaJSON.getString("Poblacio"));
 
 				list.add(sensors);
