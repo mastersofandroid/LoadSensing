@@ -55,10 +55,25 @@
     <style name="LabelCentered">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_gravity">center_vertical</item>
-        <item name="android:layout_centerHorizontal">true</item>
         <item name="android:textColor">#1b2630</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
     </style>        
 
+    <style name="SingleSensorLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">#1b2630</item>
+        <item name="android:layout_centerHorizontal">true</item>        
+    </style>
+    
+    <style name="SingleSensorValue">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">#53A4C2</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_centerHorizontal">true</item>        
+    </style>  
 </resources>

@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/background"
-    android:orientation="vertical">
+    android:orientation="vertical" >
 
     <LinearLayout style="@style/TitleBar" >
 
@@ -12,16 +12,18 @@
             android:contentDescription="@string/description_home"
             android:onClick="onClickHome"
             android:src="@drawable/title_home" />
-        
+
         <ImageView style="@style/TitleBarSeparator" />
-        
-        <TextView style="@style/TitleBarText" 
+
+        <TextView
+            style="@style/TitleBarText"
             android:text="@+string/title_grafic" />
 
-        <ImageButton style="@style/TitleBarAction"
+        <ImageButton
+            style="@style/TitleBarAction"
             android:contentDescription="@string/description_back"
-            android:src="@drawable/title_back"
-            android:onClick="goBack" /> 
+            android:onClick="goBack"
+            android:src="@drawable/title_back" />
     </LinearLayout>
 
     <RadioGroup
@@ -35,19 +37,22 @@
             android:id="@+id/radio1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Strain" />
+            android:text="Strain"
+            android:textColor="#1b2630" />
 
         <RadioButton
             android:id="@+id/radio2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Power" />
+            android:text="Power"
+            android:textColor="#1b2630" />
 
         <RadioButton
             android:id="@+id/radio3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Counter" />
+            android:text="Counter"
+            android:textColor="#1b2630" />
     </RadioGroup>
 
     <WebView

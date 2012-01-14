@@ -15,7 +15,7 @@ public class SplashActivity extends DashboardActivity {
 	protected boolean active = true;
 
 	// Set the showing time for the Splash screen
-	protected int splashTime = 200;
+	protected int splashTime = 1000;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

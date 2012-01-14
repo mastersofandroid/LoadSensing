@@ -52,7 +52,7 @@
     <!-- Single Sensor Layout -->
     <string name="sensor">"Sensor: "</string>
     <string name="nombre_sensor">"Nombre sensor: "</string>
-    <string name="num_serie">"Núm. série: "</string>
+    <string name="num_serie">"Núm. serie: "</string>
     <string name="ultima_mesura">"Última medida: "</string>
     <string name="unitat_mesura">"Unidad de medida: "</string>
     <string name="max_load">"Valor máximo: "</string>

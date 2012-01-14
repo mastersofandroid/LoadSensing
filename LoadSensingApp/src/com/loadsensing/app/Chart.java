@@ -126,7 +126,7 @@ public class Chart extends DashboardActivity {
 		// Medida del gráfico
 		Display display = getWindowManager().getDefaultDisplay();
 		int width = display.getWidth() - 170;
-		int height = display.getHeight() - 400;
+		int height = display.getHeight() - 390;
 		Log.d(DEB_TAG, "width " + width);
 		Log.d(DEB_TAG, "height " + height);
 

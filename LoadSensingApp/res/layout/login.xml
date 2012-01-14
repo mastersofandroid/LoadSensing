@@ -18,7 +18,8 @@
         style="@style/LabelCentered"
         android:layout_marginTop="10dp"
         android:text="@+string/username"
-        android:textSize="16dp" />
+        android:textSize="16dp"
+ />
 
     <EditText
         android:id="@+id/txt_username"
@@ -34,7 +35,8 @@
         style="@style/LabelCentered"
         android:layout_marginTop="5dp"
         android:text="@+string/password"
-        android:textSize="16dp" />
+        android:textSize="16dp"
+ />
 
     <EditText
         android:id="@+id/txt_password"
@@ -47,13 +49,17 @@
         android:singleLine="true" />
 
     <CheckBox
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/remember_user_password"
-        style="@style/LabelCentered"
-        android:layout_width="wrap_content"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
         android:text="@+string/remember_user_password"
-        android:textSize="14dp" />
+        android:textSize="14dp" 
+		android:textColor="#1b2630" 
+		android:textStyle="bold"
+		android:layout_centerHorizontal="true"
+		android:layout_gravity="center_vertical"/>
 
     <Button
         android:id="@+id/login_button"

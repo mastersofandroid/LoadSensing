@@ -6,6 +6,7 @@
     android:orientation="vertical" >
 
     <LinearLayout style="@style/TitleBar" >
+
         <ImageButton
             style="@style/TitleBarAction"
             android:contentDescription="@string/description_home"
@@ -17,10 +18,12 @@
         <TextView
             style="@style/TitleBarText"
             android:text="@+string/title_feature6" />
-        <ImageButton style="@style/TitleBarAction"
+
+        <ImageButton
+            style="@style/TitleBarAction"
             android:contentDescription="@string/description_back"
-            android:src="@drawable/title_back"
-            android:onClick="goBack" />        
+            android:onClick="goBack"
+            android:src="@drawable/title_back" />
     </LinearLayout>
 
     <LinearLayout
@@ -28,21 +31,16 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
+
         <TextView
             android:id="@+id/sensor_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#0000FF"
-            android:textSize="14dp"
-            android:text="@+string/sensor"
-            android:textStyle="bold" />
+            style="@style/SingleSensorLabel"
+            android:text="@+string/sensor" />
+
         <TextView
             android:id="@+id/sensor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#0000FF"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            style="@style/SingleSensorValue" >
+        </TextView>
     </LinearLayout>
 
     <LinearLayout
@@ -50,21 +48,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
+
         <TextView
             android:id="@+id/sensorname_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#0000FF"
-            android:textSize="14dp"
-            android:text="@+string/nombre_sensor"
-            android:textStyle="bold" />
+            style="@style/SingleSensorLabel"
+            android:text="@+string/nombre_sensor" />
+
         <TextView
             android:id="@+id/sensorname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#0000FF"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            style="@style/SingleSensorValue" />
     </LinearLayout>
 
     <LinearLayout
@@ -72,21 +64,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
+
         <TextView
             android:id="@+id/serialnumber_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#0000FF"
-            android:textSize="14dp"
-            android:text="@+string/num_serie"
-            android:textStyle="bold" />
+            style="@style/SingleSensorLabel"
+            android:text="@+string/num_serie" />
+
         <TextView
             android:id="@+id/serialnumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            style="@style/SingleSensorValue" />
     </LinearLayout>
 
     <LinearLayout
@@ -94,21 +80,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
+
         <TextView
             android:id="@+id/measure_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#0000FF"
-            android:textSize="14dp"
-            android:text="@+string/ultima_mesura"
-            android:textStyle="bold" />
+            style="@style/SingleSensorLabel"
+            android:text="@+string/ultima_mesura" />
+
         <TextView
             android:id="@+id/measure"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            style="@style/SingleSensorValue" />
     </LinearLayout>
 
     <LinearLayout
@@ -116,21 +96,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
+
         <TextView
             android:id="@+id/measureunit_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#0000FF"
-            android:textSize="14dp"
-            android:text="@+string/unitat_mesura"
-            android:textStyle="bold" />
+            style="@style/SingleSensorLabel"
+            android:text="@+string/unitat_mesura" />
+
         <TextView
             android:id="@+id/measureunit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            style="@style/SingleSensorValue" />
     </LinearLayout>
 
     <LinearLayout
@@ -138,21 +112,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
+
         <TextView
             android:id="@+id/maxload_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#0000FF"
-            android:textSize="14dp"
-            android:text="@+string/max_load"
-            android:textStyle="bold" />
+            style="@style/SingleSensorLabel"
+            android:text="@+string/max_load" />
+
         <TextView
             android:id="@+id/maxload"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            style="@style/SingleSensorValue" />
     </LinearLayout>
 
     <LinearLayout
@@ -160,21 +128,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
+
         <TextView
             android:id="@+id/maxloadunit_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#0000FF"
-            android:textSize="14dp"
-            android:text="@+string/max_load_unit"
-            android:textStyle="bold" />
+            style="@style/SingleSensorLabel"
+            android:text="@+string/max_load_unit" />
+
         <TextView
             android:id="@+id/maxloadunit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            style="@style/SingleSensorValue" />
     </LinearLayout>
 
     <LinearLayout
@@ -182,21 +144,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
+
         <TextView
             android:id="@+id/sensitivity_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#0000FF"
-            android:textSize="14dp"
-            android:text="@+string/sensibilitat"
-            android:textStyle="bold" />
+            style="@style/SingleSensorLabel"
+            android:text="@+string/sensibilitat" />
+
         <TextView
             android:id="@+id/sensitivity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            style="@style/SingleSensorValue" />
     </LinearLayout>
 
     <LinearLayout
@@ -204,21 +160,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
+
         <TextView
             android:id="@+id/sensitivityunit_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#0000FF"
-            android:textSize="14dp"
-            android:text="@+string/unitat_sensibilitat"
-            android:textStyle="bold" />
+            style="@style/SingleSensorLabel"
+            android:text="@+string/unitat_sensibilitat" />
+
         <TextView
             android:id="@+id/sensitivityunit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            style="@style/SingleSensorValue" />
     </LinearLayout>
 
     <LinearLayout
@@ -226,21 +176,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
+
         <TextView
             android:id="@+id/offset_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#0000FF"
-            android:textSize="14dp"
-            android:text="@+string/offset"
-            android:textStyle="bold" />
+            style="@style/SingleSensorLabel"
+            android:text="@+string/offset" />
+
         <TextView
             android:id="@+id/offset"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            style="@style/SingleSensorValue" />
     </LinearLayout>
 
     <LinearLayout
@@ -248,21 +192,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
+
         <TextView
             android:id="@+id/offsetunit_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#0000FF"
-            android:textSize="14dp"
-            android:text="@+string/unitat_offset"
-            android:textStyle="bold" />
+            style="@style/SingleSensorLabel"
+            android:text="@+string/unitat_offset" />
+
         <TextView
             android:id="@+id/offsetunit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            style="@style/SingleSensorValue" />
     </LinearLayout>
 
     <LinearLayout
@@ -270,21 +208,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
+
         <TextView
             android:id="@+id/alarmat_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#0000FF"
-            android:textSize="14dp"
-            android:text="@+string/alarm_at"
-            android:textStyle="bold" />
+            style="@style/SingleSensorLabel"
+            android:text="@+string/alarm_at" />
+
         <TextView
             android:id="@+id/alarmat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            style="@style/SingleSensorValue" />
     </LinearLayout>
 
     <LinearLayout
@@ -292,21 +224,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
+
         <TextView
             android:id="@+id/alarmAtunit_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#0000FF"
-            android:textSize="14dp"
-            android:text="@+string/unitat_alarma"
-            android:textStyle="bold" />
+            style="@style/SingleSensorLabel"
+            android:text="@+string/unitat_alarma" />
+
         <TextView
             android:id="@+id/alarmAtunit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            style="@style/SingleSensorValue" />
     </LinearLayout>
 
     <LinearLayout
@@ -314,21 +240,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
+
         <TextView
             android:id="@+id/lasttare_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#0000FF"
-            android:textSize="14dp"
-            android:text="@+string/data_ultima_mida"
-            android:textStyle="bold" />
+            style="@style/SingleSensorLabel"
+            android:text="@+string/data_ultima_mida" />
+
         <TextView
             android:id="@+id/lasttare"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            style="@style/SingleSensorValue" />
     </LinearLayout>
 
     <LinearLayout
@@ -336,21 +256,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
+
         <TextView
             android:id="@+id/canal_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#0000FF"
-            android:textSize="14dp"
-            android:text="@+string/canal"
-            android:textStyle="bold" />
+            style="@style/SingleSensorLabel"
+            android:text="@+string/canal" />
+
         <TextView
             android:id="@+id/canal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            style="@style/SingleSensorValue" />
     </LinearLayout>
 
     <LinearLayout
@@ -358,21 +272,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
+
         <TextView
             android:id="@+id/tipus_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#0000FF"
-            android:textSize="14dp"
-            android:text="@+string/tipus"
-            android:textStyle="bold" />
+            style="@style/SingleSensorLabel"
+            android:text="@+string/tipus" />
+
         <TextView
             android:id="@+id/tipus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            style="@style/SingleSensorValue" />
     </LinearLayout>
 
     <LinearLayout
@@ -380,21 +288,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
+
         <TextView
             android:id="@+id/descripcio_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#0000FF"
-            android:textSize="14dp"
-            android:text="@+string/descripcio"
-            android:textStyle="bold" />
+            style="@style/SingleSensorLabel"
+            android:text="@+string/descripcio" />
+
         <TextView
             android:id="@+id/descripcio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            style="@style/SingleSensorValue" />
     </LinearLayout>
 
     <LinearLayout
@@ -402,21 +304,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
+
         <TextView
             android:id="@+id/poblacio_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#0000FF"
-            android:textSize="14dp"
-            android:text="@+string/poblacio"
-            android:textStyle="bold" />
+            style="@style/SingleSensorLabel"
+            android:text="@+string/poblacio" />
+
         <TextView
             android:id="@+id/poblacio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            style="@style/SingleSensorValue" />
     </LinearLayout>
 
     <LinearLayout
@@ -424,21 +320,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
+
         <TextView
             android:id="@+id/nom_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#0000FF"
-            android:textSize="14dp"
-            android:text="@+string/nom"
-            android:textStyle="bold" />
+            style="@style/SingleSensorLabel"
+            android:text="@+string/nom" />
+
         <TextView
             android:id="@+id/nom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
-            android:textSize="14dp"
-            android:textStyle="bold" />
+            style="@style/SingleSensorValue" />
     </LinearLayout>
 
     <Button
@@ -447,8 +337,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
+        android:drawableLeft="@drawable/grafic_default"
         android:onClick="graph"
-        android:text="@string/graph"
-        android:drawableLeft="@drawable/grafic_default"/>
+        android:text="@string/graph" />
 
 </LinearLayout>
