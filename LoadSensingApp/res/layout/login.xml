@@ -14,12 +14,11 @@
         android:background="@drawable/logo" />
 
     <TextView
-        style="@style/LabelCentered"
         android:id="@+id/username_text"
-        android:layout_below="@+id/welcome_text"
+        style="@style/LabelCentered"
         android:layout_marginTop="10dp"
-        android:textSize="16dp"
-        android:text="@+string/username" />
+        android:text="@+string/username"
+        android:textSize="16dp" />
 
     <EditText
         android:id="@+id/txt_username"
@@ -31,12 +30,11 @@
         android:singleLine="true" />
 
     <TextView
-        style="@style/LabelCentered"
         android:id="@+id/password_text"
-        android:layout_below="@+id/txt_username"
+        style="@style/LabelCentered"
         android:layout_marginTop="5dp"
-        android:textSize="16dp"        
-        android:text="@+string/password" />
+        android:text="@+string/password"
+        android:textSize="16dp" />
 
     <EditText
         android:id="@+id/txt_password"
@@ -49,13 +47,13 @@
         android:singleLine="true" />
 
     <CheckBox
-        style="@style/LabelCentered"
         android:id="@+id/remember_user_password"
+        style="@style/LabelCentered"
+        android:layout_width="wrap_content"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
-        android:textSize="14dp"
-        android:layout_width="wrap_content"
-        android:text="@+string/remember_user_password" />
+        android:text="@+string/remember_user_password"
+        android:textSize="14dp" />
 
     <Button
         android:id="@+id/login_button"
@@ -65,7 +63,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="15dp"
-        android:text="@+string/login"
-        android:drawableLeft="@drawable/clau_default" />
+        android:drawableLeft="@drawable/clau_default"
+        android:text="@+string/login" />
 
 </LinearLayout>

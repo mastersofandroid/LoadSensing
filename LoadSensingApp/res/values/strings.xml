@@ -11,15 +11,16 @@
 
     <!-- LOGIN layout -->
     <string name="iniciando_sesion">Iniciando sessión</string>
-    <string name="error_login">"Nombre de usuario o contraseña incorrectos."</string>
-    <string name="error_no_internet">"No hay ninguna conexión activa."</string>
-    <string name="username">"Nombre de usuario"</string>
+    <string name="error_login">Nombre de usuario o contraseña incorrectos</string>
+    <string name="error_no_internet">No hay ninguna conexión activa</string>
+    <string name="username">Nombre de usuario</string>
     <string name="username_hint">Usuario</string>
     <string name="password">Contraseña</string>
-    <string name="remember_user_password">"Recordar usuario y contraseña"</string>
+    <string name="remember_user_password">Recordar usuario y contraseña</string>
     <string name="idioma_es">Español</string>
     <string name="idioma_en">Inglés</string>
     <string name="login">Iniciar sesión</string>
+    <string name="empty_fields">Tiene que informar el nombre de usuario y contraseña</string>        
 
     <!-- HOME layout -->
     <string name="title_home">Home</string>

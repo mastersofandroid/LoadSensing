@@ -18,6 +18,7 @@
 	<string name="password">Password</string>
 	<string name="remember_user_password">Remember me</string>
 	<string name="login">Login</string>
+	<string name="empty_fields">Please insert username and password.</string>
 
 	<!-- HOME layout -->
 	<string name="title_about">About</string>

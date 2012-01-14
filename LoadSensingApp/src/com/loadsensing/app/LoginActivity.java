@@ -131,7 +131,7 @@ public class LoginActivity extends DashboardActivity implements OnClickListener 
 			// error alert
 			alertDialog.setTitle(getResources().getString(R.string.error));
 			alertDialog
-					.setMessage("Tiene que informar el nombre de usuario y contraseña");
+					.setMessage(getResources().getString(R.string.empty_fields));
 			alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int which) {
 					return;
@@ -207,7 +207,6 @@ public class LoginActivity extends DashboardActivity implements OnClickListener 
 			}
 
 			showBusyCursor(false);
-
 		}
 	}
 

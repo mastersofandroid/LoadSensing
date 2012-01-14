@@ -16,7 +16,7 @@
             android:id="@+id/thumbnailxarxa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="5dp" />
+            android:layout_margin="2dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -39,9 +39,10 @@
                 android:id="@+id/text1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14dp"
+                android:textSize="16dp"
                 android:textStyle="bold"
-                android:typeface="normal" />
+                android:typeface="normal"
+                android:textColor="#1b2630" />
 
             <TextView
                 android:id="@+id/guion"
@@ -49,7 +50,8 @@
                 android:layout_height="wrap_content"
                 android:text="@+string/guion"
                 android:textSize="14dp"
-                android:typeface="normal" />
+                android:typeface="normal"
+                android:textColor="#1b2630" />
 
             <TextView
                 android:id="@+id/text2"
@@ -57,7 +59,8 @@
                 android:layout_height="wrap_content"
                 android:textSize="14dp"
                 android:textStyle="bold"
-                android:typeface="normal" />
+                android:typeface="normal"
+                android:textColor="#1b2630" />
         </LinearLayout>
 
         <LinearLayout
@@ -72,7 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@+string/numero_sensors"
-                android:textColor="#000000"
+                android:textColor="#53A4C2"
                 android:textSize="14dp"
                 android:typeface="normal" />
 
@@ -80,9 +83,10 @@
                 android:id="@+id/text3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#000000"
+                android:textColor="#53A4C2"
                 android:textSize="14dp"
-                android:typeface="normal" />
+                android:typeface="normal"
+                android:textStyle="bold" />
         </LinearLayout>
         <!-- Camps ocults -->
 
