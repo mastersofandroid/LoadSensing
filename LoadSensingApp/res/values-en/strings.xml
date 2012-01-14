@@ -90,5 +90,7 @@
 	<string name="choose_language">Choose language</string>
 	<string name="about">About</string>
 	<string name="about_description">Meet the developers</string>
-
+    
+        <!-- QR -->
+            <string name="press_exit">Please retry.</string>
 </resources>

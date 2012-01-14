@@ -87,5 +87,8 @@
     <string name="choose_language">Elige idioma</string>
     <string name="about">Acerca de</string>
     <string name="about_description">Conoce a los creadores de la app</string>
+    
+        <!-- QR -->
+            <string name="press_exit">Vuelva a iniciar la actividad.</string>
 
 </resources>

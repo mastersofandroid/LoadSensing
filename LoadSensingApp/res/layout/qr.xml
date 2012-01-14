@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    >
-    <LinearLayout style="@style/TitleBar">
-        <ImageButton style="@style/TitleBarAction"
+    style="@style/Activity" >
+
+    <LinearLayout style="@style/TitleBar" >
+
+        <ImageButton
+            style="@style/TitleBarAction"
             android:contentDescription="@string/description_home"
-            android:src="@drawable/title_home"
-            android:onClick="onClickHome" />
+            android:onClick="onClickHome"
+            android:src="@drawable/title_home" />
 
         <ImageView style="@style/TitleBarSeparator" />
-        <TextView style="@style/TitleBarText" 
-            android:text="@+string/title_feature4"/>
+
+        <TextView
+            style="@style/TitleBarText"
+            android:text="@+string/title_feature4" />
     </LinearLayout>
 
     <EditText
@@ -20,7 +22,14 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:visibility="gone" >
-
     </EditText>
+    <TextView 
+                android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@+string/press_exit"
+        android:textColor="#1b2630"
+        android:textSize="14dp"
+        android:textStyle="bold"/>
 
 </LinearLayout>
