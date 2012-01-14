@@ -27,7 +27,6 @@ public class Preferences extends PreferenceActivity {
 		super.onDestroy();
 		SharedPreferences settings = PreferenceManager
 				.getDefaultSharedPreferences(Preferences.this);
-		Log.d("loc", settings.getString("location", ""));
 		Locale locale = new Locale(settings.getString("location", "es"));
 		Locale.setDefault(locale);
 		Configuration config = new Configuration();
@@ -76,6 +75,7 @@ public class Preferences extends PreferenceActivity {
 		return true;
 	}
 	
+	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle item selection
@@ -86,7 +86,6 @@ public class Preferences extends PreferenceActivity {
 			SharedPreferences.Editor editor = settings.edit();
 			editor.putString("session", "");
 			editor.commit();
-			Log.d(DEB_TAG, "SharedPreferences. Session restarted.");
 			startActivity(new Intent(getApplicationContext(),
 					LoginActivity.class));
 			this.finish();
