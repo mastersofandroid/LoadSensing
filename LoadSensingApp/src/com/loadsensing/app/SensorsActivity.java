@@ -69,7 +69,7 @@ public class SensorsActivity extends ListActivity {
 			// Convertim la resposta string a un JSONArray
 			JSONArray llistaSensorsArray = new JSONArray(jsonString);
 
-			for (int i = 0; i < 2; i++) {
+			for (int i = 0; i < llistaSensorsArray.length(); i++) {
 				JSONObject xarxaJSON = llistaSensorsArray.getJSONObject(i);
 				sensors = new HashMap<String, String>();
 				sensors.put("id", xarxaJSON.getString("id"));
