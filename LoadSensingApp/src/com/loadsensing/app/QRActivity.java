@@ -28,6 +28,7 @@ public class QRActivity extends DashboardActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.qr);
 
+		//Lanzamos la aplicación Barcode Scanner
 		IntentIntegrator integrator = new IntentIntegrator(QRActivity.this);
 		integrator.initiateScan();
 	}
@@ -39,6 +40,7 @@ public class QRActivity extends DashboardActivity {
 					IntentResult scanResult = IntentIntegrator.parseActivityResult(
 							requestCode, resultCode, data);
 					if (scanResult != null) {
+						//Con el texto leído, lo guardamos en un parámetro del Intent y lanzamos la actividad
 						String idsensor = scanResult.getContents();
 	
 						Intent intent = new Intent();

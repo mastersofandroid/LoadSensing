@@ -34,6 +34,10 @@ import android.widget.RadioGroup;
 
 import com.loadsensing.client.JsonClient;
 
+/*
+ * Esta actividad muestra un gráfico generado online con los datos del sensor consultado. 
+ * Recibe por parámetro
+ */
 public class Chart extends DashboardActivity {
 
 	private String SERVER_HOST = "http://viuterrassa.com/Android/getValorsGrafic.php";
@@ -45,11 +49,11 @@ public class Chart extends DashboardActivity {
 		setContentView(R.layout.chart);
 		final WebView googleChartView = (WebView) findViewById(R.id.chart);
 
+		//Listener para generar el gráfico cada vez que se escoge la opción en el radiobutton
 		RadioGroup rg = (RadioGroup) findViewById(R.id.tipochart);
 		rg.clearCheck();
 		rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
-				Log.d(DEB_TAG, "checkedId " + checkedId);
 				generaChart(googleChartView, checkedId);
 			}
 		});
@@ -59,9 +63,8 @@ public class Chart extends DashboardActivity {
 		SharedPreferences settings = getSharedPreferences("LoadSensingApp",
 				Context.MODE_PRIVATE);
 		String address = SERVER_HOST + "?session="
-				+ settings.getString("session", "") + "&id=" + checkedId
-				+ "&TipusGrafic=0";
-		Log.d(DEB_TAG, "Requesting to " + address);
+				+ settings.getString("session", "") + "&id=0"
+				+ "&TipusGrafic=" + checkedId;
 
 		ArrayList<HashMap<String, String>> valorsURL = new ArrayList<HashMap<String, String>>();
 
@@ -76,7 +79,6 @@ public class Chart extends DashboardActivity {
 			Valors = ValorsGrafica.getJSONObject(0);
 
 			String grafica = Valors.getString("ValorsGrafica");
-			Log.d(DEB_TAG, "String " + grafica);
 
 			// Sobre el string de ValorGrafica, volvemos a parsearlo
 			JSONArray ValorGrafica = new JSONArray(grafica);

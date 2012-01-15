@@ -18,6 +18,9 @@ package com.loadsensing.app;
 
 import android.os.Bundle;
 
+/*
+ * Muestra los créditos de la aplicación
+ */
 public class AboutActivity extends DashboardActivity {
 
 	protected void onCreate(Bundle savedInstanceState) {

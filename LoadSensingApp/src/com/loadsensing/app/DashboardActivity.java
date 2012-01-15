@@ -37,7 +37,6 @@ public class DashboardActivity extends Activity {
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// setContentView(R.layout.activity_default);
 	}
 
 	protected void onDestroy() {
@@ -50,8 +49,10 @@ public class DashboardActivity extends Activity {
 
 	protected void onRestart() {
 		super.onRestart();
-		// TODO Auto-generated method stub
+
 		super.onDestroy();
+
+		// Actualizamos el idioma cada vez que reiniciamos cada Activity
 		SharedPreferences settings = PreferenceManager
 				.getDefaultSharedPreferences(DashboardActivity.this);
 		Log.d("loc", settings.getString("location", ""));
@@ -161,10 +162,13 @@ public class DashboardActivity extends Activity {
 		return true;
 	}
 
+	// Opciones de Menu
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle item selection
 		switch (item.getItemId()) {
+		// Desconectar. Borra la sesión de las SharedPreferences y vuelve a la
+		// pantalla de login
 		case R.id.logout:
 			SharedPreferences settings = getSharedPreferences("LoadSensingApp",
 					Context.MODE_PRIVATE);
@@ -176,9 +180,11 @@ public class DashboardActivity extends Activity {
 					LoginActivity.class));
 			this.finish();
 			return true;
+		// Lanza la actividad de Preferencias
 		case R.id.preferences:
 			startActivity(new Intent(getApplicationContext(), Preferences.class));
 			return true;
+		// Oculta la aplicación dejándola en segundo plano
 		case R.id.exit:
 			moveTaskToBack(true);
 			return true;

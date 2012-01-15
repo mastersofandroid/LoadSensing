@@ -27,6 +27,9 @@ import com.google.android.maps.MapView;
 import com.google.android.maps.OverlayItem;
 import com.loadsensing.client.BalloonItemizedOverlay;
 
+/*
+ * Funciones auxiliares para mostrar los balloons en Google Maps
+ */
 public class OverlayXarxa extends BalloonItemizedOverlay<OverlayItem> {
 
 	private ArrayList<OverlayItem> mOverlays = new ArrayList<OverlayItem>();

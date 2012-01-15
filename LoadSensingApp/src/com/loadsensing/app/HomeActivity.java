@@ -18,6 +18,9 @@ package com.loadsensing.app;
 
 import android.os.Bundle;
 
+/*
+ * Muestra los botones de la pantalla principal (DashBoard)
+ */
 public class HomeActivity extends DashboardActivity {
 
 	protected void onCreate(Bundle savedInstanceState) {

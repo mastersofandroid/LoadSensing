@@ -34,6 +34,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+//Comportamiento de la pantalla Preferences
 public class Preferences extends PreferenceActivity {
 
 	public static final String DEB_TAG = "LoadSensingApp_LOG";
@@ -56,7 +57,7 @@ public class Preferences extends PreferenceActivity {
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.preferences);
 
-		// Setting autologin preference
+		// Muestra una notificación Toast al modificar la propiedad autologin
 		Preference autologin = (Preference) findPreference("autologin");
 		autologin
 				.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
@@ -70,9 +71,9 @@ public class Preferences extends PreferenceActivity {
 					}
 				});
 
-		// Setting locale preference
-		ListPreference location = (ListPreference) findPreference("location");
-		location.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+		// Muestra una notificación Toast al modificar la propiedad locale
+		ListPreference locale = (ListPreference) findPreference("location");
+		locale.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
 			@Override
 			public boolean onPreferenceChange(Preference preference,
 					Object object) {

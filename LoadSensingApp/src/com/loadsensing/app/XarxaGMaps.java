@@ -40,6 +40,7 @@ import com.google.android.maps.Overlay;
 import com.google.android.maps.OverlayItem;
 import com.loadsensing.client.JsonClient;
 
+//Muestra las redes en un mapa de Google Maps
 public class XarxaGMaps extends MapActivity {
 
 	private static final String DEB_TAG = "LoadSensingApp_LOG";
@@ -99,7 +100,8 @@ public class XarxaGMaps extends MapActivity {
 
 				int latInt = point.getLatitudeE6();
 				int lonInt = point.getLongitudeE6();
-
+				
+				//Calculamos las coordenadas máximas y mínimas, para posteriormente calcular el zoom y la posición del mapa centrado
 				maxLatitude = Math.max(latInt, maxLatitude);
 				minLatitude = Math.min(latInt, minLatitude);
 				maxLongitude = Math.max(lonInt, maxLongitude);
