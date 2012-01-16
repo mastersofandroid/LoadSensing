@@ -31,8 +31,9 @@ import com.loadsensing.client.JsonClient;
 
 public class SingleSensorActivity extends DashboardActivity {
 
-	private String SERVER_HOST = "http://viuterrassa.com/Android/getSensorInfo.php";
+	private String SERVER_HOST = "http://77.228.158.13/Android/getSensorInfo.php";
 	public static final String DEB_TAG = "LoadSensingApp_LOG";
+	String SensorSelected = "";
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -40,7 +41,7 @@ public class SingleSensorActivity extends DashboardActivity {
 		setContentView(R.layout.single_sensor);
 
 		// Get Intent parameters
-		String SensorSelected = "";
+		
 		Bundle extras = null;
 		if (savedInstanceState == null) {
 			extras = getIntent().getExtras();
@@ -51,9 +52,6 @@ public class SingleSensorActivity extends DashboardActivity {
 				Log.d(DEB_TAG, "Xarxa que hem triat anteriorment: "
 						+ SensorSelected);
 			}
-		} else {
-			SensorSelected = (String) savedInstanceState
-					.getSerializable("XarxaSelected");
 		}
 
 		SharedPreferences settings = getSharedPreferences("LoadSensingApp",
@@ -117,6 +115,7 @@ public class SingleSensorActivity extends DashboardActivity {
 
 	public void graph(View v) {
 		Intent intent = new Intent();
+		intent.putExtra("idsensor", SensorSelected);
 		intent.setClass(this.getApplicationContext(), Chart.class);
 		startActivity(intent);
 	}

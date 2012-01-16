@@ -42,7 +42,7 @@ public class SensorsActivity extends ListActivity {
 	/** Called when the activity is first created. */
 
 	private static final String DEB_TAG = "LoadSensingApp_LOG";
-	private String SERVER_HOST = "http://viuterrassa.com/Android/getLlistaSensors.php";
+	private String SERVER_HOST = "http://77.228.158.13/Android/getLlistaSensors.php";
 	ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 	HashMap<String, String> sensors = null;
 	@Override

@@ -40,30 +40,45 @@ import com.loadsensing.client.JsonClient;
  */
 public class Chart extends DashboardActivity {
 
-	private String SERVER_HOST = "http://viuterrassa.com/Android/getValorsGrafic.php";
+	private String SERVER_HOST = "http://77.228.158.13/Android/getValorsGrafic.php";
 	private String CHART_URL = "http://chart.apis.google.com/chart?";
-
+	String SensorSelected = "";
+	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.chart);
 		final WebView googleChartView = (WebView) findViewById(R.id.chart);
 
+		Bundle extras = null;
+
+		if (savedInstanceState == null) {
+			extras = getIntent().getExtras();
+			if (extras == null) {
+				SensorSelected = null;
+			} else {
+				SensorSelected = extras.getString("idsensorselected");
+				Log.d(DEB_TAG, "Xarxa que hem triat anteriorment: "
+						+ SensorSelected);
+			}
+		}
+		
 		//Listener para generar el gráfico cada vez que se escoge la opción en el radiobutton
 		RadioGroup rg = (RadioGroup) findViewById(R.id.tipochart);
 		rg.clearCheck();
 		rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
-				generaChart(googleChartView, checkedId);
+				generaChart(googleChartView, checkedId, SensorSelected);
 			}
 		});
+		
 	}
 
-	private void generaChart(WebView googleChartView, int checkedId) {
+	private void generaChart(WebView googleChartView, int checkedId, String SensorSelected) {
 		SharedPreferences settings = getSharedPreferences("LoadSensingApp",
 				Context.MODE_PRIVATE);
 		String address = SERVER_HOST + "?session="
-				+ settings.getString("session", "") + "&id=0"
+				+ settings.getString("session", "") + "&id=" + SensorSelected
 				+ "&TipusGrafic=" + checkedId;
 
 		ArrayList<HashMap<String, String>> valorsURL = new ArrayList<HashMap<String, String>>();

@@ -41,7 +41,7 @@ import com.loadsensing.client.JsonClient;
 
 public class LoginActivity extends DashboardActivity implements OnClickListener {
 
-	private String SERVER_HOST = "http://viuterrassa.com/Android/login.php";
+	private String SERVER_HOST = "http://77.228.158.13/Android/login.php";
 	private ProgressDialog progress;
 
 	@Override

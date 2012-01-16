@@ -44,7 +44,7 @@ import com.loadsensing.client.JsonClient;
 public class XarxaGMaps extends MapActivity {
 
 	private static final String DEB_TAG = "LoadSensingApp_LOG";
-	private String SERVER_HOST = "http://viuterrassa.com/Android/getLlistatXarxes.php";
+	private String SERVER_HOST = "http://77.228.158.13/Android/getLlistatXarxes.php";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

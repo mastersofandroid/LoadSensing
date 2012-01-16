@@ -21,6 +21,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -29,12 +30,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
@@ -46,18 +49,26 @@ import com.loadsensing.client.JsonClient;
 
 public class ImatgeXarxaSensors extends DashboardActivity {
 
-	private String SERVER_HOST = "http://viuterrassa.com/Android/getLlistaSensorsImatges.php";
-	private String SERVER_HOST_IMAGE = "http://viuterrassa.com/Android/getLlistaImatges.php";
-	private String PATH_IMAGE = "http://viuterrassa.com/Android/Imatges/";
+	private String SERVER_HOST = "http://77.228.158.13/Android/getLlistaSensorsImatges.php";
+	private String SERVER_HOST_IMAGE = "http://77.228.158.13/Android/getLlistaImatges.php";
+	private String PATH_IMAGE = "http://77.228.158.13/Android/Imatges/";
 	ArrayList<HashMap<String, String>> listaSensors = new ArrayList<HashMap<String, String>>();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(new TouchView(this));
+		
+		//Definimos idioma
+		SharedPreferences settings = PreferenceManager
+				.getDefaultSharedPreferences(ImatgeXarxaSensors.this);
+		Locale locale = new Locale(settings.getString("location", "es"));
+		Locale.setDefault(locale);
+		Configuration config = new Configuration();
+		config.locale = locale;
+		getApplicationContext().getResources().updateConfiguration(config,
+				getBaseContext().getResources().getDisplayMetrics());
 
-		// setContentView(R.layout.imatge_xarxa_sensors);
-		// getWindow().setBackgroundDrawableResource(R.drawable.menulocalitzacioxarxes);
+		setContentView(new TouchView(this));
 	}
 
 	class TouchView extends View {

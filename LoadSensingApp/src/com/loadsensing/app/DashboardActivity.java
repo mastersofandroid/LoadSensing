@@ -37,6 +37,15 @@ public class DashboardActivity extends Activity {
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		// Actualizamos el idioma cada vez que reiniciamos cada Activity
+		SharedPreferences settings = PreferenceManager
+				.getDefaultSharedPreferences(DashboardActivity.this);
+		Locale locale = new Locale(settings.getString("location", "es"));
+		Locale.setDefault(locale);
+		Configuration config = new Configuration();
+		config.locale = locale;
+		getApplicationContext().getResources().updateConfiguration(config,
+				getBaseContext().getResources().getDisplayMetrics());		
 	}
 
 	protected void onDestroy() {
@@ -55,7 +64,6 @@ public class DashboardActivity extends Activity {
 		// Actualizamos el idioma cada vez que reiniciamos cada Activity
 		SharedPreferences settings = PreferenceManager
 				.getDefaultSharedPreferences(DashboardActivity.this);
-		Log.d("loc", settings.getString("location", ""));
 		Locale locale = new Locale(settings.getString("location", "es"));
 		Locale.setDefault(locale);
 		Configuration config = new Configuration();
