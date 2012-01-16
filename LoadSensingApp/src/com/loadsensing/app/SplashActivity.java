@@ -23,7 +23,6 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.MotionEvent;
 
 //Muestra la imagen de background durante 1 segundo y lanza la actividad de Login.
@@ -42,8 +41,8 @@ public class SplashActivity extends DashboardActivity {
 
 		SharedPreferences settings = PreferenceManager
 				.getDefaultSharedPreferences(SplashActivity.this);
-		
-		//Carga el idioma
+
+		// Carga el idioma
 		Locale locale = new Locale(settings.getString("location", "es"));
 		Locale.setDefault(locale);
 		Configuration config = new Configuration();

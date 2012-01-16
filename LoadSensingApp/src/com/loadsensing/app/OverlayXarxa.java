@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.util.Log;
 
 import com.google.android.maps.MapView;
 import com.google.android.maps.OverlayItem;
@@ -61,7 +60,6 @@ public class OverlayXarxa extends BalloonItemizedOverlay<OverlayItem> {
 		Intent intent = new Intent();
 		intent.setClass(mContext, ImatgeXarxaSensors.class);
 		intent.putExtra("idxarxaselected", Integer.toString(index));
-		Log.d(DEB_TAG, Integer.toString(index));
 		mContext.startActivity(intent);
 
 		return true;

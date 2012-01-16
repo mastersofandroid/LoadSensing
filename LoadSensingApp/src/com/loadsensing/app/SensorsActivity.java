@@ -45,6 +45,7 @@ public class SensorsActivity extends ListActivity {
 	private String SERVER_HOST = "http://77.228.158.13/Android/getLlistaSensors.php";
 	ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
 	HashMap<String, String> sensors = null;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -65,7 +66,7 @@ public class SensorsActivity extends ListActivity {
 		} else {
 			XarxaSelected = (String) savedInstanceState
 					.getSerializable("XarxaSelected");
-		}		
+		}
 
 		SimpleAdapter adapter = new SimpleAdapter(this, list,
 				R.layout.sensor_row_list_view, new String[] { "id", "sensor",
@@ -94,18 +95,12 @@ public class SensorsActivity extends ListActivity {
 				sensors.put("tipus", xarxaJSON.getString("tipus"));
 				sensors.put("descripcio", xarxaJSON.getString("Descripcio"));
 				sensors.put("poblacio", xarxaJSON.getString("Poblacio"));
-				Log.d(DEB_TAG, xarxaJSON.getString("id"));
-				Log.d(DEB_TAG, xarxaJSON.getString("sensor"));
-				Log.d(DEB_TAG, xarxaJSON.getString("canal"));
-				Log.d(DEB_TAG, xarxaJSON.getString("tipus"));
-				Log.d(DEB_TAG, xarxaJSON.getString("Descripcio"));
-				Log.d(DEB_TAG, xarxaJSON.getString("Poblacio"));
 
 				list.add(sensors);
 			}
-			
+
 			setListAdapter(adapter);
-			
+
 		} catch (Exception ex) {
 		}
 	}
@@ -143,8 +138,8 @@ public class SensorsActivity extends ListActivity {
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.menu, menu);
 		return true;
-	}	
-	
+	}
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle item selection
@@ -169,5 +164,5 @@ public class SensorsActivity extends ListActivity {
 		default:
 			return super.onOptionsItemSelected(item);
 		}
-	}	
+	}
 }

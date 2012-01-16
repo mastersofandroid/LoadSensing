@@ -28,7 +28,6 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -38,7 +37,7 @@ import android.widget.Toast;
 public class Preferences extends PreferenceActivity {
 
 	public static final String DEB_TAG = "LoadSensingApp_LOG";
-	
+
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
@@ -84,15 +83,14 @@ public class Preferences extends PreferenceActivity {
 		});
 
 	}
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.menu, menu);
 		return true;
 	}
-	
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle item selection

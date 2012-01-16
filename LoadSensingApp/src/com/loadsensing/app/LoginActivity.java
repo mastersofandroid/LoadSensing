@@ -146,8 +146,8 @@ public class LoginActivity extends DashboardActivity implements OnClickListener 
 		if (sUserName.equals("") || sPassword.equals("")) {
 			// error alert
 			alertDialog.setTitle(getResources().getString(R.string.error));
-			alertDialog
-					.setMessage(getResources().getString(R.string.empty_fields));
+			alertDialog.setMessage(getResources().getString(
+					R.string.empty_fields));
 			alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int which) {
 					return;
@@ -173,8 +173,6 @@ public class LoginActivity extends DashboardActivity implements OnClickListener 
 						getResources().getString(R.string.iniciando_sesion),
 						true);
 
-				Log.d(DEB_TAG, "Username: " + sUserName + " nPassword: "
-						+ sPassword);
 				Log.d(DEB_TAG, "Requesting to " + address);
 
 				JSONObject json = JsonClient.connectJSONObject(address);

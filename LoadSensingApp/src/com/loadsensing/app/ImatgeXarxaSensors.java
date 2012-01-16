@@ -57,8 +57,8 @@ public class ImatgeXarxaSensors extends DashboardActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		//Definimos idioma
+
+		// Definimos idioma
 		SharedPreferences settings = PreferenceManager
 				.getDefaultSharedPreferences(ImatgeXarxaSensors.this);
 		Locale locale = new Locale(settings.getString("location", "es"));
@@ -181,7 +181,6 @@ public class ImatgeXarxaSensors extends DashboardActivity {
 						+ "&session=" + settings.getString("session", "");
 				Log.d(DEB_TAG, "Requesting to " + address);
 				String jsonString = JsonClient.connectString(address);
-				Log.i(DEB_TAG, "jstonstring: " + jsonString);
 				// Convertim la resposta string a un JSONArray
 				JSONArray llistaSensorsArray = new JSONArray(jsonString);
 				HashMap<String, String> sensor = null;

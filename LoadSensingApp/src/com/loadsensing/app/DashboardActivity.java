@@ -45,7 +45,7 @@ public class DashboardActivity extends Activity {
 		Configuration config = new Configuration();
 		config.locale = locale;
 		getApplicationContext().getResources().updateConfiguration(config,
-				getBaseContext().getResources().getDisplayMetrics());		
+				getBaseContext().getResources().getDisplayMetrics());
 	}
 
 	protected void onDestroy() {
@@ -188,11 +188,11 @@ public class DashboardActivity extends Activity {
 					LoginActivity.class));
 			this.finish();
 			return true;
-		// Lanza la actividad de Preferencias
+			// Lanza la actividad de Preferencias
 		case R.id.preferences:
 			startActivity(new Intent(getApplicationContext(), Preferences.class));
 			return true;
-		// Oculta la aplicación dejándola en segundo plano
+			// Oculta la aplicación dejándola en segundo plano
 		case R.id.exit:
 			moveTaskToBack(true);
 			return true;

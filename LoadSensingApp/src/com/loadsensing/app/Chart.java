@@ -43,7 +43,7 @@ public class Chart extends DashboardActivity {
 	private String SERVER_HOST = "http://77.228.158.13/Android/getValorsGrafic.php";
 	private String CHART_URL = "http://chart.apis.google.com/chart?";
 	String SensorSelected = "";
-	
+
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
@@ -62,8 +62,9 @@ public class Chart extends DashboardActivity {
 						+ SensorSelected);
 			}
 		}
-		
-		//Listener para generar el gráfico cada vez que se escoge la opción en el radiobutton
+
+		// Listener para generar el gráfico cada vez que se escoge la opción en
+		// el radiobutton
 		RadioGroup rg = (RadioGroup) findViewById(R.id.tipochart);
 		rg.clearCheck();
 		rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -71,10 +72,11 @@ public class Chart extends DashboardActivity {
 				generaChart(googleChartView, checkedId, SensorSelected);
 			}
 		});
-		
+
 	}
 
-	private void generaChart(WebView googleChartView, int checkedId, String SensorSelected) {
+	private void generaChart(WebView googleChartView, int checkedId,
+			String SensorSelected) {
 		SharedPreferences settings = getSharedPreferences("LoadSensingApp",
 				Context.MODE_PRIVATE);
 		String address = SERVER_HOST + "?session="
@@ -138,14 +140,11 @@ public class Chart extends DashboardActivity {
 			max = Math.max(max, valueFloat);
 			min = Math.min(min, valueFloat);
 		}
-		Log.d(DEB_TAG, "max " + max);
-		Log.d(DEB_TAG, "min " + min);
+
 		BigDecimal maxRounded = new BigDecimal(max);
 		maxRounded = maxRounded.setScale(1, BigDecimal.ROUND_CEILING);
 		BigDecimal minRounded = new BigDecimal(min);
 		minRounded = minRounded.setScale(1, BigDecimal.ROUND_FLOOR);
-		Log.d(DEB_TAG, "maxRounded " + maxRounded);
-		Log.d(DEB_TAG, "minRounded " + minRounded);
 
 		mUrl = mUrl + "&chxr=0,-5,110|1,-5,110|2," + minRounded + ","
 				+ maxRounded;
@@ -160,9 +159,6 @@ public class Chart extends DashboardActivity {
 		Display display = getWindowManager().getDefaultDisplay();
 		int width = display.getWidth() - 170;
 		int height = display.getHeight() - 390;
-		Log.d(DEB_TAG, "width " + width);
-		Log.d(DEB_TAG, "height " + height);
-
 		mUrl = mUrl + "&chs=" + width + "x" + height;
 
 		// Colores
@@ -180,7 +176,6 @@ public class Chart extends DashboardActivity {
 		mUrl = mUrl + valorsURL.get(0).get("value");
 		for (int i = 1; i < valorsURL.size(); i++) {
 			mUrl = mUrl + "," + valorsURL.get(i).get("value");
-			Log.d(DEB_TAG, "value " + valorsURL.get(i).get("value"));
 		}
 
 		// Título eyenda

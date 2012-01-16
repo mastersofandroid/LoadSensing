@@ -76,8 +76,7 @@ public class LlistaXarxesActivity extends ListActivity {
 				xarxa = new HashMap<String, String>();
 				JSONObject xarxaJSON = new JSONObject();
 				xarxaJSON = llistaXarxesArray.getJSONObject(i);
-				int nomImatge = obtenirNomImatge(xarxaJSON
-						.getString("IdXarxa"));
+				int nomImatge = obtenirNomImatge(xarxaJSON.getString("IdXarxa"));
 				Log.i(DEB_TAG, "nom: " + nomImatge);
 				xarxa.put("id", String.valueOf(i));
 				xarxa.put("poblacio", xarxaJSON.getString("Poblacio"));
@@ -88,7 +87,6 @@ public class LlistaXarxesActivity extends ListActivity {
 				xarxa.put("lon", xarxaJSON.getString("Lon"));
 				xarxa.put("nomThumbnail", Integer.toString(nomImatge));
 
-				Log.d(DEB_TAG, xarxaJSON.getString("Poblacio"));
 				list.add(xarxa);
 
 			}

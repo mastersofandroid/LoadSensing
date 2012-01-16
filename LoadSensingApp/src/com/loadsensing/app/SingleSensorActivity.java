@@ -34,14 +34,14 @@ public class SingleSensorActivity extends DashboardActivity {
 	private String SERVER_HOST = "http://77.228.158.13/Android/getSensorInfo.php";
 	public static final String DEB_TAG = "LoadSensingApp_LOG";
 	String SensorSelected = "";
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.single_sensor);
 
 		// Get Intent parameters
-		
+
 		Bundle extras = null;
 		if (savedInstanceState == null) {
 			extras = getIntent().getExtras();
@@ -66,7 +66,7 @@ public class SingleSensorActivity extends DashboardActivity {
 			// Convertim la resposta string a un JSONArray
 			JSONArray llistaSensorsArray = new JSONArray(jsonString);
 			JSONObject sensorJSON = llistaSensorsArray.getJSONObject(0);
-			Log.d(DEB_TAG, sensorJSON.toString());
+
 			TextView idsensor = (TextView) findViewById(R.id.sensor);
 			TextView nomsensor = (TextView) findViewById(R.id.sensorname);
 			TextView serialnumber = (TextView) findViewById(R.id.serialnumber);
@@ -107,7 +107,6 @@ public class SingleSensorActivity extends DashboardActivity {
 			Poblacio.setText(sensorJSON.getString("Poblacio"));
 			Nom.setText(sensorJSON.getString("Nom"));
 
-			Log.d(DEB_TAG, sensorJSON.getString("sensorName"));
 		} catch (Exception ex) {
 			Log.d(DEB_TAG, "Exception: " + ex.getMessage());
 		}

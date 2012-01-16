@@ -100,8 +100,10 @@ public class XarxaGMaps extends MapActivity {
 
 				int latInt = point.getLatitudeE6();
 				int lonInt = point.getLongitudeE6();
-				
-				//Calculamos las coordenadas máximas y mínimas, para posteriormente calcular el zoom y la posición del mapa centrado
+
+				// Calculamos las coordenadas máximas y mínimas, para
+				// posteriormente calcular el zoom y la posición del mapa
+				// centrado
 				maxLatitude = Math.max(latInt, maxLatitude);
 				minLatitude = Math.min(latInt, minLatitude);
 				maxLongitude = Math.max(lonInt, maxLongitude);
@@ -153,8 +155,8 @@ public class XarxaGMaps extends MapActivity {
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.menu, menu);
 		return true;
-	}	
-	
+	}
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle item selection
