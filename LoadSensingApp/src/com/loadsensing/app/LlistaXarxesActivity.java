@@ -48,8 +48,9 @@ public class LlistaXarxesActivity extends ListActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.xarxa_list_view);
-		// call the backend using Get parameters
+		
 		ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
+		// adapter per mapejar els camps del layout amb la informació de l'array
 		SimpleAdapter adapter = new SimpleAdapter(this, list,
 				R.layout.xarxa_row_list_view, new String[] { "nom", "poblacio",
 						"sensors", "lat", "lon", "idXarxa", "nomThumbnail" },
@@ -71,13 +72,16 @@ public class LlistaXarxesActivity extends ListActivity {
 			JSONArray llistaXarxesArray = new JSONArray(jsonString);
 
 			HashMap<String, String> xarxa = null;
-
+			
+			// recorrer la llista de xarxes obtenint la informació del JSON string
 			for (int i = 0; i < llistaXarxesArray.length(); i++) {
 				xarxa = new HashMap<String, String>();
 				JSONObject xarxaJSON = new JSONObject();
 				xarxaJSON = llistaXarxesArray.getJSONObject(i);
+				// per mostrar la imatge de cada xarxa a la llista, fem una funció que ens retorna el nom de la imatge
+				// segons quina id de xarxa es
 				int nomImatge = obtenirNomImatge(xarxaJSON.getString("IdXarxa"));
-				Log.i(DEB_TAG, "nom: " + nomImatge);
+				
 				xarxa.put("id", String.valueOf(i));
 				xarxa.put("poblacio", xarxaJSON.getString("Poblacio"));
 				xarxa.put("nom", xarxaJSON.getString("Nom"));
@@ -88,7 +92,6 @@ public class LlistaXarxesActivity extends ListActivity {
 				xarxa.put("nomThumbnail", Integer.toString(nomImatge));
 
 				list.add(xarxa);
-
 			}
 			setListAdapter(adapter);
 
@@ -98,13 +101,10 @@ public class LlistaXarxesActivity extends ListActivity {
 	}
 
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-		/*
-		 * Open Sensor
-		 */
+		// obtenim el valor de la xarxa amb el camp ocult text6 del layout i obrim la nova pantalla de llistat de sensors
 		TextView c = (TextView) v.findViewById(R.id.text6);
 		String idxarxaselected = c.getText().toString();
-		Log.d(DEB_TAG, "idxarxaseleccionada: " + c.getText().toString());
-
+		
 		Intent intent = new Intent();
 		intent.setClass(this.getApplicationContext(), SensorsActivity.class);
 		intent.putExtra("idxarxaselected", idxarxaselected);
@@ -117,7 +117,7 @@ public class LlistaXarxesActivity extends ListActivity {
 	}
 
 	public int obtenirNomImatge(String idXarxa) {
-
+		// funció per obtenir el nom de la imatge (id de l'objecte drawable)
 		int nomImatge = 0;
 
 		switch (Integer.parseInt(idXarxa)) {
@@ -155,7 +155,7 @@ public class LlistaXarxesActivity extends ListActivity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle item selection
+		// control de les opcions del menú
 		switch (item.getItemId()) {
 		case R.id.logout:
 			SharedPreferences settings = getSharedPreferences("LoadSensingApp",

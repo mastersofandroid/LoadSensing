@@ -59,15 +59,13 @@ public class SensorsActivity extends ListActivity {
 			if (extras == null) {
 				XarxaSelected = null;
 			} else {
-				XarxaSelected = extras.getString("idxarxaselected");
-				Log.d(DEB_TAG, "Xarxa que hem triat anteriorment: "
-						+ XarxaSelected);
+				XarxaSelected = extras.getString("idxarxaselected");				
 			}
 		} else {
 			XarxaSelected = (String) savedInstanceState
 					.getSerializable("XarxaSelected");
 		}
-
+		// adapter que mapeja la informació del sensor amb els camps del layout
 		SimpleAdapter adapter = new SimpleAdapter(this, list,
 				R.layout.sensor_row_list_view, new String[] { "id", "sensor",
 						"tipus", "descripcio", "poblacio", "canal" },
@@ -106,7 +104,7 @@ public class SensorsActivity extends ListActivity {
 	}
 
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-
+		// obtenim l'id del sensor i obrim la nova pantalla de la informació del sensor
 		TextView c = (TextView) v.findViewById(R.id.text1);
 		String idsensorselected = c.getText().toString();
 		Log.d(DEB_TAG, "idsensorselected: " + c.getText().toString());

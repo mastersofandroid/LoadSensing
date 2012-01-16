@@ -186,8 +186,6 @@ public class LoginActivity extends DashboardActivity implements OnClickListener 
 					setSharedPreference("password", "");
 				}
 
-				Log.d(DEB_TAG, "Session: " + json.getString("session"));
-
 				if (json.getString("session") != "0") {
 					progress.dismiss();
 					// Guardamos la session en SharedPreferences para utilizarla

@@ -78,10 +78,12 @@ public class ImatgeXarxaSensors extends DashboardActivity {
 
 		public TouchView(Context context) {
 			super(context);
+			
+			// definim color de fons negre
 			int color = Color.parseColor("#000000");
-			// setHorizontalScrollBarEnabled(true);
 			setBackgroundColor(color);
 
+			// bitmap de la imatge del sensor
 			overlay = BitmapFactory.decodeResource(getResources(),
 					R.drawable.sensor).copy(Config.ARGB_8888, true);
 		}
@@ -94,6 +96,7 @@ public class ImatgeXarxaSensors extends DashboardActivity {
 					.getSharedPreferences("LoadSensingApp",
 							Context.MODE_PRIVATE);
 			String XarxaSelected = "";
+			
 			// Obtenim la imatge a partir del webservice
 			Bundle extras = null;
 			extras = getIntent().getExtras();
@@ -109,19 +112,14 @@ public class ImatgeXarxaSensors extends DashboardActivity {
 			String pathImg = "";
 			float escala = 0;
 
-			FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
-					LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
-			params.gravity = Gravity.BOTTOM | Gravity.CENTER;
-
-			try {
-				// String IdXarxaParam = "002";
+			try 
+			{
 				String IdXarxaParam = "00" + XarxaSelected;
-				Log.d(DEB_TAG, "Xarxa que hem triat anteriorment: "
-						+ IdXarxaParam);
 				String addressImg = SERVER_HOST_IMAGE + "?IdXarxa="
 						+ IdXarxaParam + "&session="
 						+ settings.getString("session", "");
 				String jsonStringImg = JsonClient.connectString(addressImg);
+				
 				// Convertim la resposta string a un JSONArray
 				JSONArray imatgeArray = new JSONArray(jsonStringImg);
 				JSONObject imatgeJson = new JSONObject();
@@ -136,40 +134,37 @@ public class ImatgeXarxaSensors extends DashboardActivity {
 				pathImg = PATH_IMAGE + imatgeJson.getString("imatge");
 				idImg = imatgeJson.getString("IdImatge");
 
-				// draw background
+				
 				URL imatgeURL = null;
-
+				// imatgeURL conté la URL de la imatge a mostrar, farem un Bitmap (anomenat bgr) a partir del 
+				// inputStream de la connexió
 				imatgeURL = new URL(pathImg);
-
 				HttpURLConnection conn = (HttpURLConnection) imatgeURL
 						.openConnection();
 				conn.setDoInput(true);
 				conn.connect();
 				InputStream is = conn.getInputStream();
 				bgr = BitmapFactory.decodeStream(is);
-				// bgr = Bitmap.createScaledBitmap(bgr,480,800,true);
-				// bgr = BitmapFactory.decodeResource(getResources(),
-				// R.drawable.sagradafamilia);
+
 				float ampladapantalla = getWindowManager().getDefaultDisplay()
 						.getWidth();
 				int orientacio = getRequestedOrientation();
 				if (ampladapantalla < bgr.getWidth()) {
-					Log.i(DEB_TAG, "amplada pantalla: " + ampladapantalla
-							+ " --> width bgr: " + bgr.getWidth());
 					setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 					canvas.drawBitmap(bgr, 0, 0, null);
 				} else {
+					// si la orientació es vertical, escalem la imatge amb un coeficient calculat a partir
+					// de la divisió entre l'alçada de la pantalla i l'alçada de la imatge.
 					if (orientacio != 0) {
 						escala = (float) getWindowManager().getDefaultDisplay()
 								.getHeight() / (float) bgr.getHeight();
-						Log.i(DEB_TAG, "escalem imatge");
-						// canvas.scale((float)bgr.getWidth()*escala,
-						// (float)getWindowManager().getDefaultDisplay().getHeight());
-
 					} else {
+						// si la imatge està en horitzontal, no escalem (coeficient = 1)
 						escala = 1;
 					}
+					
 					canvas.scale(escala, escala);
+					// dibuixem el bitmap per pantalla
 					canvas.drawBitmap(bgr, 0, 0, null);
 				}
 			} catch (Exception ex) {
@@ -181,6 +176,7 @@ public class ImatgeXarxaSensors extends DashboardActivity {
 						+ "&session=" + settings.getString("session", "");
 				Log.d(DEB_TAG, "Requesting to " + address);
 				String jsonString = JsonClient.connectString(address);
+				
 				// Convertim la resposta string a un JSONArray
 				JSONArray llistaSensorsArray = new JSONArray(jsonString);
 				HashMap<String, String> sensor = null;
@@ -192,15 +188,17 @@ public class ImatgeXarxaSensors extends DashboardActivity {
 
 					String coordx = sensorJSON.getString("x");
 					String coordy = sensorJSON.getString("y");
-
-					// Integer.parseInt(sensorJSON.getString("x"));
+					
+					// fem recorregut per la llista de sensors i guardem els valors idsensor, i les coordenades X i Y.
 					sensor.put("idsensor", sensorJSON.getString("id"));
 					sensor.put("x",
-							Float.toString(Float.valueOf(coordx) * escala));
+							Float.toString(Float.valueOf(coordx) * escala)); // calculem la coordenada x pel coeficient de l'escala
 					sensor.put("y",
-							Float.toString(Float.valueOf(coordy) * escala));
-					// overlay =
-					// Bitmap.createScaledBitmap(overlay,480,800,true);
+							Float.toString(Float.valueOf(coordy) * escala)); // calculem la coordenada y pel coeficient de l'escala
+					
+					// per ajustar més el punt de coordenada del sensor, dibuixarem la imatge amb un offset a cada coordenada
+					// a la coordenada X li restem la meitat de l'amplada de la imatge del sensor
+					// a la coordenada y li restem la meitat de l'alçada de la imatge del sensor
 					canvas.drawBitmap(overlay, Integer.parseInt(coordx)
 							- (overlay.getWidth() / 2),
 							Integer.parseInt(coordy)
@@ -213,35 +211,32 @@ public class ImatgeXarxaSensors extends DashboardActivity {
 		}
 
 		public boolean onTouchEvent(MotionEvent ev) {
-			// Let the ScaleGestureDetector inspect all events.
+			
 			final int action = ev.getAction();
-			float x = ev.getX(); // or getRawX();
+			float x = ev.getX(); 
 			float y = ev.getY();
 
+			// a l'event ACTION_DOWN comprovarem si les coordenades X i Y de l'event (on es fa el click a la pantalla)
+			// coincideix amb una imatge de les dibuixades
 			switch (action & MotionEvent.ACTION_MASK) {
 			case MotionEvent.ACTION_DOWN: {
-				Log.i(DEB_TAG, "SIZE de la lista: " + listaSensors.size());
+				// fem un recorregut de tots els sensors de la xarxa comprovant si coincideixen les coordenades
+				// per ampliar una mica el rang, a les coordenades li sumem l'amplada i l'alçada de la imatge respectivament
 				for (int j = 0; j < listaSensors.size(); j++) {
-					Log.d(DEB_TAG, "Sensor : " + j);
+					
 					HashMap<String, String> sensor = new HashMap<String, String>();
 					sensor = listaSensors.get(j);
 					int coordenadaxsensor = Math.round(Float.valueOf(sensor
 							.get("x")));
 					int coordenadaysensor = Math.round(Float.valueOf(sensor
 							.get("y")));
-					Log.d(DEB_TAG, "x donde se hace click : " + x);
-					Log.d(DEB_TAG, "y donde se hace click: " + y);
-					Log.d(DEB_TAG, "coordenada sensor x: " + coordenadaxsensor);
-					Log.d(DEB_TAG, "coordenada sensor y: " + coordenadaysensor);
-					Log.d(DEB_TAG,
-							"overlay.getHeight() : " + overlay.getHeight());
-					Log.d(DEB_TAG, "overlay.getWidth() : " + overlay.getWidth());
-
+					
 					if (x >= (coordenadaxsensor - overlay.getWidth())
 							&& x < (coordenadaxsensor + overlay.getWidth())
 							&& y >= (coordenadaysensor - overlay.getHeight())
 							&& y < (coordenadaysensor + overlay.getHeight())) {
-						Log.d(DEB_TAG, "Click dentro");
+						
+						// si es fa click dins una imatge, obrim la nova pantalla amb la informació del sensor (pasant l'id per paràmetre)
 						Intent intent = new Intent();
 						intent.setClass(getApplicationContext(),
 								SingleSensorActivity.class);
@@ -253,16 +248,7 @@ public class ImatgeXarxaSensors extends DashboardActivity {
 				}
 
 				break;
-
-				/*
-				 * if (x >= overlay.getwi && x < (xOfYourBitmap +
-				 * yourBitmap.getWidth()) && y >= yOfYourBitmap && y <
-				 * (yOfYourBitmap + yourBitmap.getHeight())) { //tada, if this
-				 * is true, you've started your click inside your bitmap }
-				 * break; }
-				 */
-
-			}
+				}
 			}
 			return true;
 		}

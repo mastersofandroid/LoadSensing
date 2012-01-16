@@ -35,25 +35,26 @@ public class QRActivity extends DashboardActivity {
 
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		switch (requestCode) {
-		case IntentIntegrator.REQUEST_CODE: {
-			if (resultCode != RESULT_CANCELED) {
-				IntentResult scanResult = IntentIntegrator.parseActivityResult(
-						requestCode, resultCode, data);
-				if (scanResult != null) {
-					// Con el texto leído, lo guardamos en un parámetro del
-					// Intent y lanzamos la actividad
-					String idsensor = scanResult.getContents();
-
-					Intent intent = new Intent();
-					intent.setClass(this.getApplicationContext(),
-							SingleSensorActivity.class);
-					intent.putExtra("idsensorselected", idsensor);
-					startActivity(intent);
-					finish();
+			case IntentIntegrator.REQUEST_CODE: {
+				if (resultCode != RESULT_CANCELED) {
+					IntentResult scanResult = IntentIntegrator.parseActivityResult(
+							requestCode, resultCode, data);
+					if (scanResult != null) {
+						// Con el texto leído, lo guardamos en un parámetro del
+						// Intent y lanzamos la actividad
+						String idsensor = scanResult.getContents();
+	
+						Intent intent = new Intent();
+						intent.setClass(this.getApplicationContext(),
+								SingleSensorActivity.class);
+						intent.putExtra("idsensorselected", idsensor);
+						startActivity(intent);
+						finish();
+					}
 				}
+				break;
 			}
-			break;
 		}
-		}
+		finish();
 	}
 }
