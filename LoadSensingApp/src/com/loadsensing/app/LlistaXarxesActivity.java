@@ -43,7 +43,7 @@ import com.loadsensing.client.JsonClient;
 
 public class LlistaXarxesActivity extends ListActivity {
 	private static final String DEB_TAG = "LoadSensingApp_LOG";
-	private String SERVER_HOST = "http://77.228.158.13/Android/getLlistatXarxes.php";
+	private String SERVER_HOST = "http://viuterrassa/Android/getLlistatXarxes.php";
 
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

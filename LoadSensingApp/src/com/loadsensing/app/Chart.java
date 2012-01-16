@@ -40,7 +40,7 @@ import com.loadsensing.client.JsonClient;
  */
 public class Chart extends DashboardActivity {
 
-	private String SERVER_HOST = "http://77.228.158.13/Android/getValorsGrafic.php";
+	private String SERVER_HOST = "http://viuterrassa/Android/getValorsGrafic.php";
 	private String CHART_URL = "http://chart.apis.google.com/chart?";
 	String SensorSelected = "";
 

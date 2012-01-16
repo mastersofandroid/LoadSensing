@@ -49,9 +49,9 @@ import com.loadsensing.client.JsonClient;
 
 public class ImatgeXarxaSensors extends DashboardActivity {
 
-	private String SERVER_HOST = "http://77.228.158.13/Android/getLlistaSensorsImatges.php";
-	private String SERVER_HOST_IMAGE = "http://77.228.158.13/Android/getLlistaImatges.php";
-	private String PATH_IMAGE = "http://77.228.158.13/Android/Imatges/";
+	private String SERVER_HOST = "http://viuterrassa/Android/getLlistaSensorsImatges.php";
+	private String SERVER_HOST_IMAGE = "http://viuterrassa/Android/getLlistaImatges.php";
+	private String PATH_IMAGE = "http://viuterrassa/Android/Imatges/";
 	ArrayList<HashMap<String, String>> listaSensors = new ArrayList<HashMap<String, String>>();
 
 	@Override
